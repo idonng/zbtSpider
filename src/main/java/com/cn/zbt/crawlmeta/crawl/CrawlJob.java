@@ -1,21 +1,18 @@
 package com.cn.zbt.crawlmeta.crawl;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import org.apache.log4j.Logger;
-
 import com.cn.zbt.crawlmeta.controller.RenMin;
 import com.cn.zbt.crawlmeta.controller.SinaWeibo;
 import com.cn.zbt.crawlmeta.controller.HuaShang;
 import com.cn.zbt.crawlmeta.controller.TianYa;
 import com.cn.zbt.crawlmeta.controller.WangYi;
-import com.cn.zbt.crawlmeta.dm.ReadFile;
+import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 public class CrawlJob implements ServletContextListener {
 	private static final Logger logger = Logger.getLogger(Crawl.class);
 	@Override
@@ -45,10 +42,8 @@ public class CrawlJob implements ServletContextListener {
 		 
 		logger.info("----爬取任务全部开始----" + new Date(System.currentTimeMillis()));
 		ExecutorService fixedThreadPool1 = Executors.newFixedThreadPool(5);
-		List<String> keywords1 = new ArrayList<String>();
-		keywords1 = new ReadFile().readKeyword();
-		for (int i = 0; i < keywords1.size(); i++) {
-			final String keyword = keywords1.get(i).trim();
+		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
+		for (final String keyword:keywords1){
 			fixedThreadPool1.submit(new Runnable() {
 				@Override
 				public void run() {
@@ -59,10 +54,8 @@ public class CrawlJob implements ServletContextListener {
 			});
 		}
 		ExecutorService fixedThreadPool2 = Executors.newFixedThreadPool(10);
-		List<String> keywords2 = new ArrayList<String>();
-		keywords2 = new ReadFile().readKeyword();
-		for (int i = 0; i < keywords2.size(); i++) {
-			final String keyword = keywords2.get(i).trim();
+		HashSet<String>  keywords2=new ReadKeyword().getKeyword();
+		for (final String keyword:keywords2){
 			fixedThreadPool2.submit(new Runnable() {
 				@Override
 				public void run() {

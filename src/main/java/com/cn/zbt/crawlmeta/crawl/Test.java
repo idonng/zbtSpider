@@ -17,7 +17,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
-import com.cn.zbt.crawlmeta.dm.ReadFile;
 
 public class Test {
 	public static void main(String[] args) throws IOException {

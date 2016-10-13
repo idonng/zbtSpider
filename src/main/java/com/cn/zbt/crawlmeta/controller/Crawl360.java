@@ -10,11 +10,11 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -26,12 +26,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.test.context.ContextConfiguration;
-
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
-import com.cn.zbt.crawlmeta.dm.ReadFile;
+import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.dm.SetProxy;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
 public class Crawl360 {
@@ -257,9 +255,8 @@ public class Crawl360 {
 	}
 
 	public void runInter() {
-		List<String> keywords = new ArrayList<String>();
-		keywords = new ReadFile().readKeyword();
-		for (String keyword : keywords) {
+		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
+		for (final String keyword:keywords1){
 			logger.info("----关键词:" + keyword + " 爬取开始----"
 					+ new Date(System.currentTimeMillis()));
 			getDoc(keyword.trim());

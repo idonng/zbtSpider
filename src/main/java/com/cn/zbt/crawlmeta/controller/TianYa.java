@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
@@ -15,7 +16,7 @@ import org.jsoup.select.Elements;
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
-import com.cn.zbt.crawlmeta.dm.ReadFile;
+import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.dm.SetProxy;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
 public class TianYa {
@@ -191,9 +192,8 @@ public class TianYa {
 	}
  
 	public void runInter() {
-		List<String> keywords = new ArrayList<String>();
-		keywords = new ReadFile().readKeyword();
-		for (String keyword : keywords) {
+		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
+		for (final String keyword:keywords1){
 			getDoc(keyword.trim());
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));

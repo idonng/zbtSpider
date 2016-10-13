@@ -3571,3 +3571,109 @@ Caused by: java.lang.NumberFormatException: null
 [INFO] [2016-10-13 17:20:03][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
 [INFO] [2016-10-13 17:20:03][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
 [INFO] [2016-10-13 17:20:03][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-13 17:21:59][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7584bf1: startup date [Thu Oct 13 17:21:59 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-13 17:21:59][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-13 17:22:00][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-13 17:22:00][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-13 17:22:45][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@77c16c5f: startup date [Thu Oct 13 17:22:45 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-13 17:22:45][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-13 17:22:45][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-13 17:22:45][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-13 17:23:08][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@26cf2781: startup date [Thu Oct 13 17:23:08 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-13 17:23:08][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-13 17:23:09][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-13 17:23:09][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-13 17:27:22][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@168386ad: startup date [Thu Oct 13 17:27:22 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-13 17:27:22][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-13 17:27:22][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-13 17:27:22][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-13 17:27:23][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Thu Oct 13 17:27:23 GMT+08:00 2016
+[INFO] [2016-10-13 17:27:23][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Thu Oct 13 17:27:23 GMT+08:00 2016
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0902/09/7CUHJ2UV00253B0H.html
+[INFO] [2016-10-13 17:27:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/11/0902/09/7CUHJ2UV00253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0902/09/7CUHJ2UV00253B0H.html
+[INFO] [2016-10-13 17:27:34][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/11/0902/09/7CUHJ2UV00253B0H.html
+[INFO] [2016-10-13 17:27:41][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@da826c5: startup date [Thu Oct 13 17:27:41 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-13 17:27:41][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-13 17:27:42][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-13 17:27:42][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-13 17:27:42][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Thu Oct 13 17:27:42 GMT+08:00 2016
+[INFO] [2016-10-13 17:27:52][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共56页
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEDozzM3M
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEDozzM3M 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/EbUYv1sHj
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/EbUYv1sHj 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E58oEoFkm
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E58oEoFkm 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4QztiMd4
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4QztiMd4 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4fFY6ApR
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4fFY6ApR 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFqvtwDHq
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFqvtwDHq 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFle1a911
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFle1a911 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEWyA04zq
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEWyA04zq 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DETC48L6Q
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DETC48L6Q 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEMr6r8Sr
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEMr6r8Sr 提取完成。
+[INFO] [2016-10-13 17:27:57][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJo3nRM1
+[INFO] [2016-10-13 17:27:58][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJo3nRM1 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJnt4Oy8
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJnt4Oy8 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJg4u5ju
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJg4u5ju 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJejsFMe
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJejsFMe 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJcbDfA3
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJcbDfA3 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJav1Wf6
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJav1Wf6 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9PF9oV
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9PF9oV 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9kjF4H
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9kjF4H 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9hnnqk
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9hnnqk 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9f2aev
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9f2aev 提取完成。
+[INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ92kZ5y
+[INFO] [2016-10-13 17:28:13][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ92kZ5y 提取完成。

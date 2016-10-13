@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -22,7 +23,7 @@ import org.jsoup.select.Elements;
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
 import com.cn.zbt.crawlmeta.dm.GetCookie;
 import com.cn.zbt.crawlmeta.dm.GetService;
-import com.cn.zbt.crawlmeta.dm.ReadFile;
+import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.dm.SetProxy;
 import com.cn.zbt.crawlmeta.dm.SetUser;
 import com.cn.zbt.crawlmeta.pojo.Message;
@@ -298,9 +299,8 @@ public class SinaWeibo {
 	}
 
 	public void runInter() {
-		List<String> keywords = new ArrayList<String>();
-		keywords = new ReadFile().readKeyword();
-		for (String keyword : keywords) {
+		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
+		for (final String keyword:keywords1){
 			getDoc(keyword);
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));

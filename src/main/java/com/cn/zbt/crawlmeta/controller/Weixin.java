@@ -19,7 +19,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
-import com.cn.zbt.crawlmeta.dm.ReadFile;
+import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.pojo.Message;
 import com.cn.zbt.crawlmeta.service.impl.ResultTabSerImpl;
 public class Weixin {
@@ -226,9 +226,8 @@ public class Weixin {
 	}
 
 	public void runInter() {
-		List<String> keywords = new ArrayList<String>();
-		keywords = new ReadFile().readKeyword();
-		for (String keyword : keywords) {
+		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
+		for (final String keyword:keywords1){
 			getDoc(keyword);
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));
