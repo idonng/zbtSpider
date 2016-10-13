@@ -1,0 +1,10 @@
+package com.cn.zbt.crawlmeta.dao;
+
+import com.cn.zbt.crawlmeta.pojo.UserTab;
+
+
+public interface UserTabDao {
+	 public UserTab findValue() ;
+	 public void insertUser(UserTab it) ;
+	 public void updateUser(UserTab it);
+}

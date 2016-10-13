@@ -1,0 +1,44 @@
+#####\u53e5\u5b50\u62c6\u5206\u6807\u5fd7
+
+sysm_luntan = \u8BBA\u575B
+sysm_weibo = \u5FAE\u535A
+sysm_xinwen = \u65B0\u95FB
+sysm_total1 = \u5FAE\u535A[
+sysm_total2 = ]\u00A0\u5173\u6CE8[
+sysm_end = \u8BBE\u7F6E\:\u76AE\u80A4.\u56FE\u7247.\u6761\u6570.\u9690\u79C1
+sysm_zhuanfa = ]\u00A0\u8F6C\u53D1[
+sysm_pinglun = ]\u00A0\u8BC4\u8BBA[
+sysm_shoucang = ]\u00A0\u6536\u85CF
+sysm_tuzan = \u539F\u56FE\u00A0\u8D5E[
+sysm_zan = \u8D5E[
+sysm_day = \u65E5
+sysm_month = \u6708
+sysm_today = \u4ECA\u5929
+weibo_fenzhongqian = \u5206\u949F\u524D
+sysm_from = \u6765\u81EA
+mop_huifu = \u56DE\u590D\u6570
+
+#\u732b\u6251\u6293\u53d6\u9875\u6570
+mop_page=1
+
+page = 50
+NEGNUM = 100
+
+#\u5fae\u535a,\u8bba\u575b,\u65b0\u95fb,\u6587\u672c,\u6807\u8bb0\u7b26
+xinwen = 0
+weibo = 1
+luntan = 2
+wenben = 3
+
+#user-agent_mobile
+user_agent_mobile = Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
+#user-agent_pc
+user_agent_pc = Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+#\u62a5\u8868\u8f93\u51fa\u76ee\u5f55
+
+
+username=weibocrash02@163.com
+password=a123456789
+
+ip=124.240.187.78
+port=81

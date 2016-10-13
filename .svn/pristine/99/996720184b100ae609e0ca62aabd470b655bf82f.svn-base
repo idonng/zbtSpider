@@ -1,0 +1,123 @@
+package com.cn.zbt.crawlmeta.dm;
+
+import java.io.IOException;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.X509TrustManager; 
+import javax.net.ssl.SSLSession;  
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import com.cn.zbt.crawlmeta.pojo.IpTab;
+import com.cn.zbt.crawlmeta.service.IpTabSer;
+ 
+public class SetProxy {
+
+	private static IpTabSer ipTabService = (IpTabSer) GetService.getInstance()
+			.getService("ipTabService");
+
+	// 在代理池中随机取一个有效代理
+	public void setIp() {
+		IpTab it = ipTabService.findValue();
+		String ip = it.getIp();
+		String port = it.getPort();
+		System.setProperty("http.maxRedirects", "50");
+		System.getProperties().setProperty("proxySet", "true");
+		// 如果不设置，只要代理IP和代理端口正确,此项不设置也可以
+		System.getProperties().setProperty("http.proxyHost", ip);
+		System.getProperties().setProperty("http.proxyPort", port);
+	}
+
+	public static void main(String[] args) {
+		new SetProxy().setIp();
+	}
+
+	public   void trustEveryone() {
+	try {
+		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+			public boolean verify(String hostname, SSLSession session) {
+				return true;
+			}
+		});
+
+		SSLContext context = SSLContext.getInstance("TLS");
+		context.init(null, new X509TrustManager[] { new X509TrustManager() {
+			public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+			}
+
+			public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+			}
+
+			public X509Certificate[] getAcceptedIssuers() {
+				return new X509Certificate[0];
+			}
+		} }, new SecureRandom());
+		HttpsURLConnection.setDefaultSSLSocketFactory(context.getSocketFactory());
+	} catch (Exception e) {
+		  e.printStackTrace();
+	}
+}
+	//冲洗代理
+	@SuppressWarnings("unused")
+	public void warh(IpTab it){
+		 int id=it.getId();
+		 String ip=it.getIp();
+		 String port=it.getPort();
+		System.setProperty("http.maxRedirects", "50");
+		System.getProperties().setProperty("proxySet", "true");
+		// 如果不设置，只要代理IP和代理端口正确,此项不设置也可以
+		System.getProperties().setProperty("http.proxyHost", ip);
+		System.getProperties().setProperty("http.proxyPort", port); 
+	
+		String url="http://www.baidu.com";
+		try {
+			Document doc=Jsoup.connect(url).header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36").timeout(2000).get();
+			System.out.println("代理正常:"+ip+":"+port);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("代理异常: id="+id);
+			ipTabService.updateIp(id);
+			e.printStackTrace();
+		}
+	}
+	//获取代理
+	public void crawl() throws InterruptedException{
+
+		for(int i=1;i<10;i++){
+			String url="http://www.xicidaili.com/nt";
+			Thread.sleep(5000);
+			url=url+"/"+i;
+		Document doc;
+		try {
+			doc  = Jsoup.connect(url).header("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36").timeout(10000).get();
+			
+			Elements es=doc.select("table#ip_list>tbody>tr");
+			
+			for(Element e :es)
+			{
+			 
+				String ip=e.select("td:nth-child(2)").text();
+				String port=e.select("td:nth-child(3)").text();
+				if(ip.length()!=0&&!ip.isEmpty()){
+					int type=1;
+					ipTabService.insertIp(ip, port, type);
+				System.out.println(ip+":"+port);
+				}
+			}
+			 
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		
+	
+	}
+
+
+}

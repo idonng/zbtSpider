@@ -1,0 +1,81 @@
+package com.cn.zbt.crawlmeta.service.impl;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.Resource;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.cn.zbt.crawlmeta.dao.ResultTabDao;
+import com.cn.zbt.crawlmeta.pojo.ResultTab;
+import com.cn.zbt.crawlmeta.service.ResultTabSer;
+@Transactional
+@Service("resultTabService")
+public class ResultTabSerImpl  implements ResultTabSer{
+	@Resource
+	private ResultTabDao resultTabDao;
+	
+	@Override
+    public List<ResultTab> findAllResult(String urlmd5) {
+        // TODO Auto-generated method stub
+        List<ResultTab> list=new ArrayList<ResultTab>();
+        ResultTab rt=new ResultTab();
+        rt.setUrlmd5(urlmd5);
+        list=this.resultTabDao.findAllResult(rt);
+        return list;
+        }
+	@Override
+    public    void insertResult(String urlmd5,String title, String url,String content, int pls, int zfs, Timestamp pubdate,String keyword,String author,Timestamp crawldate,int emoflag) {
+        // TODO Auto-generated method stub
+        ResultTab rt=new ResultTab();
+        rt.setUrlmd5(urlmd5); 
+        rt.setUrl(url);
+        rt.setPls(pls);
+        rt.setZfs(zfs);
+        rt.setPubdate(pubdate);
+        rt.setTitle(title);
+        rt.setContent(content);
+        rt.setKeyword(keyword);
+        rt.setAuthor(author) ;
+        rt.setCrawldate(crawldate);
+        rt.setEmoflag(emoflag);
+        this.resultTabDao.insertResult(rt);
+    }
+	@Override
+    public   void updateResult(String urlmd5,String title, String url,String content, int pls, int zfs ,String keyword,String author,Timestamp crawldate) {
+        // TODO Auto-generated method stub
+        ResultTab rt=new ResultTab();
+        rt.setUrlmd5(urlmd5); 
+        rt.setUrl(url);
+        rt.setPls(pls);
+        rt.setZfs(zfs);
+        rt.setTitle(title);
+        rt.setContent(content);
+        rt.setKeyword(keyword);
+        rt.setAuthor(author) ;
+        rt.setCrawldate(crawldate) ;
+        this.resultTabDao.updateResult(rt);
+    }
+	@Override
+    public synchronized void insertRes(String urlmd5,String title, String url,String content, int pls, int zfs, Timestamp pubdate,String keyword,String author,Timestamp crawldate,int emoflag) {
+        
+        List<ResultTab> list=new ArrayList<ResultTab>();
+        int n=0;
+        ResultTab rt=new ResultTab();
+        rt.setUrlmd5(urlmd5); 
+        list=this.resultTabDao.findAllResult(rt);
+        for(ResultTab rt1:list){
+            if(urlmd5.equals(rt1.getUrlmd5())){
+                n=1;
+            }
+        }
+        if(n==0){
+            insertResult( urlmd5, title, url,content,  pls,  zfs,  pubdate, keyword,author,crawldate,emoflag);
+        }
+        else{
+            updateResult(urlmd5, title, url,content,  pls,  zfs,  keyword,author,crawldate);
+        }
+        
+    }
+    
+}

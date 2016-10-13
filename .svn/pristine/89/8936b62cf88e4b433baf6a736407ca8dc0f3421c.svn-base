@@ -1,0 +1,37 @@
+package org.zsl.testmybatis;
+
+import javax.annotation.Resource;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.cn.zbt.crawlmeta.pojo.IpTab;
+import com.cn.zbt.crawlmeta.service.IpTabSer;
+
+@RunWith(SpringJUnit4ClassRunner.class)		//表示继承了SpringJUnit4ClassRunner类
+@ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
+
+public class TestMyBatis {
+	//private static Logger logger = Logger.getLogger(TestMyBatis.class);
+//	private ApplicationContext ac = null;
+	@Resource
+	private IpTabSer ipService = null;
+
+//	@Before
+//	public void before() {
+//		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+//		userService = (IUserService) ac.getBean("userService");
+//	}
+
+	@Test
+	public void test1() {
+		 System.out.println("11111111");
+		IpTab ip = ipService.findValue();
+		 System.out.println(ip.getIp());
+		 System.out.println("2222222");
+		// logger.info("值："+user.getUserName());
+		//logger.info(JSON.toJSONString(user));
+	}
+}

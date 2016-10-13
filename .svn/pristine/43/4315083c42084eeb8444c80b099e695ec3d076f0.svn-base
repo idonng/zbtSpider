@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.cn.zbt.crawlmeta.dao.ResultTabDao">
+  
+     <select id="findAllResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab" resultType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+        select * from tb_result where urlmd5= #{urlmd5}
+    </select>
+    <insert id="insertResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab" >
+         insert into tb_result (urlmd5,title,url,content,pls,zfs,pubdate,type,author,crawldate) values (#{urlmd5},#{title},#{url},#{content},#{pls},#{zfs},#{pubdate},#{type},#{author},#{crawldate})
+    </insert>
+    <update id="updateResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab" >
+		update tb_result set title=#{title},content=#{content},pls=#{pls},zfs=#{zfs},pubdate=#{pubdate},type=#{type},author=#{author},crawldate=#{crawldate} where urlmd5= #{urlmd5}
+	 </update>
+</mapper>

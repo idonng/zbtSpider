@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="zbtSpider"
+  id="myeclipse.1473122080875"
+  context-root="/zbt.zbtSpider"
+  j2ee-spec="1.7"
+  archive="zbtSpider.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

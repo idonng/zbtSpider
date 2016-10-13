@@ -1,0 +1,20 @@
+ package com.cn.zbt.crawlmeta.dm;
+
+import com.cn.zbt.crawlmeta.pojo.UserTab;
+import com.cn.zbt.crawlmeta.service.UserTabSer;
+
+public class SetUser {
+	private static UserTabSer userTabService=(UserTabSer)GetService.getInstance().getService("userTabService");
+	
+	//在代理池中随机取一个有效代理
+	public UserTab setUser(){
+		UserTab it=userTabService.findValue();
+		 return it;
+	}
+	 
+	public static void main(String[] args) {
+		UserTab it	=new SetUser().setUser();
+		System.out.println(it.getUsername());
+	}
+}
+ 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.cn.zbt.crawlmeta.dao.UserTabDao">
+  
+     <select id="findValue" resultType="com.cn.zbt.crawlmeta.pojo.UserTab"  >
+        select * from tb_user where type=1 order by rand() limit 1
+    </select>
+     <update id="updateIp" parameterType="com.cn.zbt.crawlmeta.pojo.UserTab" >
+			update tb_user set type=0 where id= #{id}
+	 </update>
+	 <insert id="insertIp" parameterType="com.cn.zbt.crawlmeta.pojo.UserTab" >
+			insert into  tb_user (username,password,type) values(#{username},#{password},#{type})
+	 </insert>
+</mapper>

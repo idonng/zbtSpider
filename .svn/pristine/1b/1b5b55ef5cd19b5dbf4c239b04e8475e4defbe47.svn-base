@@ -1,0 +1,85 @@
+package com.cn.zbt.crawlmeta.pojo;
+
+import java.sql.Timestamp;
+
+public class ResultTab {
+    public int id;
+    public String urlmd5;
+    public String title;
+    public String url;
+    public String content;
+    public int pls;
+    public int zfs;
+    public Timestamp pubdate;
+    public Timestamp crawldate;
+    public String type;
+    public String author;
+    public String getUrlmd5() {
+		return urlmd5;
+	}
+	public void setUrlmd5(String urlmd5) {
+		this.urlmd5 = urlmd5;
+	}
+	public Timestamp getCrawldate() {
+		return crawldate;
+	}
+	public void setCrawldate(Timestamp crawldate) {
+		this.crawldate = crawldate;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getUrl() {
+        return url;
+    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    public int getPls() {
+        return pls;
+    }
+    public void setPls(int pls) {
+        this.pls = pls;
+    }
+    public int getZfs() {
+        return zfs;
+    }
+    public void setZfs(int zfs) {
+        this.zfs = zfs;
+    }
+    public Timestamp getPubdate() {
+        return pubdate;
+    }
+    public void setPubdate(Timestamp pubdate) {
+        this.pubdate = pubdate;
+    }
+    
+
+}
