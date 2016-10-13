@@ -65,7 +65,6 @@ public class GetCookie {
 			return cookie;
 		}
     }
-	
 	/**
 	 * 获取cookie
 	 * @param username 新浪微博用户名
