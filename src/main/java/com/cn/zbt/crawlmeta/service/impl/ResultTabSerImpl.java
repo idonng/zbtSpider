@@ -2,6 +2,7 @@ package com.cn.zbt.crawlmeta.service.impl;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class ResultTabSerImpl  implements ResultTabSer{
         return list;
         }
 	@Override
-    public    void insertResult(String urlmd5,String title, String url,String content, int pls, int zfs, Timestamp pubdate,String keyword,String author,Timestamp crawldate,int emoflag) {
+    public    void insertResult(String urlmd5,String title, String url,String content, int pls, int zfs, Date pubdate,String keyword,String author,Date crawldate,int emoflag) {
         // TODO Auto-generated method stub
         ResultTab rt=new ResultTab();
         rt.setUrlmd5(urlmd5); 
@@ -42,7 +43,7 @@ public class ResultTabSerImpl  implements ResultTabSer{
         this.resultTabDao.insertResult(rt);
     }
 	@Override
-    public   void updateResult(String urlmd5,String title, String url,String content, int pls, int zfs ,String keyword,String author,Timestamp crawldate) {
+    public   void updateResult(String urlmd5,String title, String url,String content, int pls, int zfs ,String keyword,String author,Date crawldate) {
         // TODO Auto-generated method stub
         ResultTab rt=new ResultTab();
         rt.setUrlmd5(urlmd5); 
@@ -57,7 +58,7 @@ public class ResultTabSerImpl  implements ResultTabSer{
         this.resultTabDao.updateResult(rt);
     }
 	@Override
-    public synchronized void insertRes(String urlmd5,String title, String url,String content, int pls, int zfs, Timestamp pubdate,String keyword,String author,Timestamp crawldate,int emoflag) {
+    public synchronized void insertRes(String urlmd5,String title, String url,String content, int pls, int zfs, Date pubdate,String keyword,String author,Date crawldate,int emoflag) {
         
         List<ResultTab> list=new ArrayList<ResultTab>();
         int n=0;

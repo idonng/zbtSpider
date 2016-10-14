@@ -3,12 +3,12 @@
 <mapper namespace="com.cn.zbt.crawlmeta.dao.IpTabDao">
   
      <select id="findValue" resultType="com.cn.zbt.crawlmeta.pojo.IpTab"  >
-        select * from tb_ip where type=1 order by rand() limit 1
+        select * from yqjk_ip where type=1 order by rand() limit 1
     </select>
      <update id="updateIp" parameterType="com.cn.zbt.crawlmeta.pojo.IpTab" >
-			update tb_ip set type=0 where id= #{id}
+			update yqjk_ip set type=0 where id= #{id}
 	 </update>
 	 <insert id="insertIp" parameterType="com.cn.zbt.crawlmeta.pojo.IpTab" >
-			insert into  tb_ip (ip,port,type) values(#{ip},#{port},#{type})
+			insert into  yqjk_ip (ip,port,type) values(#{ip},#{port},#{type})
 	 </insert>
 </mapper>

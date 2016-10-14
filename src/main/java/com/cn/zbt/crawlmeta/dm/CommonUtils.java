@@ -28,7 +28,6 @@ public class CommonUtils {
 			Matcher matcher = p.matcher(dateStr);
 			if (matcher.find() && matcher.groupCount() >= 1) {
 				for (int i = 1; i <= matcher.groupCount(); i++) {
-					// System.out.println("matcher.group(i)"+matcher.group(i));
 					if (i == 1 && matcher.group(i).length() == 2) {
 						matches.add("20" + matcher.group(i));
 						continue;

@@ -4,16 +4,16 @@
 
 	<select id="findAllResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab"
 		resultType="com.cn.zbt.crawlmeta.pojo.ResultTab">
-		select * from tb_result where urlmd5= #{urlmd5}
+		select * from yqjk_result where urlmd5= #{urlmd5}
 	</select>
 	<insert id="insertResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
-		insert into tb_result
+		insert into yqjk_result
 		(urlmd5,title,url,content,pls,zfs,pubdate,keyword,author,crawldate,emoflag)
 		values
 		(#{urlmd5},#{title},#{url},#{content},#{pls},#{zfs},#{pubdate},#{keyword},#{author},#{crawldate},#{emoflag})
 	</insert>
 	<update id="updateResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
-		update tb_result set
+		update yqjk_result set
 		title=#{title},content=#{content},pls=#{pls},zfs=#{zfs},keyword=#{keyword},author=#{author},crawldate=#{crawldate}
 		where urlmd5= #{urlmd5}
 	</update>

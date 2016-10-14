@@ -3677,3 +3677,575 @@ Caused by: java.lang.NumberFormatException: null
 [INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9f2aev 提取完成。
 [INFO] [2016-10-13 17:28:12][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ92kZ5y
 [INFO] [2016-10-13 17:28:13][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ92kZ5y 提取完成。
+[INFO] [2016-10-13 17:31:35][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2e8f01b8: startup date [Thu Oct 13 17:31:35 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-13 17:31:35][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-13 17:31:36][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-13 17:31:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-13 17:31:36][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Thu Oct 13 17:31:36 GMT+08:00 2016
+[INFO] [2016-10-13 17:31:42][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共56页
+[ERROR] [2016-10-13 17:31:46][com.cn.zbt.crawlmeta.controller.SinaWeibo] 访问新浪微博异常==========>
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:152)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:275)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:690)
+	at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:633)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1324)
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:468)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:567)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:216)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.fetch(SinaWeibo.java:74)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.getDoc(SinaWeibo.java:119)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.runInter(SinaWeibo.java:304)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.main(SinaWeibo.java:313)
+[ERROR] [2016-10-13 17:31:46][com.cn.zbt.crawlmeta.controller.SinaWeibo]keyword为：山东步长.page为：1
+[ERROR] [2016-10-13 17:31:46][com.cn.zbt.crawlmeta.controller.SinaWeibo]访问URL异常java.lang.NullPointerException山东步长1
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJnt4Oy8
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJnt4Oy8 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJg4u5ju
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJg4u5ju 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJejsFMe
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJejsFMe 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJcbDfA3
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJcbDfA3 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJav1Wf6
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJav1Wf6 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9PF9oV
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9PF9oV 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9kjF4H
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9kjF4H 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9hnnqk
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9hnnqk 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9f2aev
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9f2aev 提取完成。
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ92kZ5y
+[INFO] [2016-10-13 17:31:48][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ92kZ5y 提取完成。
+[INFO] [2016-10-14 08:27:19][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2e8f01b8: startup date [Fri Oct 14 08:27:19 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:27:19][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:27:20][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:27:20][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:28:02][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a895684: startup date [Fri Oct 14 08:28:02 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:28:02][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:28:02][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:28:02][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:28:02][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 08:28:02 GMT+08:00 2016
+[INFO] [2016-10-14 08:28:02][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+[INFO] [2016-10-14 08:28:03][org.springframework.jdbc.support.SQLErrorCodesFactory]SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+[INFO] [2016-10-14 08:28:43][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2e8f01b8: startup date [Fri Oct 14 08:28:43 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:28:43][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:28:44][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:28:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:28:44][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 08:28:44 GMT+08:00 2016
+[INFO] [2016-10-14 08:28:50][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共56页
+[INFO] [2016-10-14 08:28:55][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEDozzM3M
+[INFO] [2016-10-14 08:28:55][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEDozzM3M 提取完成。
+[INFO] [2016-10-14 08:28:55][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/EbUYv1sHj
+[INFO] [2016-10-14 08:28:55][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/EbUYv1sHj 提取完成。
+[INFO] [2016-10-14 08:28:55][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E58oEoFkm
+[INFO] [2016-10-14 08:28:55][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E58oEoFkm 提取完成。
+[INFO] [2016-10-14 08:28:55][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4QztiMd4
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4QztiMd4 提取完成。
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4fFY6ApR
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4fFY6ApR 提取完成。
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFqvtwDHq
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFqvtwDHq 提取完成。
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFle1a911
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFle1a911 提取完成。
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEWyA04zq
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEWyA04zq 提取完成。
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DETC48L6Q
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DETC48L6Q 提取完成。
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEMr6r8Sr
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEMr6r8Sr 提取完成。
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJo3nRM1
+[INFO] [2016-10-14 08:28:56][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJo3nRM1 提取完成。
+[INFO] [2016-10-14 08:31:44][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@da826c5: startup date [Fri Oct 14 08:31:44 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:31:44][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:31:44][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:31:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:31:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 08:31:45 GMT+08:00 2016
+[ERROR] [2016-10-14 08:32:01][com.cn.zbt.crawlmeta.dm.GetCookie]获取新浪微博cookie异常！
+java.net.SocketTimeoutException: connect timed out
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:432)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:527)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:211)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:308)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1004)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:952)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:851)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:563)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:216)
+	at com.cn.zbt.crawlmeta.dm.GetCookie.getMCookies_b(GetCookie.java:76)
+	at com.cn.zbt.crawlmeta.dm.GetCookie.getMCookies(GetCookie.java:61)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.getDoc(SinaWeibo.java:87)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.runInter(SinaWeibo.java:303)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.main(SinaWeibo.java:312)
+[ERROR] [2016-10-14 08:32:01][com.cn.zbt.crawlmeta.dm.GetCookie]获取新浪微博cookie异常！
+org.jsoup.HttpStatusException: HTTP error fetching URL. Status=500, URL=http://newlogin.sina.cn/crossDomain/?g=4uVcd1b41eymwWLDaNUD6nxpo79&t=1476405094&m=3d9f&r=&u=http%3A%2F%2Fweibo.cn%2F%3Fgsid%3D4uVcd1b41eymwWLDaNUD6nxpo79%26vt%3D4&cross=1&st=ST-NTYwOTk3MDQ0Mw==-1476405094-tc-D3A2DFD70458EC82F4D710EBB512CBE2,ST-NTYwOTk3MDQ0Mw==-1476405094-tc-36FF6BE78AF01C95FD338EBF23E485C8&vt=4
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:590)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:587)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at com.cn.zbt.crawlmeta.dm.GetCookie.getMCookies(GetCookie.java:50)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.getDoc(SinaWeibo.java:87)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.runInter(SinaWeibo.java:303)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.main(SinaWeibo.java:312)
+[INFO] [2016-10-14 08:32:13][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2e8f01b8: startup date [Fri Oct 14 08:32:13 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:32:13][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:32:13][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:32:13][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:32:13][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 08:32:13 GMT+08:00 2016
+[INFO] [2016-10-14 08:32:19][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共56页
+[ERROR] [2016-10-14 08:32:26][com.cn.zbt.crawlmeta.controller.SinaWeibo] 访问新浪微博异常==========>
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:152)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:275)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:690)
+	at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:633)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1324)
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:468)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:567)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:216)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.fetch(SinaWeibo.java:74)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.getDoc(SinaWeibo.java:118)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.runInter(SinaWeibo.java:303)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.main(SinaWeibo.java:312)
+[ERROR] [2016-10-14 08:32:26][com.cn.zbt.crawlmeta.controller.SinaWeibo]keyword为：山东步长.page为：1
+[ERROR] [2016-10-14 08:32:26][com.cn.zbt.crawlmeta.controller.SinaWeibo]访问URL异常java.lang.NullPointerException山东步长1
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJg4u5ju
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJg4u5ju 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJejsFMe
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJejsFMe 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJcbDfA3
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJcbDfA3 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJav1Wf6
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJav1Wf6 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9kjF4H
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9kjF4H 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9hnnqk
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9hnnqk 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ9f2aev
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ9f2aev 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ92kZ5y
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ92kZ5y 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ6QmSnZ
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ6QmSnZ 提取完成。
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJ6r07Kb
+[INFO] [2016-10-14 08:32:31][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJ6r07Kb 提取完成。
+[INFO] [2016-10-14 08:34:35][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14fed367: startup date [Fri Oct 14 08:34:35 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:34:35][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:34:36][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:34:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:34:36][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:34:36 GMT+08:00 2016
+[INFO] [2016-10-14 08:34:36][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:34:36 GMT+08:00 2016
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0902/09/7CUHJ2UV00253B0H.html
+[INFO] [2016-10-14 08:34:41][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/11/0902/09/7CUHJ2UV00253B0H.html
+[INFO] [2016-10-14 08:34:57][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14fed367: startup date [Fri Oct 14 08:34:57 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:34:57][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:34:57][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:34:57][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:34:58][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:34:58 GMT+08:00 2016
+[INFO] [2016-10-14 08:34:58][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+[INFO] [2016-10-14 08:34:58][org.springframework.jdbc.support.SQLErrorCodesFactory]SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+[INFO] [2016-10-14 08:35:26][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14fed367: startup date [Fri Oct 14 08:35:26 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:35:26][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:35:26][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:35:26][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:35:27][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:35:27 GMT+08:00 2016
+[INFO] [2016-10-14 08:35:27][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:35:27 GMT+08:00 2016
+[INFO] [2016-10-14 08:35:27][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:35:28][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/16/0903/22/C02QSTBL00014SEH.html 提取完成。
+[INFO] [2016-10-14 08:35:28][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:35:29][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/16/0530/18/BOB95E5400254QDR.html 提取完成。
+[INFO] [2016-10-14 08:35:29][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:35:30][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0620/18/9V70EH9G00254QDR.html 提取完成。
+[INFO] [2016-10-14 08:35:30][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:36:43][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@168386ad: startup date [Fri Oct 14 08:36:43 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:36:43][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:36:43][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:36:43][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:36:44 GMT+08:00 2016
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:36:44 GMT+08:00 2016
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:36:44][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:36:45][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0626/06/9VL77OI600253B0H.html 提取完成。
+[INFO] [2016-10-14 08:36:45][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:37:21][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14fed367: startup date [Fri Oct 14 08:37:21 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:37:21][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:37:22][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:37:22][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:37:22][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:37:22 GMT+08:00 2016
+[INFO] [2016-10-14 08:37:22][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:37:22 GMT+08:00 2016
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/14/1023/11/A984QPBD00014AEE.html 提取完成。
+[INFO] [2016-10-14 08:37:23][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 08:37:24][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/13/0722/10/94CM3APG00253E5C.html 提取完成。
+[INFO] [2016-10-14 08:37:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-14 08:37:24][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html 提取完成。
+[INFO] [2016-10-14 08:37:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-14 08:37:24][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/11/0902/01/7CTMDEI000014AED.html 提取完成。
+[INFO] [2016-10-14 08:37:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-14 08:37:33][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12d3e973: startup date [Fri Oct 14 08:37:33 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:37:33][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:37:33][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:37:33][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:37:34][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:37:34 GMT+08:00 2016
+[INFO] [2016-10-14 08:37:34][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:37:34 GMT+08:00 2016
+[INFO] [2016-10-14 08:37:35][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:37:35][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/16/0903/22/C02QSTBL00014SEH.html 提取完成。
+[INFO] [2016-10-14 08:37:35][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/16/0530/18/BOB95E5400254QDR.html 提取完成。
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0620/18/9V70EH9G00254QDR.html 提取完成。
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0626/06/9VL77OI600253B0H.html 提取完成。
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/14/1023/11/A984QPBD00014AEE.html 提取完成。
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/13/0722/10/94CM3APG00253E5C.html 提取完成。
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html 提取完成。
+[INFO] [2016-10-14 08:37:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-14 08:37:37][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/11/0902/01/7CTMDEI000014AED.html 提取完成。
+[INFO] [2016-10-14 08:37:37][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-14 08:43:28][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@65e919f5: startup date [Fri Oct 14 08:43:28 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:43:28][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:43:29][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:43:29][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:43:29][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:43:29 GMT+08:00 2016
+[INFO] [2016-10-14 08:43:29][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:43:29 GMT+08:00 2016
+[INFO] [2016-10-14 08:43:31][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/16/0903/22/C02QSTBL00014SEH.html 提取完成。
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/16/0530/18/BOB95E5400254QDR.html 提取完成。
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0620/18/9V70EH9G00254QDR.html 提取完成。
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0626/06/9VL77OI600253B0H.html 提取完成。
+[INFO] [2016-10-14 08:43:33][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:47:43][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@14fed367: startup date [Fri Oct 14 08:47:43 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:47:43][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:47:44][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:47:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:47:44][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:47:44 GMT+08:00 2016
+[INFO] [2016-10-14 08:47:44][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:47:44 GMT+08:00 2016
+[INFO] [2016-10-14 08:47:45][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/16/0903/22/C02QSTBL00014SEH.html 提取完成。
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/16/0530/18/BOB95E5400254QDR.html 提取完成。
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0620/18/9V70EH9G00254QDR.html 提取完成。
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0626/06/9VL77OI600253B0H.html 提取完成。
+[INFO] [2016-10-14 08:47:46][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:47:47][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/14/1023/11/A984QPBD00014AEE.html 提取完成。
+[INFO] [2016-10-14 08:47:47][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 08:50:23][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6db38815: startup date [Fri Oct 14 08:50:23 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:50:23][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:50:23][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:50:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:50:23][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:50:23 GMT+08:00 2016
+[INFO] [2016-10-14 08:50:24][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:50:24 GMT+08:00 2016
+[INFO] [2016-10-14 08:50:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 08:50:27][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/16/0903/22/C02QSTBL00014SEH.html 提取完成。
+[INFO] [2016-10-14 08:50:27][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 08:50:28][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/16/0530/18/BOB95E5400254QDR.html 提取完成。
+[INFO] [2016-10-14 08:50:28][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 08:50:28][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0620/18/9V70EH9G00254QDR.html 提取完成。
+[INFO] [2016-10-14 08:50:28][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 08:50:28][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0626/06/9VL77OI600253B0H.html 提取完成。
+[INFO] [2016-10-14 08:50:28][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 08:51:28][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@42716598: startup date [Fri Oct 14 08:51:28 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:51:28][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:51:28][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:51:28][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:51:29][com.cn.zbt.crawlmeta.controller.HuaShang]----爬取开始----Fri Oct 14 08:51:29 GMT+08:00 2016
+[INFO] [2016-10-14 08:51:29][com.cn.zbt.crawlmeta.controller.HuaShang]----关键词:山东步长 爬取开始----Fri Oct 14 08:51:29 GMT+08:00 2016
+[INFO] [2016-10-14 08:51:31][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://health.hsw.cn/system/2010/12/14/050718902.shtml
+[INFO] [2016-10-14 08:51:34][com.cn.zbt.crawlmeta.controller.HuaShang]URL:http://health.hsw.cn/system/2010/12/14/050718902.shtml提取完成。
+[INFO] [2016-10-14 08:51:34][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://bbs.hsw.cn/a/t776/2646776.html
+[INFO] [2016-10-14 08:52:00][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@fa8a1ef: startup date [Fri Oct 14 08:52:00 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:52:00][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:52:00][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:52:00][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:52:01][com.cn.zbt.crawlmeta.controller.RenMin]----爬取开始----Fri Oct 14 08:52:01 GMT+08:00 2016
+[INFO] [2016-10-14 08:52:01][com.cn.zbt.crawlmeta.controller.RenMin]----关键词:山东步长 爬取开始----Fri Oct 14 08:52:01 GMT+08:00 2016
+[INFO] [2016-10-14 08:52:02][com.cn.zbt.crawlmeta.controller.RenMin]正在处理：http://finance.people.com.cn/BIG5/n/2013/0605/c70846-21741461.html
+[INFO] [2016-10-14 08:52:02][com.cn.zbt.crawlmeta.controller.RenMin]URL:http://finance.people.com.cn/BIG5/n/2013/0605/c70846-21741461.html提取完成。
+[INFO] [2016-10-14 08:52:02][com.cn.zbt.crawlmeta.controller.RenMin]正在处理：http://finance.people.com.cn/h/2011/0902/c227865-2395405619.html
+[INFO] [2016-10-14 08:52:03][com.cn.zbt.crawlmeta.controller.RenMin]URL:http://finance.people.com.cn/h/2011/0902/c227865-2395405619.html提取完成。
+[INFO] [2016-10-14 08:52:03][com.cn.zbt.crawlmeta.controller.RenMin]正在处理：http://finance.people.com.cn/n1/2016/0607/c1004-28418593.html
+[INFO] [2016-10-14 08:52:03][com.cn.zbt.crawlmeta.controller.RenMin]URL:http://finance.people.com.cn/n1/2016/0607/c1004-28418593.html提取完成。
+[INFO] [2016-10-14 08:52:03][com.cn.zbt.crawlmeta.controller.RenMin]正在处理：http://finance.people.com.cn/stock/h/2011/0907/c226333-63875300.html
+[INFO] [2016-10-14 08:52:03][com.cn.zbt.crawlmeta.controller.RenMin]URL:http://finance.people.com.cn/stock/h/2011/0907/c226333-63875300.html提取完成。
+[INFO] [2016-10-14 08:52:03][com.cn.zbt.crawlmeta.controller.RenMin]正在处理：http://health.people.com.cn/n1/2016/0712/c14739-28547575.html
+[INFO] [2016-10-14 08:52:04][com.cn.zbt.crawlmeta.controller.RenMin]URL:http://health.people.com.cn/n1/2016/0712/c14739-28547575.html提取完成。
+[INFO] [2016-10-14 08:52:04][com.cn.zbt.crawlmeta.controller.RenMin]正在处理：http://finance.people.com.cn/stock/h/2011/0902/c226333-3843781199.html
+[INFO] [2016-10-14 08:53:49][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@da826c5: startup date [Fri Oct 14 08:53:49 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:53:49][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:53:49][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:53:49][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:53:49][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 08:53:49 GMT+08:00 2016
+[INFO] [2016-10-14 08:53:59][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共56页
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEDozzM3M
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEDozzM3M 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/EbUYv1sHj
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/EbUYv1sHj 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E58oEoFkm
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E58oEoFkm 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4QztiMd4
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4QztiMd4 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4fFY6ApR
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4fFY6ApR 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFqvtwDHq
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFqvtwDHq 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFle1a911
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFle1a911 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEWyA04zq
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEWyA04zq 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DETC48L6Q
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DETC48L6Q 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEMr6r8Sr
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEMr6r8Sr 提取完成。
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJo3nRM1
+[INFO] [2016-10-14 08:54:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEJo3nRM1 提取完成。
+[INFO] [2016-10-14 08:57:27][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6db38815: startup date [Fri Oct 14 08:57:27 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:57:27][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:57:27][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:57:27][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:57:27][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 08:57:27 GMT+08:00 2016
+[INFO] [2016-10-14 08:57:28][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 08:57:28 GMT+08:00 2016
+[ERROR] [2016-10-14 08:57:38][com.cn.zbt.crawlmeta.controller.Crawl360]jsoup访问人民网异常==========>
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:152)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at sun.security.ssl.InputRecord.readFully(InputRecord.java:442)
+	at sun.security.ssl.InputRecord.read(InputRecord.java:480)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:934)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1332)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1359)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1343)
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:559)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:185)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:153)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:563)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:216)
+	at com.cn.zbt.crawlmeta.controller.Crawl360.fetch(Crawl360.java:82)
+	at com.cn.zbt.crawlmeta.controller.Crawl360.getDoc(Crawl360.java:143)
+	at com.cn.zbt.crawlmeta.controller.Crawl360.runInter(Crawl360.java:258)
+	at com.cn.zbt.crawlmeta.controller.Crawl360.main(Crawl360.java:268)
+[ERROR] [2016-10-14 08:57:38][com.cn.zbt.crawlmeta.controller.Crawl360]URL为：https://www.so.com/s
+[ERROR] [2016-10-14 08:57:38][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:https://www.so.com/s。异常详情：java.lang.NullPointerException
+[INFO] [2016-10-14 08:57:38][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取结束----Fri Oct 14 08:57:38 GMT+08:00 2016
+[INFO] [2016-10-14 08:57:38][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:步长+app 爬取开始----Fri Oct 14 08:57:38 GMT+08:00 2016
+[INFO] [2016-10-14 08:57:38][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://digi.163.com/15/1008/17/B5DVC9FO001668B4.html
+[INFO] [2016-10-14 08:57:44][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://digi.163.com/15/1008/17/B5DVC9FO001668B4.html 提取完成。
+[INFO] [2016-10-14 08:57:44][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://shunlaihuihang.blog.163.com/blog/static/3753546220080125415425/
+[INFO] [2016-10-14 08:58:51][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22c5003c: startup date [Fri Oct 14 08:58:51 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:58:51][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:58:52][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:58:52][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:58:52][com.cn.zbt.crawlmeta.controller.HuaShang]----爬取开始----Fri Oct 14 08:58:52 GMT+08:00 2016
+[INFO] [2016-10-14 08:58:52][com.cn.zbt.crawlmeta.controller.HuaShang]----关键词:山东步长 爬取开始----Fri Oct 14 08:58:52 GMT+08:00 2016
+[INFO] [2016-10-14 08:58:53][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://health.hsw.cn/system/2010/12/14/050718902.shtml
+[INFO] [2016-10-14 08:58:54][com.cn.zbt.crawlmeta.controller.HuaShang]URL:http://health.hsw.cn/system/2010/12/14/050718902.shtml提取完成。
+[INFO] [2016-10-14 08:58:54][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://bbs.hsw.cn/a/t776/2646776.html
+[INFO] [2016-10-14 08:58:55][com.cn.zbt.crawlmeta.controller.HuaShang]URL:http://bbs.hsw.cn/a/t776/2646776.html提取完成。
+[INFO] [2016-10-14 08:58:55][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://www.hsw.cn/news/2008-05/06/content_6947815.htm
+[INFO] [2016-10-14 08:58:55][com.cn.zbt.crawlmeta.controller.HuaShang]URL:http://www.hsw.cn/news/2008-05/06/content_6947815.htm提取完成。
+[INFO] [2016-10-14 08:58:55][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://bbs.hsw.cn/read-htm-tid-7349455.html
+[INFO] [2016-10-14 08:59:29][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@a54a40c: startup date [Fri Oct 14 08:59:29 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 08:59:29][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 08:59:29][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 08:59:29][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 08:59:30][com.cn.zbt.crawlmeta.controller.HuaShang]----爬取开始----Fri Oct 14 08:59:30 GMT+08:00 2016
+[INFO] [2016-10-14 08:59:30][com.cn.zbt.crawlmeta.controller.HuaShang]----关键词:山东步长 爬取开始----Fri Oct 14 08:59:30 GMT+08:00 2016
+[INFO] [2016-10-14 08:59:30][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://health.hsw.cn/system/2010/12/14/050718902.shtml
+[INFO] [2016-10-14 09:01:44][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@a54a40c: startup date [Fri Oct 14 09:01:44 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 09:01:44][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 09:01:44][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 09:01:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 09:01:44][com.cn.zbt.crawlmeta.controller.HuaShang]----爬取开始----Fri Oct 14 09:01:44 GMT+08:00 2016
+[INFO] [2016-10-14 09:01:45][com.cn.zbt.crawlmeta.controller.HuaShang]----关键词:山东步长 爬取开始----Fri Oct 14 09:01:45 GMT+08:00 2016
+[INFO] [2016-10-14 09:01:45][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://health.hsw.cn/system/2010/12/14/050718902.shtml
+[INFO] [2016-10-14 09:02:16][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@a750bb9: startup date [Fri Oct 14 09:02:16 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 09:02:17][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 09:02:17][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 09:02:17][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 09:02:17][com.cn.zbt.crawlmeta.controller.HuaShang]----爬取开始----Fri Oct 14 09:02:17 GMT+08:00 2016
+[INFO] [2016-10-14 09:02:17][com.cn.zbt.crawlmeta.controller.HuaShang]----关键词:山东步长 爬取开始----Fri Oct 14 09:02:17 GMT+08:00 2016
+[INFO] [2016-10-14 09:02:18][com.cn.zbt.crawlmeta.controller.HuaShang]正在处理：http://health.hsw.cn/system/2010/12/14/050718902.shtml
+[INFO] [2016-10-14 09:02:45][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4d948ad7: startup date [Fri Oct 14 09:02:45 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 09:02:45][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 09:02:45][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 09:02:45][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 09:02:46][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 09:02:46 GMT+08:00 2016
+[INFO] [2016-10-14 09:02:46][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 09:02:46 GMT+08:00 2016
+[INFO] [2016-10-14 09:02:47][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 09:02:47][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/16/0903/22/C02QSTBL00014SEH.html 提取完成。
+[INFO] [2016-10-14 09:02:47][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/16/0530/18/BOB95E5400254QDR.html 提取完成。
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0620/18/9V70EH9G00254QDR.html 提取完成。
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/14/0626/06/9VL77OI600253B0H.html 提取完成。
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/14/1023/11/A984QPBD00014AEE.html 提取完成。
+[INFO] [2016-10-14 09:02:48][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 09:02:49][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/13/0722/10/94CM3APG00253E5C.html 提取完成。
+[INFO] [2016-10-14 09:02:49][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-14 09:02:49][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html 提取完成。
+[INFO] [2016-10-14 09:02:49][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-14 09:02:49][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.163.com/11/0902/01/7CTMDEI000014AED.html 提取完成。
+[INFO] [2016-10-14 09:02:49][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-14 09:02:56][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2a81df82: startup date [Fri Oct 14 09:02:56 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 09:02:56][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 09:02:57][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 09:02:57][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 09:02:57][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Fri Oct 14 09:02:57 GMT+08:00 2016
+[INFO] [2016-10-14 09:02:57][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Fri Oct 14 09:02:57 GMT+08:00 2016
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/16/0903/22/C02QSTBL00014SEH.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/16/0530/18/BOB95E5400254QDR.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0620/18/9V70EH9G00254QDR.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/14/0626/06/9VL77OI600253B0H.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/14/1023/11/A984QPBD00014AEE.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0722/10/94CM3APG00253E5C.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://money.163.com/13/0605/08/90JHPIQJ00253B0H.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.163.com/11/0902/01/7CTMDEI000014AED.html
+[INFO] [2016-10-14 09:02:58][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://money.163.com/11/0719/13/79B1IGSJ00253B0H.html
+[INFO] [2016-10-14 09:14:13][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 09:14:13][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@3d03b5b: startup date [Fri Oct 14 09:14:13 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 09:14:13][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 09:14:13][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 09:14:13][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@3d03b5b: startup date [Fri Oct 14 09:14:13 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 09:59:12][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1c455c33: startup date [Fri Oct 14 09:59:12 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 09:59:12][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 09:59:13][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 09:59:13][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 09:59:13][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 09:59:13 GMT+08:00 2016
+[INFO] [2016-10-14 09:59:17][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共57页
+[INFO] [2016-10-14 09:59:22][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEDozzM3M
+[ERROR] [2016-10-14 09:59:22][com.cn.zbt.crawlmeta.controller.SinaWeibo]访问URL异常java.lang.StringIndexOutOfBoundsException: String index out of range: -101山东步长1
+[INFO] [2016-10-14 09:59:27][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJo3nRM1
+[ERROR] [2016-10-14 09:59:27][com.cn.zbt.crawlmeta.controller.SinaWeibo]访问URL异常java.lang.StringIndexOutOfBoundsException: String index out of range: -192山东步长2
+[INFO] [2016-10-14 10:00:53][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@159177b9: startup date [Fri Oct 14 10:00:53 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 10:00:53][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 10:00:53][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 10:00:53][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 10:00:53][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 10:00:53 GMT+08:00 2016
+[INFO] [2016-10-14 10:01:07][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共57页
+[ERROR] [2016-10-14 10:01:15][com.cn.zbt.crawlmeta.controller.SinaWeibo] 访问新浪微博异常==========>
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.read(SocketInputStream.java:152)
+	at java.net.SocketInputStream.read(SocketInputStream.java:122)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:235)
+	at java.io.BufferedInputStream.read1(BufferedInputStream.java:275)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:334)
+	at sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:690)
+	at sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:633)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1324)
+	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:468)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:567)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:216)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.fetch(SinaWeibo.java:73)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.getDoc(SinaWeibo.java:117)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.runInter(SinaWeibo.java:302)
+	at com.cn.zbt.crawlmeta.controller.SinaWeibo.main(SinaWeibo.java:311)
+[ERROR] [2016-10-14 10:01:15][com.cn.zbt.crawlmeta.controller.SinaWeibo]keyword为：山东步长.page为：1
+[ERROR] [2016-10-14 10:01:15][com.cn.zbt.crawlmeta.controller.SinaWeibo]访问URL异常java.lang.NullPointerException山东步长1
+[INFO] [2016-10-14 10:01:19][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEJo3nRM1
+[INFO] [2016-10-14 10:02:32][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@241dbc8b: startup date [Fri Oct 14 10:02:32 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-10-14 10:02:32][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-10-14 10:02:33][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-10-14 10:02:33][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-10-14 10:02:33][com.cn.zbt.crawlmeta.controller.SinaWeibo]----爬取开始----Fri Oct 14 10:02:33 GMT+08:00 2016
+[INFO] [2016-10-14 10:02:40][com.cn.zbt.crawlmeta.controller.SinaWeibo]关键词山东步长共57页
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/zp5u81bel
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/zp5u81bel 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/EcL1pgcrv
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/EcL1pgcrv 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/EbUYv1sHj
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/EbUYv1sHj 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E58oEoFkm
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E58oEoFkm 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4QztiMd4
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4QztiMd4 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/E4fFY6ApR
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/E4fFY6ApR 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFqvtwDHq
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFqvtwDHq 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DFle1a911
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DFle1a911 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEWyA04zq
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEWyA04zq 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DETC48L6Q
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DETC48L6Q 提取完成。
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]正在处理：http://weibo.cn/comment/DEMr6r8Sr
+[INFO] [2016-10-14 10:02:45][com.cn.zbt.crawlmeta.controller.SinaWeibo]URL:http://weibo.cn/comment/DEMr6r8Sr 提取完成。

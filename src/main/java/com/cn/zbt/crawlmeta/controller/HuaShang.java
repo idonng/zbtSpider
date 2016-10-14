@@ -7,10 +7,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
 import org.jsoup.Connection;
@@ -161,18 +159,14 @@ public class HuaShang {
 				Document doc1 = new HuaShang().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				//发布时间
-				String ctStr=new CommonUtils().getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)( \\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
+				String ctStr=new CommonUtils().getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
 						 doc1.toString().replace("\n", "")
 							.replace("\r", "").replace("&nbsp;", " ")).trim();
 				Date pubdate = new Date();
 				// 转换各种格式的日期
 				pubdate = (new CommonUtils().matchDateString(ctStr) == null ? sinatime_now
 						: new CommonUtils().matchDateString(ctStr));
-				Date inittime = new Date();
-				inittime = new CommonUtils()
-						.matchDateString("1970-01-01 08:00:01");
 				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now : pubdate;
-				pubdate = pubdate.compareTo(inittime) < 0 ? inittime : pubdate;
 				Ctext ctx = new Ctext();
 				content = ctx.deleteLabel(doc1.toString()).trim();
 				Map<Integer, String> map = ctx.splitBlock(content);
@@ -194,8 +188,8 @@ public class HuaShang {
 
 				resultTabService.insertRes(new CommonUtils().setMD5(url), title, url, content,
 						Integer.valueOf(pls), Integer.valueOf(zfs),
-						new Timestamp(pubdate.getTime()), keyword+"_华商网", author,
-						new Timestamp(sinatime_now.getTime()),0);
+						pubdate , keyword+"_华商网", author,
+						sinatime_now,0);
 				logger.info("URL:" + url  + "提取完成。");
 			} catch (Exception e) {
 				logger.error("解析错误URL:" +url+"。异常详情："+ e);

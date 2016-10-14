@@ -1,6 +1,6 @@
 package com.cn.zbt.crawlmeta.pojo;
 
-public class UserTab  {
+public class AccountTab  {
 	int id;//自增ID
 	String username;//用户名
 	String password;//密码

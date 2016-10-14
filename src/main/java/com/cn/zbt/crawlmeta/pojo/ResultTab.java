@@ -1,6 +1,7 @@
 package com.cn.zbt.crawlmeta.pojo;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class ResultTab {
 	public int id;
@@ -10,8 +11,8 @@ public class ResultTab {
 	public String content;
 	public int pls;
 	public int zfs;
-	public Timestamp pubdate;
-	public Timestamp crawldate;
+	public Date pubdate;
+	public Date crawldate;
 	public String keyword;
 	public String author;
 	public int emoflag;
@@ -24,11 +25,11 @@ public class ResultTab {
 		this.urlmd5 = urlmd5;
 	}
 
-	public Timestamp getCrawldate() {
+	public Date getCrawldate() {
 		return crawldate;
 	}
 
-	public void setCrawldate(Timestamp crawldate) {
+	public void setCrawldate(Date crawldate) {
 		this.crawldate = crawldate;
 	}
 
@@ -104,12 +105,13 @@ public class ResultTab {
 		this.zfs = zfs;
 	}
 
-	public Timestamp getPubdate() {
+	public Date getPubdate() {
 		return pubdate;
 	}
 
-	public void setPubdate(Timestamp pubdate) {
+	public void setPubdate(Date pubdate) {
 		this.pubdate = pubdate;
 	}
 
+	 
 }

@@ -3,12 +3,12 @@
 <mapper namespace="com.cn.zbt.crawlmeta.dao.LasttimeTabDao">
   
      <select id="findValue" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" resultType="String">
-        select value from tb_lasttime where key= #{key} limit 1
+        select value from yqjk_lasttime where key= #{key} limit 1
     </select>
     <insert id="insertLasttimeTab" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" >
-         insert into tb_lasttime (key,value) values (#{key},#{value})
+         insert into yqjk_lasttime (key,value) values (#{key},#{value})
     </insert>
     <update id="updateLasttimeTab" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" >
-		update tb_lasttime set value=#{value} where key= #{key}
+		update yqjk_lasttime set value=#{value} where key= #{key}
 	 </update>
 </mapper>

@@ -1,10 +1,10 @@
 package com.cn.zbt.crawlmeta.service;
 
-import com.cn.zbt.crawlmeta.pojo.UserTab;
+import com.cn.zbt.crawlmeta.pojo.AccountTab;
 
-public interface UserTabSer {
+public interface AccountTabSer {
 
-	 public UserTab findValue() ;
+	 public AccountTab findValue() ;
 	 public void insertIp(String ip,String port,int type) ;
 	 public void updateIp(int id);
 }

@@ -60,7 +60,7 @@ public class Crawl360 {
 		}
 	}
 	/**
-	 * 爬取人民网
+	 * 爬取360
 	 * 
 	 * @param url
 	 * 	q :关键字
@@ -184,7 +184,7 @@ public class Crawl360 {
 				Document doc1 = new Crawl360().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				String ctStr = "";
-				String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)( \\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
+				String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
 				Pattern p1 = Pattern.compile(regex1);
 				List matches1 = null;
 				Matcher matcher1 = p1.matcher(doc1.toString().replace("\n", "")
@@ -206,11 +206,7 @@ public class Crawl360 {
 				// 转换各种格式的日期
 				pubdate = (new CommonUtils().matchDateString(ctStr) == null ? sinatime_now
 						: new CommonUtils().matchDateString(ctStr));
-				Date inittime = new Date();
-				inittime = new CommonUtils()
-						.matchDateString("1970-01-01 08:00:01");
 				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now : pubdate;
-				pubdate = pubdate.compareTo(inittime) < 0 ? inittime : pubdate;
 				Ctext ctx = new Ctext();
 				content = ctx.deleteLabel(doc1.toString()).trim();
 				Map<Integer, String> map = ctx.splitBlock(content);
@@ -245,8 +241,8 @@ public class Crawl360 {
 				String pls = "0";
 				resultTabService.insertRes(new CommonUtils().setMD5(url),title, url, content,
 						Integer.valueOf(pls), Integer.valueOf(zfs),
-						new Timestamp(pubdate.getTime()), keyword+"_人民网", author,
-						new Timestamp(sinatime_now.getTime()),0);
+						 pubdate, keyword+"_人民网", author,
+						 sinatime_now    ,0);
 				logger.info("URL:" + url  + " 提取完成。");
 			} catch (Exception e) {
 				logger.error("解析错误URL:" +url+"。异常详情："+ e);

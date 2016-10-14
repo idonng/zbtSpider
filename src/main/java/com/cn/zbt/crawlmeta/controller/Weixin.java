@@ -1,14 +1,12 @@
-package com.cn.zbt.crawlmeta.controller;
+/*package com.cn.zbt.crawlmeta.controller;
 
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import org.apache.log4j.Logger;
 import org.jsoup.Connection;
@@ -16,8 +14,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.stereotype.Controller;
-
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.pojo.Message;
@@ -62,9 +58,9 @@ public class Weixin {
 			}
 
 			content = doc1.getElementById("js_content").text();
-			/**
+			*//**
 			 * 构造微博title,取前40字符
-			 */
+			 *//*
 
 			// String zfs=doc1.getElementById("sg_readNum3").text();
 			// String pls=doc1.getElementById("sg_likeNum3").text();
@@ -149,21 +145,21 @@ public class Weixin {
 		return Dd;
 	}
 
-	/**
+	*//**
 	 * 带cookie爬取新浪微博
 	 * 
 	 * @param url
 	 * @param cookie
 	 * @return
-	 */
+	 *//*
 	public Document sina(String url) {
-		/*
+		
 		 * System.setProperty("http.maxRedirects", "50");
 		 * System.getProperties().setProperty("proxySet", "true"); //
 		 * 如果不设置，只要代理IP和代理端口正确,此项不设置也可以 String ip = "124.240.187.78";
 		 * System.getProperties().setProperty("http.proxyHost", ip);
 		 * System.getProperties().setProperty("http.proxyPort", "81");
-		 */
+		 
 		// TODO Auto-generated method stub
 
 		Document doc = null;
@@ -243,3 +239,4 @@ public class Weixin {
 		logger.info("----全部主页爬取结束----" + new Date(System.currentTimeMillis()));
 	}
 }
+*/

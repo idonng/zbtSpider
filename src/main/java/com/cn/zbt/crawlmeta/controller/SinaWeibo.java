@@ -26,8 +26,7 @@ import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.dm.SetProxy;
 import com.cn.zbt.crawlmeta.dm.SetUser;
-import com.cn.zbt.crawlmeta.pojo.Message;
-import com.cn.zbt.crawlmeta.pojo.UserTab;
+import com.cn.zbt.crawlmeta.pojo.AccountTab;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
 
 /**
@@ -40,7 +39,7 @@ public class SinaWeibo {
 	public String password = "";
 
 	public SinaWeibo() {
-		UserTab user = new SetUser().setUser();
+		AccountTab user = new SetUser().setUser();
 		username = user.getUsername();
 		password = user.getPassword();
 	}
@@ -66,7 +65,7 @@ public class SinaWeibo {
 		String smblog = "搜微博";
 		new SetProxy().setIp();
 		try {
-			loginConn = Jsoup.connect(url).userAgent(Message.user_agent_mobile)
+			loginConn = Jsoup.connect(url).userAgent("Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1")
 					.method(Method.POST).timeout(4000).ignoreContentType(true);
 			loginConn.data("keyword", keyword).data("smblog", smblog)
 					.data("page", i + "").cookies(map);
@@ -92,7 +91,7 @@ public class SinaWeibo {
 		String content = doc.toString();
 		if (doc.select("title").text().contains("微博广场")) {
 			logger.debug("账号被冻结!请更换账户。");
-			UserTab user = new SetUser().setUser();
+			AccountTab user = new SetUser().setUser();
 			username = user.getUsername();
 			password = user.getPassword();
 			return;
@@ -114,7 +113,6 @@ public class SinaWeibo {
 			String res = (String) matches1.get(0);
 			logger.info("关键词" + keyword + "共" + Integer.valueOf(res) + "页");
 			for (int i = 1; i < Integer.valueOf(res); i++) {
-				// for(int i = 1;i<2;i++){
 				try {
 					getData(new SinaWeibo().fetch(url, cookie, i, keyword),
 							keyword);
@@ -148,7 +146,7 @@ public class SinaWeibo {
 		// 账号被封
 		if (doc.select("title").text().contains("微博广场")) {
 			logger.debug("账号被冻结!请更换账户。");
-			UserTab user = new SetUser().setUser();
+			AccountTab user = new SetUser().setUser();
 			username = user.getUsername();
 			password = user.getPassword();
 			return;
@@ -203,12 +201,12 @@ public class SinaWeibo {
 					element.select(".ct").remove();
 					// 转发数
 					String zfs = text1.substring(
-							text1.lastIndexOf(Message.sysm_zhuanfa) + 5,
-							text1.lastIndexOf(Message.sysm_pinglun));
+							text1.lastIndexOf("] 转发[") + 5,
+							text1.lastIndexOf("] 评论["));
 					// 评论数
 					String pls = text1.substring(
-							text1.indexOf(Message.sysm_pinglun) + 5,
-							text1.indexOf(Message.sysm_shoucang));
+							text1.indexOf("] 评论[") + 5,
+							text1.indexOf("] 收藏"));
 					text1 = text1.substring(0, text1.lastIndexOf("赞["));
 					/**
 					 * 构造微博title,取前40字符
@@ -221,8 +219,8 @@ public class SinaWeibo {
 					resultTabService.insertRes(new CommonUtils().setMD5(url),title.substring(1), url,
 							content.substring(1), Integer.valueOf(pls),
 							Integer.valueOf(zfs),
-							new Timestamp(pubdate.getTime()), keyword+"_新浪微博", author,
-							new Timestamp(string2Date(sinatime_now).getTime()),0);
+							 pubdate , keyword+"_新浪微博", author,
+							 string2Date(sinatime_now),0);
 					logger.info("URL:" + url + " " + "提取完成。");
 				}
 			}
@@ -233,24 +231,24 @@ public class SinaWeibo {
 	public Date getDate(String ctStr, String sinatime_now, Date d) {
 		// ctStr="02-14 22:25 来自微博 weibo.com";
 		String date = "";
-		String temp = " " + Message.sysm_from;
+		String temp = " " + "来自";
 		String time = ctStr.trim();
 		if (ctStr.contains("来自")) {
 			time = ctStr.substring(0, ctStr.indexOf(temp));
 		}
 		// 当前年份
-		if (time.contains(Message.sysm_month)) {
+		if (time.contains("月")) {
 			int year = d.getYear();
 			int month = Integer.valueOf(time.substring(0,
-					time.indexOf(Message.sysm_month)));
+					time.indexOf("月")));
 			int day = Integer.valueOf(time.substring(
-					time.indexOf(Message.sysm_month) + 1,
-					time.indexOf(Message.sysm_day)));
+					time.indexOf("月") + 1,
+					time.indexOf("日")));
 			String de = time.substring(time.indexOf(" "));
 			date = (1900 + year) + "-" + month + "-" + day + " " + de + ":00";
 		}
 		// 时间信息包含今天
-		else if (time.contains(Message.sysm_today)) {
+		else if (time.contains("今天")) {
 			int year = d.getYear();
 			int month = d.getMonth();
 			int day = d.getDate();
@@ -259,9 +257,9 @@ public class SinaWeibo {
 					+ ":00";
 		}
 		// 或者..分钟前
-		else if (time.contains(Message.weibo_fenzhongqian)) {
+		else if (time.contains("分钟前")) {
 			String py = time.substring(0,
-					time.indexOf(Message.weibo_fenzhongqian));
+					time.indexOf("分钟前"));
 			date = getPreTime(sinatime_now, "-" + py);
 		} else {// 过去年份
 			date = time;// 2012-06-04 14:31:56
