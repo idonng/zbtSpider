@@ -3,12 +3,12 @@
 <mapper namespace="com.cn.zbt.crawlmeta.dao.CookieTabDao">
   
      <select id="findAllCookie" resultType="com.cn.zbt.crawlmeta.pojo.CookieTab" parameterType="com.cn.zbt.crawlmeta.pojo.CookieTab" >
-        select * from yqjk_cookie where  available=true limit 1
+     	select top 1  * from [dbo].[TB_COOKIE] where  available=1  order by NewID()
     </select>
      <select id="findUser" resultType="com.cn.zbt.crawlmeta.pojo.CookieTab" parameterType="com.cn.zbt.crawlmeta.pojo.CookieTab" >
-        select * from yqjk_cookie
+        select * from [dbo].[TB_COOKIE]
     </select>
      <update id="updateCookie" parameterType="com.cn.zbt.crawlmeta.pojo.CookieTab" >
-			update yqjk_cookie set cookie=#{cookie},available=#{available} where username= #{username}
+			update [dbo].[TB_COOKIE] set cookie=#{cookie},available=#{available} where username= #{username}
 	 </update>
 </mapper>

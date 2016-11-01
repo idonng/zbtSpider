@@ -32,8 +32,8 @@ import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.dm.SetProxy;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
 
-public class Crawl360 {
-	private static final Logger logger = Logger.getLogger(Crawl360.class);
+public class Sougou {
+	private static final Logger logger = Logger.getLogger(Sougou.class);
 	private static ResultTabSer resultTabService = (ResultTabSer) GetService
 			.getInstance().getService("resultTabService");
 
@@ -69,10 +69,10 @@ public class Crawl360 {
 	}
 
 	/**
-	 * 爬取360
+	 * 爬取sougou
 	 * 
 	 * @param url
-	 *            q :关键字 p:页码
+	 *            q :关键字  :页码
 	 * @return
 	 */
 	@SuppressWarnings("finally")
@@ -85,8 +85,8 @@ public class Crawl360 {
 					.connect(url)
 					.header("User-Agent",
 							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-			conn.data("q", q).data("fr", "360sou_newhome")
-					.data("src", "srp_paging").data("pn", p).timeout(5000);
+			conn.data("query", q).data("ie", "utf8").data("p","76330100")
+					 .data("page", p).timeout(5000);
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url);
@@ -147,10 +147,10 @@ public class Crawl360 {
 		int i = 0;
 		String reg = "";
 		do {
-			String url = "https://www.so.com/s";
+			String url = "https://www.sogou.com/web";
 			try {
-				Document doc = new Crawl360().fetch(url, keyword, i++ + "");
-				reg = doc.getElementById("page").text();
+				Document doc = new Sougou().fetch(url, keyword, i++ + "");
+				reg = doc.getElementById("pagebar_container").text();
 				getData(doc, keyword);
 				Thread.sleep(10000);
 			} catch (Exception e) {
@@ -165,14 +165,14 @@ public class Crawl360 {
 	@SuppressWarnings({ "static-access", "rawtypes", "unchecked" })
 	public void getData(Document doc, String keyword) {
 		Date sinatime_now = new Date();
-		Elements elements = doc.select("#m-result>li>h3");
+		Elements elements = doc.select(".rb>h3");
 		System.out.println(elements.size());
 		for (int p = 0; p < elements.size(); p++) {
 			Element element = elements.get(p).getElementsByTag("a").first();
 			String title = "";
 			String content = "";
 			String url = "";
-			String author = "人民网";
+			String author = "搜狗";
 			url = element.attr("href");
 			url = CommonUtils.getRegex("url=(.*?)&q", url);
 			try {
@@ -191,7 +191,7 @@ public class Crawl360 {
 				continue;
 			}
 			try {
-				Document doc1 = new Crawl360().fetch(url);
+				Document doc1 = new Sougou().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				String ctStr = "";
 				String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
@@ -283,7 +283,7 @@ public class Crawl360 {
 	public static void main(String[] args) {
 		logger.info("----爬取开始----" + new Date(System.currentTimeMillis()));
 
-		Crawl360 sw = new Crawl360();
+		Sougou sw = new Sougou();
 		sw.runInter();
 		 Document
 		 doc=sw.fetch_old("http://money.163.com/14/0313/18/9N848J4600253B0H.html");

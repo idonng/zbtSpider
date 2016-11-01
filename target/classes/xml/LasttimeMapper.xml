@@ -3,12 +3,12 @@
 <mapper namespace="com.cn.zbt.crawlmeta.dao.LasttimeTabDao">
   
      <select id="findValue" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" resultType="String">
-        select value from yqjk_lasttime where key= #{key} limit 1
+     	select top 1  * from [dbo].[TB_LASTTIME]  order by NewID()
     </select>
     <insert id="insertLasttimeTab" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" >
-         insert into yqjk_lasttime (key,value) values (#{key},#{value})
+         insert into [dbo].[TB_LASTTIME] (key,value) values (#{key},#{value})
     </insert>
     <update id="updateLasttimeTab" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" >
-		update yqjk_lasttime set value=#{value} where key= #{key}
+		update [dbo].[TB_LASTTIME] set value=#{value} where key= #{key}
 	 </update>
 </mapper>

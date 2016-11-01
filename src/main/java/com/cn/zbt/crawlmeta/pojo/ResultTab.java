@@ -1,117 +1,234 @@
 package com.cn.zbt.crawlmeta.pojo;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class ResultTab {
-	public int id;
-	public String urlmd5;
-	public String title;
-	public String url;
-	public String content;
-	public int pls;
-	public int zfs;
-	public Date pubdate;
-	public Date crawldate;
-	public String keyword;
-	public String author;
-	public int emoflag;
+    private Long resultKy;
 
-	public String getUrlmd5() {
-		return urlmd5;
-	}
+    private String resultUrlmd5;
 
-	public void setUrlmd5(String urlmd5) {
-		this.urlmd5 = urlmd5;
-	}
+    private String resultSource;
 
-	public Date getCrawldate() {
-		return crawldate;
-	}
+    private Integer resultType;
 
-	public void setCrawldate(Date crawldate) {
-		this.crawldate = crawldate;
-	}
+    private String keyword;
 
-	public String getAuthor() {
-		return author;
-	}
+    private String resultTitle;
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+    private String resultAuthor;
 
-	public String getKeyword() {
-		return keyword;
-	}
+    private Integer resultForwarded;
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
+    private Integer resultComments;
 
-	public String getContent() {
-		return content;
-	}
+    private Date publishedDate;
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    private Date fcrawlDate;
 
-	public int getEmoflag() {
-		return emoflag;
-	}
+    private Date rcrawlDate;
 
-	public void setEmoflag(int emoflag) {
-		this.emoflag = emoflag;
-	}
+    private Integer resultEmotion;
 
-	public int getId() {
-		return id;
-	}
+    private Integer resultEffective;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private Integer resultIsread;
 
-	public String getTitle() {
-		return title;
-	}
+    private Integer resultIsfocus;
+    
+    private String resultBody;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    private String resultUrl;
 
-	public String getUrl() {
-		return url;
-	}
+    private String resultRemarks1;
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    private String resultRemarks2;
 
-	public int getPls() {
-		return pls;
-	}
+    private String resultRemarks3;
 
-	public void setPls(int pls) {
-		this.pls = pls;
-	}
+    private String resultRemarks4;
 
-	public int getZfs() {
-		return zfs;
-	}
+    private String resultRemarks5;
 
-	public void setZfs(int zfs) {
-		this.zfs = zfs;
-	}
+    public Long getResultKy() {
+        return resultKy;
+    }
 
-	public Date getPubdate() {
-		return pubdate;
-	}
+    public void setResultKy(Long resultKy) {
+        this.resultKy = resultKy;
+    }
 
-	public void setPubdate(Date pubdate) {
-		this.pubdate = pubdate;
-	}
+    public String getResultUrlmd5() {
+        return resultUrlmd5;
+    }
 
-	 
-}
+    public void setResultUrlmd5(String resultUrlmd5) {
+        this.resultUrlmd5 = resultUrlmd5 == null ? null : resultUrlmd5.trim();
+    }
+
+    public String getResultSource() {
+        return resultSource;
+    }
+
+    public void setResultSource(String resultSource) {
+        this.resultSource = resultSource == null ? null : resultSource.trim();
+    }
+
+    public Integer getResultType() {
+        return resultType;
+    }
+
+    public void setResultType(Integer resultType) {
+        this.resultType = resultType;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword == null ? null : keyword.trim();
+    }
+
+    public String getResultTitle() {
+        return resultTitle;
+    }
+
+    public void setResultTitle(String resultTitle) {
+        this.resultTitle = resultTitle == null ? null : resultTitle.trim();
+    }
+
+    public String getResultAuthor() {
+        return resultAuthor;
+    }
+
+    public void setResultAuthor(String resultAuthor) {
+        this.resultAuthor = resultAuthor == null ? null : resultAuthor.trim();
+    }
+
+    public Integer getResultForwarded() {
+        return resultForwarded;
+    }
+
+    public void setResultForwarded(Integer resultForwarded) {
+        this.resultForwarded = resultForwarded;
+    }
+
+    public Integer getResultComments() {
+        return resultComments;
+    }
+
+    public void setResultComments(Integer resultComments) {
+        this.resultComments = resultComments;
+    }
+
+    public Date getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(Date publishedDate) {
+        this.publishedDate = publishedDate;
+    }
+
+    public Date getFcrawlDate() {
+        return fcrawlDate;
+    }
+
+    public void setFcrawlDate(Date fcrawlDate) {
+        this.fcrawlDate = fcrawlDate;
+    }
+
+    public Date getRcrawlDate() {
+        return rcrawlDate;
+    }
+
+    public void setRcrawlDate(Date rcrawlDate) {
+        this.rcrawlDate = rcrawlDate;
+    }
+
+    public Integer getResultEmotion() {
+        return resultEmotion;
+    }
+
+    public void setResultEmotion(Integer resultEmotion) {
+        this.resultEmotion = resultEmotion;
+    }
+
+    public Integer getResultEffective() {
+        return resultEffective;
+    }
+
+    public void setResultEffective(Integer resultEffective) {
+        this.resultEffective = resultEffective;
+    }
+
+    public Integer getResultIsread() {
+        return resultIsread;
+    }
+
+    public void setResultIsread(Integer resultIsread) {
+        this.resultIsread = resultIsread;
+    }
+
+    public Integer getResultIsfocus() {
+        return resultIsfocus;
+    }
+
+    public void setResultIsfocus(Integer resultIsfocus) {
+        this.resultIsfocus = resultIsfocus;
+    }
+    public String getResultBody() {
+        return resultBody;
+    }
+
+    public void setResultBody(String resultBody) {
+        this.resultBody = resultBody == null ? null : resultBody.trim();
+    }
+
+    public String getResultUrl() {
+        return resultUrl;
+    }
+
+    public void setResultUrl(String resultUrl) {
+        this.resultUrl = resultUrl == null ? null : resultUrl.trim();
+    }
+
+    public String getResultRemarks1() {
+        return resultRemarks1;
+    }
+
+    public void setResultRemarks1(String resultRemarks1) {
+        this.resultRemarks1 = resultRemarks1 == null ? null : resultRemarks1.trim();
+    }
+
+    public String getResultRemarks2() {
+        return resultRemarks2;
+    }
+
+    public void setResultRemarks2(String resultRemarks2) {
+        this.resultRemarks2 = resultRemarks2 == null ? null : resultRemarks2.trim();
+    }
+
+    public String getResultRemarks3() {
+        return resultRemarks3;
+    }
+
+    public void setResultRemarks3(String resultRemarks3) {
+        this.resultRemarks3 = resultRemarks3 == null ? null : resultRemarks3.trim();
+    }
+
+    public String getResultRemarks4() {
+        return resultRemarks4;
+    }
+
+    public void setResultRemarks4(String resultRemarks4) {
+        this.resultRemarks4 = resultRemarks4 == null ? null : resultRemarks4.trim();
+    }
+
+    public String getResultRemarks5() {
+        return resultRemarks5;
+    }
+
+    public void setResultRemarks5(String resultRemarks5) {
+        this.resultRemarks5 = resultRemarks5 == null ? null : resultRemarks5.trim();
+    }
+    }

@@ -1,7 +1,6 @@
 package com.cn.zbt.crawlmeta.controller;
  
 import java.io.IOException; 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
@@ -37,7 +36,7 @@ public class WangYi {
 			conn = Jsoup
 					.connect(url)
 					.header("User-Agent",
-							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36");
+							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
 			conn.data("q", q).data("start", p+"0").data("ue", "utf8") 
 			.data("site",site).timeout(5000);
 			doc = conn.get();
@@ -63,7 +62,7 @@ public class WangYi {
 			conn = Jsoup
 					.connect(url)
 					.header("User-Agent",
-							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36")
+							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36")
 					.timeout(2000);
 			doc = conn.get();
 		} catch (IOException e) {
@@ -84,7 +83,7 @@ public class WangYi {
 			conn = Jsoup
 					.connect(url)
 					.header("User-Agent",
-							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36")
+							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36")
 					.timeout(2000);
 			doc = conn.get();
 		} catch (IOException e) {
@@ -124,7 +123,7 @@ public class WangYi {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			if(new CommonUtils().checkUrlExist(url)){
+			if(CommonUtils.checkUrlExist(url)){
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
 			}
@@ -135,13 +134,13 @@ public class WangYi {
 				Document doc1 = new WangYi().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				//发布时间
-				String ctStr =  new CommonUtils().getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
+				String ctStr =  CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
 						 doc1.toString().replace("\n", "")
 							.replace("\r", "").replace("&nbsp;", " ")).trim();
 				Date pubdate = new Date();
 				// 转换各种格式的日期
-				pubdate = (new CommonUtils().matchDateString(ctStr) == null ? sinatime_now
-						: new CommonUtils().matchDateString(ctStr));
+				pubdate = (CommonUtils.matchDateString(ctStr) == null ? sinatime_now
+						: CommonUtils.matchDateString(ctStr));
 				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now : pubdate;
 				Ctext ctx = new Ctext();
 				content = ctx.deleteLabel(doc1.toString()).trim();
@@ -160,11 +159,20 @@ public class WangYi {
 
 				String zfs = "0";
 				String pls = "0";
-
-				resultTabService.insertRes(new CommonUtils().setMD5(url),title, url, content,
-						Integer.valueOf(pls), Integer.valueOf(zfs),
-						 pubdate , keyword+"_有道（网易）", author,
-						 sinatime_now ,0);
+				int  type=2;
+				if(url.contains("weibo")){
+					type=1;
+				}
+				else if(url.contains("blog")){
+					type=4;
+				}
+				else if(url.contains("bbs")){
+					type=3;
+				}
+				resultTabService.insertRes(CommonUtils.setMD5(url),
+						title, url, content, CommonUtils.getHost(url), type, keyword,
+						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
+						sinatime_now, author, sinatime_now);
 				logger.info("URL:" + url  + "提取完成。");
 			} catch (Exception e) {
 				logger.error("解析错误URL:" +url+"。异常详情："+ e);

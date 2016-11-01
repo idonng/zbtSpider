@@ -10,15 +10,13 @@ public class ReadKeyword {
 			.getInstance().getService("keywordTabService");
 
 	public HashSet<String> getKeyword() {
-		HashSet<String> list = new HashSet<String>();
+		HashSet<String> set = new HashSet<String>();
 		List<KeywordTab> kts = keywordTabService.findAllKeyword();
+		
 		for (KeywordTab kt : kts) {
-			String[] ss = kt.getKeyword().trim().split(" ");
-			for (String s : ss) {
-				list.add(s.trim());
-			}
+			set.add(kt.getKeyword_name());
 		}
-		return list;
+		return set;
 	}
 
 	public static void main(String[] args) {

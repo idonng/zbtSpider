@@ -18,7 +18,7 @@ import com.cn.zbt.crawlmeta.service.ResultTabSer;
  */
 public class CommonUtils {
 
-	public Date matchDateString(String dateStr) {
+	public static Date matchDateString(String dateStr) {
 		try {
 			List<String> matches = new ArrayList<String>();
 			Pattern p = Pattern
@@ -68,7 +68,7 @@ public class CommonUtils {
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public String getRegex(String regex, String doc) {
+	public static String getRegex(String regex, String doc) {
 		String result = "";
 		Pattern p = Pattern.compile(regex);
 		List matches = null;
@@ -90,7 +90,7 @@ public class CommonUtils {
 		return result;
 	}
 
-	public String setMD5(String s) {
+	public static String setMD5(String s) {
 		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 				'A', 'B', 'C', 'D', 'E', 'F' };
 		try {
@@ -120,7 +120,7 @@ public class CommonUtils {
 	private static ResultTabSer resultTabService = (ResultTabSer) GetService
 			.getInstance().getService("resultTabService");
 
-	public boolean checkUrlExist(String url) {
+	public static boolean checkUrlExist(String url) {
 		String urlmd5 = new CommonUtils().setMD5(url);
 		List<ResultTab> list = new ArrayList<ResultTab>();
 		list = resultTabService.findAllResult(urlmd5);
@@ -130,7 +130,15 @@ public class CommonUtils {
 			return false;
 		}
 	}
-
+	public static  String getHost(String url){
+        if(url==null||url.trim().equals("")){
+            return "other";
+        }
+        String host = "";
+        String	regex="((\\w)+)+\\.(com|cn|net|org|biz|edu|gov|mil|cc)(\\.(com|cn|net|org|biz|edu|gov|mil|cc)|)/";
+        host=new CommonUtils().getRegex(regex, url);
+        return host;
+    }
 	/**
 	 * @param args
 	 */

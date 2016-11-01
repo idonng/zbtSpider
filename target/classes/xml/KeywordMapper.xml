@@ -3,7 +3,7 @@
 <mapper namespace="com.cn.zbt.crawlmeta.dao.KeywordTabDao">
   
      <select id="findAllKeyword" resultType="com.cn.zbt.crawlmeta.pojo.KeywordTab"  >
-       SELECT keyword FROM  yqjk_keyword  where 1=1;
+       SELECT keyword_name FROM [dbo].[TB_KEYWORD]  where keyword_IsEnable=1;
     </select>
      
 </mapper>

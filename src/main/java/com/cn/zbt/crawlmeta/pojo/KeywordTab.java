@@ -2,29 +2,33 @@ package com.cn.zbt.crawlmeta.pojo;
 
 public class KeywordTab {
    
-    public int id;
-    public String keytype;
-    public String keyword;
-	public int getId() {
-		return id;
+    public long keyword_Id;
+    public String keyword_Feature;
+    public String keyword_name;
+    public int keyword_IsEnable;
+	public long getKeyword_Id() {
+		return keyword_Id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setKeyword_Id(long keyword_Id) {
+		this.keyword_Id = keyword_Id;
 	}
-	public String getKeytype() {
-		return keytype;
+	public String getKeyword_Feature() {
+		return keyword_Feature;
 	}
-	public void setKeytype(String keytype) {
-		this.keytype = keytype;
+	public void setKeyword_Feature(String keyword_Feature) {
+		this.keyword_Feature = keyword_Feature;
 	}
-	public String getKeyword() {
-		return keyword;
+	public String getKeyword_name() {
+		return keyword_name;
 	}
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
+	public void setKeyword_name(String keyword_name) {
+		this.keyword_name = keyword_name;
 	}
-    
-   
-    
+	public int getKeyword_IsEnable() {
+		return keyword_IsEnable;
+	}
+	public void setKeyword_IsEnable(int keyword_IsEnable) {
+		this.keyword_IsEnable = keyword_IsEnable;
+	}
 
 }

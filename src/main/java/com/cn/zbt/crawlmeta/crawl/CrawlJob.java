@@ -21,11 +21,12 @@ public class CrawlJob implements ServletContextListener {
 		// starts
 		// Notification that the web application initialization process is
 		// starting
-
-		/*
-		 * do{ runCrawl(); }while(true);
-		 */
-		   runCrawl();
+ 
+		do {
+			runCrawl();
+		} while (true);
+		 
+		 //  runCrawl();
 		 
 	}
 
@@ -74,6 +75,12 @@ public class CrawlJob implements ServletContextListener {
 		} 
 	 
 		logger.info("----爬取任务全部结束----" + new Date(System.currentTimeMillis()));
+		try {
+			Thread.sleep(60000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	 }
 	public void crawlJob(String keyword, int m) {
 		try {

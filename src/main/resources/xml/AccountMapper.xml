@@ -3,12 +3,12 @@
 <mapper namespace="com.cn.zbt.crawlmeta.dao.AccountTabDao">
   
      <select id="findValue" resultType="com.cn.zbt.crawlmeta.pojo.AccountTab"  >
-        select * from yqjk_account  where type=1 order by rand() limit 1
+     	select top 1  * from [dbo].[TB_ACCOUNT]  order by NewID()
     </select>
      <update id="updateIp" parameterType="com.cn.zbt.crawlmeta.pojo.AccountTab" >
-			update yqjk_account set type=0 where id= #{id}
+			update [dbo].[TB_ACCOUNT] set type=0 where id= #{id}
 	 </update>
 	 <insert id="insertIp" parameterType="com.cn.zbt.crawlmeta.pojo.AccountTab" >
-			insert into  yqjk_account (username,password,type) values(#{username},#{password},#{type})
+			insert into  [dbo].[TB_ACCOUNT] (username,password,type) values(#{username},#{password},#{type})
 	 </insert>
 </mapper>

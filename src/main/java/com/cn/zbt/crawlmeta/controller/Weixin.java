@@ -68,7 +68,7 @@ public class Weixin {
 			String pls = "0";
 
 			ResultTabSerImpl rs = new ResultTabSerImpl();
-			rs.insertRes(new CommonUtils().setMD5(url),title, url, content, Integer.valueOf(pls),
+			rs.insertRes(CommonUtils.setMD5(url),title, url, content, Integer.valueOf(pls),
 					Integer.valueOf(zfs), new Timestamp(pubdate.getTime()),
 					keyword, author, Timestamp.valueOf(sinatime_now),0);
 			logger.info("URL:" + url + "\n" + "提取完成。");

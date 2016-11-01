@@ -1,11 +1,6 @@
 package com.cn.zbt.crawlmeta.controller;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+ 
+import java.io.IOException; 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
@@ -19,41 +14,41 @@ import com.cn.zbt.crawlmeta.dm.CommonUtils;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
+import com.cn.zbt.crawlmeta.dm.SetProxy;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
-public class HuaShang {
-	private static final Logger logger = Logger.getLogger(HuaShang.class);
-	 private static ResultTabSer resultTabService = (ResultTabSer) GetService		.getInstance().getService("resultTabService");
+public class YouDao {
+	private static final Logger logger = Logger.getLogger(YouDao.class);
+	 private static ResultTabSer resultTabService = (ResultTabSer) GetService			.getInstance().getService("resultTabService");
 	/**
-	 * 爬取华商网
+	 * 爬取网易网
 	 * 
 	 * @param url
+	 * 	q :关键字
+	 *	p:页码
 	 * @return
 	 */
 	@SuppressWarnings("finally")
 	public Document fetch(String url,String q,String p) {
 		Document doc = null;
 		Connection conn = null;
-		String s ="10178614232472326433";
-		String entry="1";
-		String nsid="1";
 		try {
 			conn = Jsoup
 					.connect(url)
 					.header("User-Agent",
-							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36")
-					.timeout(5000);
-			conn.data("q", q).data("p", p).data("s", s).data("entry", entry).data("nsid", nsid);
+							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
+			conn.data("q", q).data("start", p+"0").data("ue", "utf8") 
+			 .timeout(5000);
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url);
-			logger.error("访问华商网异常==========>", e);
+			logger.error("访问网易网异常==========>", e);
 			logger.error("URL为：" + url);
 		} finally {
 			return doc;
 		}
 	}
 	/**
-	 * 爬取华商网
+	 * 爬取网易网
 	 * 
 	 * @param url
 	 * @return
@@ -71,49 +66,30 @@ public class HuaShang {
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url);
-			logger.error("访问华商网异常==========>", e);
+			logger.error(" 访问网易网异常==========>", e);
 			logger.error("URL为：" + url);
 		} finally {
 			return doc;
 		}
 	}
 
-	public Document fetch_old(String Url) {
-		HttpURLConnection connection = null;
+	@SuppressWarnings("finally")
+	public Document fetch_old(String url) {
+		Document doc = null;
+		Connection conn = null;
+		new SetProxy().setIp();
 		try {
-			URL url = new URL(Url);
-			InputStream in = null;
-			connection = (HttpURLConnection) url.openConnection();
-			// 模拟成ie
-			connection
-					.setRequestProperty(
-							"user-agent",
-							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-			connection.setRequestProperty("Connection", "keep-alive");
-			connection.setRequestProperty("Accept-Charset", "utf-8");
-			connection.setRequestProperty("Accept-Language", "zh-CN,zh;q=0.8");
-			connection
-					.setRequestProperty("Accept",
-							"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-			connection.setReadTimeout(2000);
-			connection.connect();
-			in = connection.getInputStream();
-			BufferedReader breader = new BufferedReader(new InputStreamReader(
-					in, "UTF-8"));
-			StringBuffer sb = new StringBuffer();
-			String line;
-			while ((line = breader.readLine()) != null) {
-				sb.append(line);
-			}
-			Document doc = Jsoup.parse(sb.toString());
-			return doc;
+			conn = Jsoup
+					.connect(url)
+					.header("User-Agent",
+							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36")
+					.timeout(2000);
+			doc = conn.get();
 		} catch (IOException e) {
-			logger.error("访问异常==========>", e);
-			return null;
+			logger.error(" 访问网易网异常==========>", e);
+			logger.error("URL为：" + url);
 		} finally {
-			if (connection != null) {
-				connection.disconnect();
-			}
+			return doc;
 		}
 	}
 
@@ -121,14 +97,10 @@ public class HuaShang {
 		int i = 0;
 		String reg="";
 		do {
-			String url = "http://so.hsw.cn/cse/search";
+			String url = "http://www.youdao.com/search";
 			try {
-				Document doc=new HuaShang().fetch(url,keyword,i+++"");
-				//未搜索到结果
-				if(doc.toString().contains("建议您尝试变换检索词")){
-					return;
-				}
-				reg=doc.getElementById("pageFooter").text();;
+				Document doc=new YouDao().fetch(url,keyword,i+++"");
+				reg=doc.getElementsByClass("c-pages").text(); 
 				getData(doc, keyword);
 				Thread.sleep(2000);
 			} catch (Exception e) {
@@ -142,7 +114,7 @@ public class HuaShang {
 	@SuppressWarnings({ "static-access"  })
 	public void getData(Document doc, String keyword) {
 		Date sinatime_now = new Date();
-		Elements elements = doc.select(".result").select(".f").select(".s0");
+		Elements elements = doc.select("#results>li>div>div>h3");
 		for (int p = 0; p < elements.size(); p++) {
 			Element element = elements.get(p).getElementsByTag("a").first();
 			String title = "";
@@ -154,11 +126,14 @@ public class HuaShang {
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
 			}
+			if(url.contains(".wml")||url.contains("baixing")){
+				continue;
+			}
 			try {
-				Document doc1 = new HuaShang().fetch(url);
+				Document doc1 = new YouDao().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				//发布时间
-				String ctStr=CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
+				String ctStr =  CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
 						 doc1.toString().replace("\n", "")
 							.replace("\r", "").replace("&nbsp;", " ")).trim();
 				Date pubdate = new Date();
@@ -175,24 +150,23 @@ public class HuaShang {
 				} else {
 					content = ctx.judgeBlocks(map);
 				}
-				 String author = CommonUtils.getRegex("来源:(.*?)<",
-						 doc1.toString().replace("\n", "")
-							.replace("\r", "").replace("&nbsp;", " ")).trim();
-				  author = (author.length() == 0 || author == null) ? "华商网"
+			 
+				String author = doc1.select("#ne_article_source").text().trim();
+				  author = (author.length() == 0 || author == null) ? "有道网"
 							: author;
 				// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 
 				String zfs = "0";
 				String pls = "0";
 				int  type=2;
-				if(url.contains("bbs")){
-					type=3;
+				if(url.contains("weibo")){
+					type=1;
 				}
 				else if(url.contains("blog")){
 					type=4;
 				}
-				else if(url.contains("weibo")){
-					type=1;
+				else if(url.contains("bbs")){
+					type=3;
 				}
 				resultTabService.insertRes(CommonUtils.setMD5(url),
 						title, url, content, CommonUtils.getHost(url), type, keyword,
@@ -219,8 +193,10 @@ public class HuaShang {
 	public static void main(String[] args) {
 		logger.info("----爬取开始----" + new Date(System.currentTimeMillis()));
 
-		HuaShang sw = new HuaShang();
+		YouDao sw = new YouDao();
 		sw.runInter();
+		//Document doc=sw.fetch_old("http://money.163.com/14/0313/18/9N848J4600253B0H.html");
+		//System.out.println(doc.toString());
 		logger.info("----全部主页爬取结束----" + new Date(System.currentTimeMillis()));
 	}
 }
