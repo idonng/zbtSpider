@@ -98,6 +98,9 @@ public class WangYi {
 		int i = 0;
 		String reg="";
 		do {
+			if(i<0){
+				return;
+			}
 			String url = "http://www.youdao.com/search";
 			try {
 				Document doc=new WangYi().fetch(url,keyword,i+++"");
@@ -106,6 +109,7 @@ public class WangYi {
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
+				i--;
 				logger.error("解析错误URL:" +url+"。异常详情："+ e);
 			}
 			System.gc();
@@ -123,10 +127,10 @@ public class WangYi {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			if(CommonUtils.checkUrlExist(url)){
+			/*if(CommonUtils.checkUrlExist(url)){
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
-			}
+			}*/
 			if(url.contains(".wml")){
 				continue;
 			}
@@ -135,7 +139,7 @@ public class WangYi {
 				title = doc1.select("title").first().text().trim();
 				//发布时间
 				String ctStr =  CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
-						 doc1.toString().replace("\n", "")
+						 doc1.toString().replaceAll("<!--[\\s\\S]*?-->", "").replace("\n", "")
 							.replace("\r", "").replace("&nbsp;", " ")).trim();
 				Date pubdate = new Date();
 				// 转换各种格式的日期
@@ -151,7 +155,10 @@ public class WangYi {
 				} else {
 					content = ctx.judgeBlocks(map);
 				}
-			 
+				content=(content=="")?title:content;
+				if(!CommonUtils.checkContent(content)&&!CommonUtils.checkContent(title)){
+					continue;
+				}
 				String author = doc1.select("#ne_article_source").text().trim();
 				  author = (author.length() == 0 || author == null) ? "网易网"
 							: author;

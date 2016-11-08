@@ -17,7 +17,7 @@ import org.jsoup.Jsoup;
    *
    */
   
-public class Ctext {  
+public class TestCtext {  
   
     /**  
      * 行分块的大小(块大小=BLOCKS+1)  
@@ -26,21 +26,21 @@ public class Ctext {
     /**  
      * 判断为正文的文字骤变率  
      */  
-    private static float CHANGE_RATE = 0.5f;  
+   // private static float CHANGE_RATE = 0.6f;  
     /**  
      * 每行最小长度  
      */  
-    private static int MIN_LENGTH = 6;  
+   // private static int MIN_LENGTH = 9;  
       
     public static void main(String[] args) {  
-  
-    	String url="http://news.hsw.cn/s/2014/1028/170645.shtml";
+    	String url="http://bbs.tianya.cn/post-no02-416361-1.shtml";
         String html;
 		try {
-			html = Jsoup.connect(url).get().toString();
-			 html = deleteLabel(html);  
-		     Map<Integer, String> map = splitBlock(html);  
-		     System.out.println(judgeBlocks(map));  
+			html = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36").get().toString();
+			 html = deleteLabel(html);
+			 String content=judgeBlocks(splitBlock(html,6),0.5f);
+			 System.out.println(content);
+		     System.out.println(CommonUtils.checkContent(content));  
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,6 +59,8 @@ public class Ctext {
         String regEx_html = "<[^>]+>"; // 定义HTML标签的正则表达式    
         String regEx_href ="<a[^>]*?>[\\s\\S]*?<\\/a>";// 定义href标签的正则表达式    
         String regEx_anno = "<!--[\\s\\S]*?-->"; //html注释  
+        //String regEx_title = "<title[^>]*?>[\\s\\S]*?<\\/title>"; //定义title标签的正则表达式 
+        //html = html.replaceAll(regEx_title, "");
         html = html.replaceAll(regEx_href, "");  
         html = html.replaceAll(regEx_script, "");  
         html = html.replaceAll(regEx_style, "");  
@@ -75,7 +77,7 @@ public class Ctext {
      * @return 分块后的map集合,键即为块号,值为块内容  
      */  
     @SuppressWarnings("unused")
-	public static Map<Integer, String> splitBlock(String text){  
+	public static Map<Integer, String> splitBlock(String text, int MIN_LENGTH){  
         Map<Integer, String> groupMap = new HashMap<Integer, String>();  
         ByteArrayInputStream bais = new ByteArrayInputStream(text.getBytes());  
         BufferedReader br = new BufferedReader(new InputStreamReader(bais));  
@@ -113,7 +115,7 @@ public class Ctext {
      * @param map 块集合  
      * @return 正文  
      */  
-    public static String judgeBlocks(Map<Integer, String> map){  
+    public static String judgeBlocks(Map<Integer, String> map,float CHANGE_RATE){  
         Set<Entry<Integer, String>> sets = map.entrySet();  
         List<Integer> contentBlock = new ArrayList<Integer>();  
         int currentBlock = map.get(0).length(); //当前行的长度  

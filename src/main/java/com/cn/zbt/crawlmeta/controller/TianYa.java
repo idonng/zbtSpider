@@ -101,7 +101,7 @@ public class TianYa {
 			reg = "";
 			String url = "http://search.tianya.cn/bbs";
 			i = i + 1;
-			if (i > 75) {
+			if (i > 75||i<0) {
 				logger.info("页数异常" + url);
 				return;
 			}
@@ -117,6 +117,7 @@ public class TianYa {
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
+				i--;
 				logger.error("解析错误，关键字为:" + keyword + "页数为：" + i + "。异常详情：" + e);
 			}
 			System.gc();
@@ -136,10 +137,10 @@ public class TianYa {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			if (CommonUtils.checkUrlExist(url)) {
+			/*if (CommonUtils.checkUrlExist(url)) {
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
-			}
+			}*/
 			try {
 				Document doc1 = new TianYa().fetch(url);
 				title = doc1.select("title").first().text().trim();
@@ -163,6 +164,10 @@ public class TianYa {
 					content = ctx.judgeBlocks(map).substring(0, 9999);
 				} else {
 					content = ctx.judgeBlocks(map);
+				}
+				content=(content=="")?title:content;
+				if(!CommonUtils.checkContent(content)&&!CommonUtils.checkContent(title)){
+					continue;
 				}
 				// 作者
 				String author = CommonUtils.getRegex("楼主：(.*?)时间",

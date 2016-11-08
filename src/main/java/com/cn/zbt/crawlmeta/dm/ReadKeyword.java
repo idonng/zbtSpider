@@ -18,7 +18,17 @@ public class ReadKeyword {
 		}
 		return set;
 	}
-
+	public HashSet<String> getKeyworda() {
+		HashSet<String> set = new HashSet<String>();
+		List<KeywordTab> kts = keywordTabService.findAllKeyword();
+		for (KeywordTab kt : kts) {
+			String ss[]=kt.getKeyword_name().split("\\+");
+			for(String s :ss){
+				set.add(s);
+			}
+		}
+		return set;
+	}
 	public static void main(String[] args) {
 		HashSet<String> list = new ReadKeyword().getKeyword();
 		for (String li : list) {

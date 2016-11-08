@@ -26,7 +26,7 @@ public class ParserJob {
 		Document doc = Jsoup.connect(url).get();
 
 		String content = doc.toString();
-		String ctStr =new CommonUtils().getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)( \\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
+		String ctStr =CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)( \\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
 				content.replace("\n", "")
 					.replace("\r", "").replace("&nbsp;", " ")).trim();
 		

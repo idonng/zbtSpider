@@ -28,18 +28,10 @@ public class Test {
 	private static ResultTabSer resultTabService = (ResultTabSer) GetService
 			.getInstance().getService("resultTabService");
 	public static void main(String[] args) throws IOException {
-		String content=":男女约会，到底要不要AA制？听完大学生的答案，原地爆炸！拜托啦学妹的秒拍视频 赞[19365]";
-		
-		if(content.startsWith(":")){
-			content=content.substring(1);
-		}
-		
-		System.out.println(content);
-		
-		String url="http://ningde.baixing.com/xiaoshou/a816127871.html";
+		String url="http://3g.163.com/money/14/1029/08/A9N9S8C500253B0H.html";
 		//Document doc = Jsoup.connect(url).get();
 		//System.out.println(doc.toString());
-		// test(url) ;
+		  test(url) ;
 	}
 	/*public static String getHost(String url){
         if(url==null||url.trim().equals("")){
@@ -62,7 +54,7 @@ public class Test {
 		String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
 		Pattern p1 = Pattern.compile(regex1);
 		List matches1 = null;
-		Matcher matcher1 = p1.matcher(doc1.toString().replace("\n", "")
+		Matcher matcher1 = p1.matcher(doc1.toString().replaceAll("<!--[\\s\\S]*?-->", "").replace("\n", "")
 				.replace("\r", "").replace("&nbsp;", " "));
 		if (matcher1.find() && matcher1.groupCount() >= 1) {
 			matches1 = new ArrayList();

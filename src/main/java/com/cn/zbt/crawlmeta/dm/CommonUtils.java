@@ -5,11 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.cn.zbt.crawlmeta.pojo.ResultTab;
+import com.cn.zbt.crawlmeta.service.KeywordTabSer;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
 
 /**
@@ -17,6 +19,8 @@ import com.cn.zbt.crawlmeta.service.ResultTabSer;
  * 
  */
 public class CommonUtils {
+ 
+
 
 	public static Date matchDateString(String dateStr) {
 		try {
@@ -121,7 +125,7 @@ public class CommonUtils {
 			.getInstance().getService("resultTabService");
 
 	public static boolean checkUrlExist(String url) {
-		String urlmd5 = new CommonUtils().setMD5(url);
+		String urlmd5 =  CommonUtils.setMD5(url);
 		List<ResultTab> list = new ArrayList<ResultTab>();
 		list = resultTabService.findAllResult(urlmd5);
 		if (list.size() > 0) {
@@ -136,9 +140,19 @@ public class CommonUtils {
         }
         String host = "";
         String	regex="((\\w)+)+\\.(com|cn|net|org|biz|edu|gov|mil|cc)(\\.(com|cn|net|org|biz|edu|gov|mil|cc)|)/";
-        host=new CommonUtils().getRegex(regex, url);
+        host=CommonUtils.getRegex(regex, url);
         return host;
     }
+	public static  boolean checkContent(String content){ 
+		  HashSet<String>  keywords=  new ReadKeyword().getKeyworda();
+		for(String keyword:keywords){
+			if(content.contains(keyword)){
+				 System.out.println(keyword);
+				return true;
+			}
+		}
+		return false;
+	}
 	/**
 	 * @param args
 	 */
@@ -158,12 +172,13 @@ public class CommonUtils {
 			CommonUtils cu = new CommonUtils();
 			System.out.println("处理后的时间为：" + cu.matchDateString(str));
 
-		}*/
-		CommonUtils cu = new CommonUtils();
+		}
 		String url="http://weibo.cn/comment/CezcY67Tq";
-		Boolean bl=cu.checkUrlExist(url);
+		Boolean bl=CommonUtils.checkUrlExist(url);
+		System.out.println(bl);*/
+		String url="步 共铸中国阿斯达大啊啊达大厦阿斯达";
+		Boolean bl=CommonUtils.checkContent(url);
 		System.out.println(bl);
-
 		
 	}
 }

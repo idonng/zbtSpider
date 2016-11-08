@@ -95,7 +95,5 @@ public class ResultTabSerImpl implements ResultTabSer {
 					resultComments, resultForwarded, keyword, resultAuthor,
 					rcrawlDate );
 		}
-
 	}
-
 }

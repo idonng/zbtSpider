@@ -147,6 +147,9 @@ public class Crawl360 {
 		int i = 0;
 		String reg = "";
 		do {
+			if(i<0){
+				return;
+			}
 			String url = "https://www.so.com/s";
 			try {
 				Document doc = new Crawl360().fetch(url, keyword, i++ + "");
@@ -156,6 +159,7 @@ public class Crawl360 {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				i--;
 				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
 			System.gc();

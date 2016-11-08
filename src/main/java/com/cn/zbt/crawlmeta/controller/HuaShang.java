@@ -121,6 +121,9 @@ public class HuaShang {
 		int i = 0;
 		String reg="";
 		do {
+			if(i<0){
+				return;
+			}
 			String url = "http://so.hsw.cn/cse/search";
 			try {
 				Document doc=new HuaShang().fetch(url,keyword,i+++"");
@@ -133,6 +136,7 @@ public class HuaShang {
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
+				i--;
 				logger.error("解析错误URL:" +url+"。异常详情："+ e);
 			}
 			System.gc();
@@ -150,10 +154,10 @@ public class HuaShang {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			if(CommonUtils.checkUrlExist(url)){
+			/*if(CommonUtils.checkUrlExist(url)){
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
-			}
+			}*/
 			try {
 				Document doc1 = new HuaShang().fetch(url);
 				title = doc1.select("title").first().text().trim();
@@ -174,6 +178,10 @@ public class HuaShang {
 					content = ctx.judgeBlocks(map).substring(0, 9999);
 				} else {
 					content = ctx.judgeBlocks(map);
+				}
+				content=(content=="")?title:content;
+				if(!CommonUtils.checkContent(content)&&!CommonUtils.checkContent(title)){
+					continue;
 				}
 				 String author = CommonUtils.getRegex("来源:(.*?)<",
 						 doc1.toString().replace("\n", "")

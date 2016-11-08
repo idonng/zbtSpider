@@ -97,6 +97,9 @@ public class RenMin {
 		int i = 0;
 		String reg="";
 		do {
+			if(i<0){
+				return;
+			}
 			String url = "http://www.youdao.com/search";
 			try {
 				Document doc=new RenMin().fetch(url,keyword,i+++"");
@@ -105,6 +108,7 @@ public class RenMin {
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
+				i--;
 				logger.error("解析错误URL:" +url+"。异常详情："+ e);
 			}
 			System.gc();
@@ -122,10 +126,10 @@ public class RenMin {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			if(CommonUtils.checkUrlExist(url)){
+			/*if(CommonUtils.checkUrlExist(url)){
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
-			}
+			}*/
 			if(url.contains(".wml")){
 				logger.info("跳过URL：" + url);
 				continue;
@@ -150,6 +154,10 @@ public class RenMin {
 					content = ctx.judgeBlocks(map).substring(0, 9999);
 				} else {
 					content = ctx.judgeBlocks(map);
+				}
+				content=(content=="")?title:content;
+				if(!CommonUtils.checkContent(content)&&!CommonUtils.checkContent(title)){
+					continue;
 				}
 				String author = CommonUtils.getRegex("来源：(.*?)</a>",
 						 doc1.toString().replace("\n", "")
