@@ -1,0 +1,383 @@
+[INFO] [2016-11-08 13:50:31][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@229a94b3: startup date [Tue Nov 08 13:50:31 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-08 13:50:31][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-08 13:50:31][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-08 13:50:31][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:22:27][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2576a288: startup date [Wed Nov 09 09:22:27 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:22:27][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:22:27][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:22:27][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:22:27][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:22:27 GMT+08:00 2016
+[INFO] [2016-11-09 09:22:27][com.cn.zbt.crawlmeta.controller.Crawl360]----关键词:山东步长 爬取开始----Wed Nov 09 09:22:27 GMT+08:00 2016
+[INFO] [2016-11-09 09:25:26][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2576a288: startup date [Wed Nov 09 09:25:26 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:25:26][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:25:27][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:25:27][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:25:27][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:25:27 GMT+08:00 2016
+[INFO] [2016-11-09 09:26:10][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@81f59f1: startup date [Wed Nov 09 09:26:10 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:26:10][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:26:11][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:26:11][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:26:11][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:26:11 GMT+08:00 2016
+[INFO] [2016-11-09 09:28:58][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4249e161: startup date [Wed Nov 09 09:28:58 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:28:58][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:28:58][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:28:58][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:28:58][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:28:58 GMT+08:00 2016
+[INFO] [2016-11-09 09:30:46][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4249e161: startup date [Wed Nov 09 09:30:46 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:30:46][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:30:46][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:30:46][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:30:46][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:30:46 GMT+08:00 2016
+[INFO] [2016-11-09 09:32:17][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4249e161: startup date [Wed Nov 09 09:32:17 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:32:17][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:32:17][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:32:17][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:32:18][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:32:18 GMT+08:00 2016
+[INFO] [2016-11-09 09:42:33][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@81f59f1: startup date [Wed Nov 09 09:42:33 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:42:33][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:42:33][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:42:33][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:42:34][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:42:34 GMT+08:00 2016
+[INFO] [2016-11-09 09:43:46][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@81f59f1: startup date [Wed Nov 09 09:43:46 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 09:43:46][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 09:43:47][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 09:43:47][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 09:43:47][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 09:43:47 GMT+08:00 2016
+[INFO] [2016-11-09 11:28:17][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@39a287b7: startup date [Wed Nov 09 11:28:17 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 11:28:17][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 11:28:17][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 11:28:17][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 14:38:23][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5088a588: startup date [Wed Nov 09 14:38:23 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 14:38:23][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 14:38:23][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 14:38:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 14:38:24][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 14:38:24 GMT+08:00 2016
+[INFO] [2016-11-09 14:38:25][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.buchang.com/
+[INFO] [2016-11-09 14:38:25][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://www.buchang.com/
+[INFO] [2016-11-09 14:38:25][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://c.360webcache.com/c?m=35acd55a30de337c73c01b1d774732cc&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fwww.buchang.com%2F
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://c.360webcache.com/c?m=35acd55a30de337c73c01b1d774732cc&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fwww.buchang.com%2F 提取完成。
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397 提取完成。
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/1A0001/
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/399001/
+[INFO] [2016-11-09 14:38:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/399006/
+[INFO] [2016-11-09 14:38:27][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89&new=1
+[ERROR] [2016-11-09 14:38:27][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89&new=1。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:38:27][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89
+[ERROR] [2016-11-09 14:38:27][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:38:27][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?pid=9939b792def0459e&new=1&src=onebox
+[INFO] [2016-11-09 14:39:22][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5088a588: startup date [Wed Nov 09 14:39:22 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 14:39:22][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 14:39:23][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 14:39:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 14:39:23][com.cn.zbt.crawlmeta.controller.Crawl360]----爬取开始----Wed Nov 09 14:39:23 GMT+08:00 2016
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.buchang.com/
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://www.buchang.com/
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://c.360webcache.com/c?m=35acd55a30de337c73c01b1d774732cc&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fwww.buchang.com%2F
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://c.360webcache.com/c?m=35acd55a30de337c73c01b1d774732cc&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fwww.buchang.com%2F
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://stockpage.10jqka.com.cn/603858/#refCountId=stockpage_5694b142_397
+[INFO] [2016-11-09 14:39:24][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/1A0001/
+[INFO] [2016-11-09 14:39:25][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/399001/
+[INFO] [2016-11-09 14:39:25][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stockpage.10jqka.com.cn/399006/
+[INFO] [2016-11-09 14:39:25][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89&new=1
+[ERROR] [2016-11-09 14:39:25][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89&new=1。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:25][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89
+[ERROR] [2016-11-09 14:39:25][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://ditu.so.com/?t=map&src=onebox&new=1&dspall=0&k=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&c=%E8%A5%BF%E5%AE%89。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:25][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?pid=9939b792def0459e&new=1&src=onebox
+[ERROR] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://ditu.so.com/?pid=9939b792def0459e&new=1&src=onebox。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?pid=6936e4e8e8d5fe89&new=1&src=onebox
+[ERROR] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://ditu.so.com/?pid=6936e4e8e8d5fe89&new=1&src=onebox。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://ditu.so.com/?pid=99cb5bfbfd8b4843&new=1&src=onebox
+[ERROR] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://ditu.so.com/?pid=99cb5bfbfd8b4843&new=1&src=onebox。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://baike.so.com/doc/6239866-6453242.html
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://baike.so.com/doc/6239866-6453242.html
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://baike.so.com/doc/6239866-6453242.html
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://baike.so.com/doc/6239866-6453242.html
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://baike.so.com/doc/6239866-6453242.html
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://baike.so.com/doc/6239866-6453242.html
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://baike.so.com/doc/6239866-6453242.html#6239866-6453242-1
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://baike.so.com/doc/6239866-6453242.html#6239866-6453242-1
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://baike.so.com/doc/6239866-6453242.html#6239866-6453242-2
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://baike.so.com/doc/6239866-6453242.html#6239866-6453242-2
+[INFO] [2016-11-09 14:39:26][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://c.360webcache.com/c?m=52c7d6e918d9c7fd5214b340ce549861&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fbaike.so.com%2Fdoc%2F6239866-6453242.html
+[INFO] [2016-11-09 14:39:28][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://c.360webcache.com/c?m=52c7d6e918d9c7fd5214b340ce549861&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fbaike.so.com%2Fdoc%2F6239866-6453242.html 提取完成。
+[INFO] [2016-11-09 14:39:28][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://mingpian.360.cn/qp?query=baike.so.com&key=b0c5804ca48551988b7133cd22de918d&src=sodp
+[INFO] [2016-11-09 14:39:31][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://baike.baidu.com/subview/6704930/6829781.html
+[INFO] [2016-11-09 14:39:31][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://baike.baidu.com/subview/6704930/6829781.html
+[INFO] [2016-11-09 14:39:31][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://baike.sogou.com/v60584593.htm
+[INFO] [2016-11-09 14:39:31][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://baike.sogou.com/v60584593.htm
+[INFO] [2016-11-09 14:39:31][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.baike.com/wiki/%25E5%25B1%25B1%25E4%25B8%259C%25E6%25AD%25A5%25E9%2595%25BF%25E5%2588%25B6%25E8%258D%25AF%25E6%259C%2589%25E9%2599%2590%25E5%2585%25AC%25E5%258F%25B8
+[INFO] [2016-11-09 14:39:31][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://www.baike.com/wiki/%25E5%25B1%25B1%25E4%25B8%259C%25E6%25AD%25A5%25E9%2595%25BF%25E5%2588%25B6%25E8%258D%25AF%25E6%259C%2589%25E9%2599%2590%25E5%2585%25AC%25E5%258F%25B8
+[INFO] [2016-11-09 14:39:31][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.so.com/ns?q=%e6%ad%a5%e9%95%bf%e5%88%b6%e8%8d%af&src=onebox
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://news.so.com/ns?q=%e6%ad%a5%e9%95%bf%e5%88%b6%e8%8d%af&src=onebox 提取完成。
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.fortunepaper.cn/a/20161109/7881.html
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://www.fortunepaper.cn/a/20161109/7881.html 提取完成。
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://news.iqilu.com/shandong/lushang/2016/1109/3161930.shtml
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://news.iqilu.com/shandong/lushang/2016/1109/3161930.shtml
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://sc.stock.cnfol.com/jysgg/20161109/23777417.shtml
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://sc.stock.cnfol.com/jysgg/20161109/23777417.shtml 提取完成。
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://cfi.cn/p20161108002091.html
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://cfi.cn/p20161108002091.html 提取完成。
+[INFO] [2016-11-09 14:39:32][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://s.weibo.com/weibo/%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF?refl=360wbs&c= spr_qdhz_bd_360ss_weibo_mr
+[INFO] [2016-11-09 14:39:34][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://s.weibo.com/weibo/%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF?refl=360wbs&c= spr_qdhz_bd_360ss_weibo_mr 提取完成。
+[INFO] [2016-11-09 14:39:34][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/xueqiucom?c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/xueqiucom?c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/xueqiucom?c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/xueqiucom?c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:35][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&type=repost&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&type=repost&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&type=comment&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/2183570524/EgITU4Q7v?from=page_1006062183570524_profile&wvr=6&mod=weibotime&type=comment&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/gongkaijie?c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/gongkaijie?c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/gongkaijie?c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/gongkaijie?c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:36][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&type=repost&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&type=repost&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&type=comment&c=spr_qdhz_bd_360ss_weibo_mr
+[ERROR] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]解析错误URL:http://www.weibo.com/1163390501/EgI5eDcNz?from=page_1004061163390501_profile&wvr=6&mod=weibotime&type=comment&c=spr_qdhz_bd_360ss_weibo_mr。异常详情：java.lang.NullPointerException
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://s.weibo.com/weibo/%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF?refl=360wbs&c= spr_qdhz_bd_360ss_weibo_mr
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://s.weibo.com/weibo/%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF?refl=360wbs&c= spr_qdhz_bd_360ss_weibo_mr
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://wenda.so.com/q/1362473022066894?src=150
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://wenda.so.com/q/1362473022066894?src=150 提取完成。
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://wenda.so.com/q/1362473022066894?src=150
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://wenda.so.com/q/1362473022066894?src=150
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://wenda.so.com/q/1378196471060390?src=150
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://wenda.so.com/q/1378196471060390?src=150 提取完成。
+[INFO] [2016-11-09 14:39:37][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://wenda.so.com/q/1370585365067787?src=150
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://wenda.so.com/q/1370585365067787?src=150 提取完成。
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://wenda.so.com/q/1403764423504532?src=150
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://wenda.so.com/q/1403764423504532?src=150 提取完成。
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://wenda.so.com/search/?ie=utf-8&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&src=qihuwenda_s&stype=onebox
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://wenda.so.com/search/?ie=utf-8&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&src=qihuwenda_s&stype=onebox 提取完成。
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.zyzhan.com/news/detail/55650.html
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://www.zyzhan.com/news/detail/55650.html
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://www.zyzhan.com/news/detail/55650.html
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]已经处理，跳过URL：http://www.zyzhan.com/news/detail/55650.html
+[INFO] [2016-11-09 14:39:38][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://c.360webcache.com/c?m=1b61133cd6c19d8d6c8c1d51a2b1aee5&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fwww.zyzhan.com%2Fnews%2Fdetail%2F55650.html
+[INFO] [2016-11-09 14:39:39][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://c.360webcache.com/c?m=1b61133cd6c19d8d6c8c1d51a2b1aee5&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fwww.zyzhan.com%2Fnews%2Fdetail%2F55650.html 提取完成。
+[INFO] [2016-11-09 14:39:39][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://mingpian.360.cn/qp?query=www.zyzhan.com&key=ba8e169580c045a077b9441e726c253f&src=sodp
+[INFO] [2016-11-09 14:39:39][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://stock.eastmoney.com/news/1448,20161109682079314.html
+[INFO] [2016-11-09 14:39:39][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://stock.eastmoney.com/news/1448,20161109682079314.html 提取完成。
+[INFO] [2016-11-09 14:39:39][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://c.360webcache.com/c?m=0c99eb7949f751024852fd0b5c91413a&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fstock.eastmoney.com%2Fnews%2F1448%2C20161109682079314.html
+[INFO] [2016-11-09 14:39:40][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://c.360webcache.com/c?m=0c99eb7949f751024852fd0b5c91413a&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&u=http%3A%2F%2Fstock.eastmoney.com%2Fnews%2F1448%2C20161109682079314.html 提取完成。
+[INFO] [2016-11-09 14:39:40][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://mingpian.360.cn/qp?query=stock.eastmoney.com&key=7f134aadb16ad4c80df83582e72a4463&src=sodp
+[INFO] [2016-11-09 14:39:40][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://image.so.com/i?src=360pic_normal&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://image.so.com/i?src=360pic_normal&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF 提取完成。
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]跳过不处理wml：
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]跳过不处理wml：
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]跳过不处理wml：
+[INFO] [2016-11-09 14:39:41][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://image.so.com/v?q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&src=360pic_normal&fromurl=http%3A%2F%2Fnews.xinhuanet.com%2Fhealth%2F2013-08%2F09%2Fc_125145196.htm#multiple=0&dataindex=0&id=609d32e578846bb07e31e30e51bf606d&itemindex=0
+[INFO] [2016-11-09 14:39:42][com.cn.zbt.crawlmeta.controller.Crawl360]URL:http://image.so.com/v?q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF&src=360pic_normal&fromurl=http%3A%2F%2Fnews.xinhuanet.com%2Fhealth%2F2013-08%2F09%2Fc_125145196.htm#multiple=0&dataindex=0&id=609d32e578846bb07e31e30e51bf606d&itemindex=0 提取完成。
+[INFO] [2016-11-09 14:39:42][com.cn.zbt.crawlmeta.controller.Crawl360]正在处理：http://info.so.com/image_report.html?link=http%3A%2F%2Fnews.xinhuanet.com%2Fhealth%2F2013-08%2F09%2F125145196_11n.jpg&q=%E6%AD%A5%E9%95%BF%E5%88%B6%E8%8D%AF
+[INFO] [2016-11-09 15:27:31][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3ca55242: startup date [Wed Nov 09 15:27:31 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 15:27:31][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 15:27:31][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 15:27:31][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[ERROR] [2016-11-09 15:27:37][com.cn.zbt.crawlmeta.controller.YouDao] 访问网易网异常==========>
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.SSLSocketImpl.fatal(SSLSocketImpl.java:1904)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:279)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:273)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1446)
+	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:209)
+	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:913)
+	at sun.security.ssl.Handshaker.process_record(Handshaker.java:849)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1023)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1332)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1359)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1343)
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:559)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:185)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:153)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:563)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:587)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:587)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:216)
+	at com.cn.zbt.crawlmeta.controller.YouDao.fetch_old(YouDao.java:87)
+	at com.cn.zbt.crawlmeta.controller.YouDao.fetch(YouDao.java:68)
+	at com.cn.zbt.crawlmeta.crawl.Test.test(Test.java:55)
+	at com.cn.zbt.crawlmeta.crawl.Test.main(Test.java:38)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:385)
+	at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:292)
+	at sun.security.validator.Validator.validate(Validator.java:260)
+	at sun.security.ssl.X509TrustManagerImpl.validate(X509TrustManagerImpl.java:326)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:126)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1428)
+	... 20 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:196)
+	at java.security.cert.CertPathBuilder.build(CertPathBuilder.java:268)
+	at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:380)
+	... 26 more
+[ERROR] [2016-11-09 15:27:37][com.cn.zbt.crawlmeta.controller.YouDao]URL为：http://c.360webcache.com/c?m=3ca39774e2aa4642c968cb54bb8d36a2&q=%E5%B1%B1%E4%B8%9C%E6%AD%A5%E9%95%BF&u=http%3A%2F%2Fwww.buchang.com%2F
+[ERROR] [2016-11-09 15:27:37][com.cn.zbt.crawlmeta.controller.YouDao] 访问网易网异常==========>
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.SSLSocketImpl.fatal(SSLSocketImpl.java:1904)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:279)
+	at sun.security.ssl.Handshaker.fatalSE(Handshaker.java:273)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1446)
+	at sun.security.ssl.ClientHandshaker.processMessage(ClientHandshaker.java:209)
+	at sun.security.ssl.Handshaker.processLoop(Handshaker.java:913)
+	at sun.security.ssl.Handshaker.process_record(Handshaker.java:849)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1023)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1332)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1359)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1343)
+	at sun.net.www.protocol.https.HttpsClient.afterConnect(HttpsClient.java:559)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:185)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:153)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:563)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:587)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:587)
+	at org.jsoup.helper.HttpConnection$Response.execute(HttpConnection.java:540)
+	at org.jsoup.helper.HttpConnection.execute(HttpConnection.java:227)
+	at org.jsoup.helper.HttpConnection.get(HttpConnection.java:216)
+	at com.cn.zbt.crawlmeta.controller.YouDao.fetch(YouDao.java:66)
+	at com.cn.zbt.crawlmeta.crawl.Test.test(Test.java:55)
+	at com.cn.zbt.crawlmeta.crawl.Test.main(Test.java:38)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:385)
+	at sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:292)
+	at sun.security.validator.Validator.validate(Validator.java:260)
+	at sun.security.ssl.X509TrustManagerImpl.validate(X509TrustManagerImpl.java:326)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:231)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:126)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(ClientHandshaker.java:1428)
+	... 19 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:196)
+	at java.security.cert.CertPathBuilder.build(CertPathBuilder.java:268)
+	at sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:380)
+	... 25 more
+[ERROR] [2016-11-09 15:27:37][com.cn.zbt.crawlmeta.controller.YouDao]URL为：http://c.360webcache.com/c?m=3ca39774e2aa4642c968cb54bb8d36a2&q=%E5%B1%B1%E4%B8%9C%E6%AD%A5%E9%95%BF&u=http%3A%2F%2Fwww.buchang.com%2F
+[INFO] [2016-11-09 15:29:55][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3ca55242: startup date [Wed Nov 09 15:29:55 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 15:29:55][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 15:29:55][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 15:29:55][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 17:01:37][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@184e6efc: startup date [Wed Nov 09 17:01:37 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 17:01:37][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 17:01:38][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 17:01:38][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 17:01:52][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@45586edb: startup date [Wed Nov 09 17:01:52 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 17:01:52][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 17:01:52][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 17:01:52][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-09 17:03:49][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@18ef659c: startup date [Wed Nov 09 17:03:49 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-09 17:03:49][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-09 17:03:49][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-09 17:03:49][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:02:53][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2c72dc45: startup date [Thu Nov 10 15:02:53 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:02:53][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:02:53][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:02:53][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:03:38][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5043ffed: startup date [Thu Nov 10 15:03:38 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:03:38][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:03:38][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:03:38][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:04:12][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@28db4ccf: startup date [Thu Nov 10 15:04:12 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:04:12][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:04:12][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:04:12][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:09:32][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@48a85972: startup date [Thu Nov 10 15:09:32 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:09:32][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:09:32][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:09:32][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:13:19][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@366815e4: startup date [Thu Nov 10 15:13:19 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:13:19][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:13:19][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:13:19][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:13:23][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@28db4ccf: startup date [Thu Nov 10 15:13:23 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:13:23][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:13:23][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:13:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:13:53][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@776b8ebc: startup date [Thu Nov 10 15:13:53 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:13:53][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:13:54][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:13:54][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:14:23][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@776b8ebc: startup date [Thu Nov 10 15:14:23 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:14:23][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:14:23][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:14:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:14:55][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2c72dc45: startup date [Thu Nov 10 15:14:55 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:14:55][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:14:55][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:14:55][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:17:01][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@366815e4: startup date [Thu Nov 10 15:17:01 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:17:01][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:17:02][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:17:02][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 15:23:11][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@366815e4: startup date [Thu Nov 10 15:23:11 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 15:23:11][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 15:23:12][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 15:23:12][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:00:38][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@366815e4: startup date [Thu Nov 10 16:00:38 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:00:39][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:00:39][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:00:39][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:01:19][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@776b8ebc: startup date [Thu Nov 10 16:01:19 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:01:19][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:01:19][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:01:19][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:01:39][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@776b8ebc: startup date [Thu Nov 10 16:01:39 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:01:39][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:01:40][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:01:40][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:03:11][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@366815e4: startup date [Thu Nov 10 16:03:11 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:03:11][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:03:11][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:03:11][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:10:36][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@366815e4: startup date [Thu Nov 10 16:10:36 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:10:36][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:10:36][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:10:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:38:44][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@776b8ebc: startup date [Thu Nov 10 16:38:44 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:38:44][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:38:44][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:38:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:40:24][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@776b8ebc: startup date [Thu Nov 10 16:40:24 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:40:24][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:40:24][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:40:24][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:41:28][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@366815e4: startup date [Thu Nov 10 16:41:28 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:41:28][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:41:28][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:41:28][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2016-11-10 16:43:33][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@776b8ebc: startup date [Thu Nov 10 16:43:33 GMT+08:00 2016]; root of context hierarchy
+[INFO] [2016-11-10 16:43:33][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2016-11-10 16:43:34][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2016-11-10 16:43:34][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring

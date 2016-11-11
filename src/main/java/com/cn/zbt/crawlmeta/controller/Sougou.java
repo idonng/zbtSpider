@@ -198,7 +198,7 @@ public class Sougou {
 				Document doc1 = new Sougou().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				String ctStr = "";
-				String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
+				String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
 				Pattern p1 = Pattern.compile(regex1);
 				List matches1 = null;
 				Matcher matcher1 = p1.matcher(doc1.toString().replace("\n", "")

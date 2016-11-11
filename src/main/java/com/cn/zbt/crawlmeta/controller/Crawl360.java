@@ -85,7 +85,7 @@ public class Crawl360 {
 					.connect(url)
 					.header("User-Agent",
 							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-			conn.data("q", q).data("fr", "360sou_newhome")
+			conn.data("q", q).data("fr", "tab_www")
 					.data("src", "srp_paging").data("pn", p).timeout(5000);
 			doc = conn.get();
 		} catch (IOException e) {
@@ -144,10 +144,10 @@ public class Crawl360 {
 	}
 
 	public void getDoc(String keyword) {
-		int i = 0;
+		int i = 1;
 		String reg = "";
 		do {
-			if(i<0){
+			if (i < 1) {
 				return;
 			}
 			String url = "https://www.so.com/s";
@@ -169,106 +169,120 @@ public class Crawl360 {
 	@SuppressWarnings({ "static-access", "rawtypes", "unchecked" })
 	public void getData(Document doc, String keyword) {
 		Date sinatime_now = new Date();
-		Elements elements = doc.select("#m-result>li>h3");
-		System.out.println(elements.size());
+		Elements elements = doc.select("#m-result>li");
 		for (int p = 0; p < elements.size(); p++) {
-			Element element = elements.get(p).getElementsByTag("a").first();
-			String title = "";
-			String content = "";
-			String url = "";
-			String author = "人民网";
-			url = element.attr("href");
-			url = CommonUtils.getRegex("url=(.*?)&q", url);
-			try {
-				url = URLDecoder.decode(url, "utf-8");
-			} catch (UnsupportedEncodingException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			logger.info("正在处理：" + url);
-			if (CommonUtils.checkUrlExist(url)) {
-				logger.info("已经处理，跳过URL：" + url);
-				continue;
-			}
-			if (url.contains(".wml") || url.length() == 0) {
-				logger.info("跳过不处理wml：" + url);
-				continue;
-			}
-			try {
-				Document doc1 = new Crawl360().fetch(url);
-				title = doc1.select("title").first().text().trim();
-				String ctStr = "";
-				String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
-				Pattern p1 = Pattern.compile(regex1);
-				List matches1 = null;
-				Matcher matcher1 = p1.matcher(doc1.toString().replace("\n", "")
-						.replace("\r", "").replace("&nbsp;", " "));
-				if (matcher1.find() && matcher1.groupCount() >= 1) {
-					matches1 = new ArrayList();
-					for (int k = 1; k <= matcher1.groupCount(); k++) {
-						String temp1 = matcher1.group(k);
-						matches1.add(temp1);
+			Elements elementsurls = elements.get(p).getElementsByTag("a");
+			for (Element elementsurl : elementsurls) {
+				String title = "";
+				String content = "";
+				String url = "";
+				String author = "360";
+				url = elementsurl.attr("href");
+				if(url.contains("360webcache")){
+					continue;
+				}
+				url = CommonUtils.getRegex("url=(.*?)&q", url);
+				try {
+					url = URLDecoder.decode(url, "utf-8");
+					
+				} catch (UnsupportedEncodingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				logger.info("正在处理：" + url);
+				
+				if (url.contains(".wml") || url.length() == 0) {
+					logger.info("跳过不处理wml：" + url);
+					continue;
+				}
+				if (CommonUtils.checkUrlExist(url)) {
+					logger.info("已经处理，跳过URL：" + url);
+					continue;
+				}
+				try {
+					Document doc1 = new Crawl360().fetch(url);
+					title = doc1.select("title").first().text().trim();
+					String ctStr = "";
+					String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
+					Pattern p1 = Pattern.compile(regex1);
+					List matches1 = null;
+					Matcher matcher1 = p1.matcher(doc1.toString()
+							.replace("\n", "").replace("\r", "")
+							.replace("&nbsp;", " "));
+					if (matcher1.find() && matcher1.groupCount() >= 1) {
+						matches1 = new ArrayList();
+						for (int k = 1; k <= matcher1.groupCount(); k++) {
+							String temp1 = matcher1.group(k);
+							matches1.add(temp1);
+						}
+					} else {
+						matches1 = Collections.EMPTY_LIST;
 					}
-				} else {
-					matches1 = Collections.EMPTY_LIST;
-				}
-				if (!matches1.isEmpty()) {
-					ctStr = (String) matches1.get(0); // 时间块
-				}
-
-				Date pubdate = new Date();
-				// 转换各种格式的日期
-				pubdate = (CommonUtils.matchDateString(ctStr) == null ? sinatime_now
-						:CommonUtils.matchDateString(ctStr));
-				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
-						: pubdate;
-				Ctext ctx = new Ctext();
-				content = ctx.deleteLabel(doc1.toString()).trim();
-				Map<Integer, String> map = ctx.splitBlock(content);
-				// 数据库字段超长、后续可修改
-				if (ctx.judgeBlocks(map).length() > 9999) {
-					content = ctx.judgeBlocks(map).substring(0, 9999);
-				} else {
-					content = ctx.judgeBlocks(map);
-				}
-				String regex2 = "来源:(.*?)<";
-				Pattern p2 = Pattern.compile(regex2);
-				List matches2 = null;
-				Matcher matcher2 = p2.matcher(doc1.toString().replace("\n", "")
-						.replace("\r", "").replace("&nbsp;", " "));
-				if (matcher2.find() && matcher2.groupCount() >= 1) {
-					matches2 = new ArrayList();
-					for (int k = 1; k <= matcher2.groupCount(); k++) {
-						String temp2 = matcher2.group(k);
-						matches2.add(temp2);
+					if (!matches1.isEmpty()) {
+						ctStr = (String) matches1.get(0); // 时间块
 					}
-				} else {
-					matches2 = Collections.EMPTY_LIST;
-				}
-				if (!matches2.isEmpty()) {
-					author = (String) matches2.get(0);
-				}
-				author =CommonUtils.getRegex("来源:(.*?)<",
-						ctx.deleteLabel(doc1.toString())).trim();
-				// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 
-				String zfs = "0";
-				String pls = "0";
-				int type = 2;
-				if (url.contains("bbs")) {
-					type = 3;
-				} else if (url.contains("blog")) {
-					type = 4;
-				} else if (url.contains("weibo")) {
-					type = 1;
+					Date pubdate = new Date();
+					// 转换各种格式的日期
+					pubdate = (CommonUtils.matchDateString(ctStr) == null ? sinatime_now
+							: CommonUtils.matchDateString(ctStr));
+					pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
+							: pubdate;
+					Ctext ctx = new Ctext();
+					content = ctx.deleteLabel(doc1.toString()).trim();
+					Map<Integer, String> map = ctx.splitBlock(content);
+					// 数据库字段超长、后续可修改
+					if (ctx.judgeBlocks(map).length() > 9999) {
+						content = ctx.judgeBlocks(map).substring(0, 9999);
+					} else {
+						content = ctx.judgeBlocks(map);
+					}
+					content = (content == "") ? title : content;
+					if (!CommonUtils.checkContent(content)
+							&& !CommonUtils.checkContent(title)) {
+						continue;
+					}
+					String regex2 = "来源:(.*?)<";
+					Pattern p2 = Pattern.compile(regex2);
+					List matches2 = null;
+					Matcher matcher2 = p2.matcher(doc1.toString()
+							.replace("\n", "").replace("\r", "")
+							.replace("&nbsp;", " "));
+					if (matcher2.find() && matcher2.groupCount() >= 1) {
+						matches2 = new ArrayList();
+						for (int k = 1; k <= matcher2.groupCount(); k++) {
+							String temp2 = matcher2.group(k);
+							matches2.add(temp2);
+						}
+					} else {
+						matches2 = Collections.EMPTY_LIST;
+					}
+					if (!matches2.isEmpty()) {
+						author = (String) matches2.get(0);
+					}
+					author = CommonUtils.getRegex("来源:(.*?)<",
+							ctx.deleteLabel(doc1.toString())).trim();
+					// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
+
+					String zfs = "0";
+					String pls = "0";
+					int type = 2;
+					if (url.contains("bbs")) {
+						type = 3;
+					} else if (url.contains("blog")) {
+						type = 4;
+					} else if (url.contains("weibo")) {
+						type = 1;
+					}
+					resultTabService.insertRes(CommonUtils.setMD5(url), title,
+							url, content, CommonUtils.getHost(url), type,
+							keyword, Integer.valueOf(pls),
+							Integer.valueOf(zfs), pubdate, sinatime_now,
+							author, sinatime_now);
+					logger.info("URL:" + url + " 提取完成。");
+				} catch (Exception e) {
+					logger.error("解析错误URL:" + url + "。异常详情：" + e);
 				}
-				resultTabService.insertRes(CommonUtils.setMD5(url),
-						title, url, content, CommonUtils.getHost(url), type, keyword,
-						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
-						sinatime_now, author, sinatime_now);
-				logger.info("URL:" + url + " 提取完成。");
-			} catch (Exception e) {
-				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
 		}
 	}
@@ -288,10 +302,9 @@ public class Crawl360 {
 		logger.info("----爬取开始----" + new Date(System.currentTimeMillis()));
 
 		Crawl360 sw = new Crawl360();
-		sw.runInter();
-		 Document
-		 doc=sw.fetch_old("http://money.163.com/14/0313/18/9N848J4600253B0H.html");
-		 System.out.println(doc.toString());
+		// sw.runInter();
+		sw.getDoc("步长制药");
+
 		logger.info("----全部主页爬取结束----" + new Date(System.currentTimeMillis()));
 	}
 }

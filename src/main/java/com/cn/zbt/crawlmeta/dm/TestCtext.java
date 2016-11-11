@@ -33,7 +33,7 @@ public class TestCtext {
    // private static int MIN_LENGTH = 9;  
       
     public static void main(String[] args) {  
-    	String url="http://bbs.tianya.cn/post-no02-416361-1.shtml";
+    	String url="http://weibo.cn/comment/AAKAU3MQC";
         String html;
 		try {
 			html = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36").get().toString();

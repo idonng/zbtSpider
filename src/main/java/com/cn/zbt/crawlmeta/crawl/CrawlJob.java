@@ -7,6 +7,8 @@ import java.util.concurrent.Executors;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import org.apache.log4j.Logger;
+
+import com.cn.zbt.crawlmeta.controller.Crawl360;
 import com.cn.zbt.crawlmeta.controller.RenMin;
 import com.cn.zbt.crawlmeta.controller.SinaWeibo;
 import com.cn.zbt.crawlmeta.controller.HuaShang;
@@ -53,7 +55,7 @@ public class CrawlJob implements ServletContextListener {
 					System.gc();
 				}
 			});
-		}
+		} 
 		ExecutorService fixedThreadPool2 = Executors.newFixedThreadPool(10);
 		HashSet<String>  keywords2=new ReadKeyword().getKeyword();
 		for (final String keyword:keywords2){
@@ -68,12 +70,28 @@ public class CrawlJob implements ServletContextListener {
 				}
 			});
 		}
+		ExecutorService fixedThreadPool3 = Executors.newFixedThreadPool(5);
+		HashSet<String>  keywords3=new ReadKeyword().getKeyword();
+		for (final String keyword:keywords3){
+			fixedThreadPool3.submit(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					for (int j = 6; j <= 6; j++) {
+						  crawlJob(keyword, j);
+						System.gc();
+					}
+				}
+			});
+		}
 		fixedThreadPool1.shutdown();
 		fixedThreadPool2.shutdown();
+		fixedThreadPool3.shutdown();
 		while (!fixedThreadPool1.isTerminated()
-				|| !fixedThreadPool2.isTerminated()) {
-		} 
-	 
+				|| !fixedThreadPool2.isTerminated()||!fixedThreadPool3.isTerminated()) {
+		}  
+		/*while (  !fixedThreadPool2.isTerminated()) {
+		}*/
 		logger.info("----爬取任务全部结束----" + new Date(System.currentTimeMillis()));
 		try {
 			Thread.sleep(60000);
@@ -118,6 +136,13 @@ public class CrawlJob implements ServletContextListener {
 						+ new Date(System.currentTimeMillis()));
 				new RenMin().getDoc(keyword);
 				logger.info("----爬取人民网关键词:" + keyword + " 爬取结束----"
+						+ new Date(System.currentTimeMillis()));
+				break;
+			case 6:
+				logger.info("----爬取360关键词:" + keyword + " 爬取开始----"
+						+ new Date(System.currentTimeMillis()));
+				new Crawl360().getDoc(keyword);
+				logger.info("----爬取360关键词:" + keyword + " 爬取结束----"
 						+ new Date(System.currentTimeMillis()));
 				break;
 			default:

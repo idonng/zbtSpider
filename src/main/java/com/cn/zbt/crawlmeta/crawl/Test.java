@@ -28,10 +28,14 @@ public class Test {
 	private static ResultTabSer resultTabService = (ResultTabSer) GetService
 			.getInstance().getService("resultTabService");
 	public static void main(String[] args) throws IOException {
-		String url="http://3g.163.com/money/14/1029/08/A9N9S8C500253B0H.html";
-		//Document doc = Jsoup.connect(url).get();
-		//System.out.println(doc.toString());
-		  test(url) ;
+		String url="http://xue163.com/wendangku/z3s/f3dg/j47128583d0v/k49649b665852l.html";
+		
+		/*url = CommonUtils.getRegex("url=(.*?)&q", url);
+			url = URLDecoder.decode(url, "utf-8");
+		System.out.println(url);*/
+		Document doc = Jsoup.connect(url).get();
+		System.out.println(doc.toString());
+		test(url) ;
 	}
 	/*public static String getHost(String url){
         if(url==null||url.trim().equals("")){
@@ -51,7 +55,7 @@ public class Test {
 		Document doc1 = new YouDao().fetch(url);
 		  title = doc1.select("title").first().text().trim();
 		String ctStr = "";
-		String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
+		String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
 		Pattern p1 = Pattern.compile(regex1);
 		List matches1 = null;
 		Matcher matcher1 = p1.matcher(doc1.toString().replaceAll("<!--[\\s\\S]*?-->", "").replace("\n", "")
@@ -68,7 +72,7 @@ public class Test {
 		if (!matches1.isEmpty()) {
 			ctStr = (String) matches1.get(0); // 时间块
 		}
-
+System.out.println(ctStr);
 		Date pubdate = new Date();
 		// 转换各种格式的日期
 		pubdate = (new CommonUtils().matchDateString(ctStr) == null ? sinatime_now

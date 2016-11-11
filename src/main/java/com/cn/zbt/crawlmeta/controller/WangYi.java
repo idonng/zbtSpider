@@ -127,18 +127,21 @@ public class WangYi {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			/*if(CommonUtils.checkUrlExist(url)){
+			if (CommonUtils.checkUrlExist(url)) {
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
-			}*/
+			}
 			if(url.contains(".wml")){
 				continue;
 			}
 			try {
 				Document doc1 = new WangYi().fetch(url);
 				title = doc1.select("title").first().text().trim();
+				if(title.equals("网易")){
+					continue;
+				}
 				//发布时间
-				String ctStr =  CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
+				String ctStr =  CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
 						 doc1.toString().replaceAll("<!--[\\s\\S]*?-->", "").replace("\n", "")
 							.replace("\r", "").replace("&nbsp;", " ")).trim();
 				Date pubdate = new Date();

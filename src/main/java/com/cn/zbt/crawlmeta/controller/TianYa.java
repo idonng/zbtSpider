@@ -137,16 +137,16 @@ public class TianYa {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			/*if (CommonUtils.checkUrlExist(url)) {
+			if (CommonUtils.checkUrlExist(url)) {
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
-			}*/
+			}
 			try {
 				Document doc1 = new TianYa().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				String ctStr = CommonUtils
 						.getRegex(
-								"((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
+								"((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
 								doc1.toString().replace("\n", "")
 										.replace("\r", "")
 										.replace("&nbsp;", " ")).trim();

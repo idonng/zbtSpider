@@ -133,7 +133,7 @@ public class YouDao {
 				Document doc1 = new YouDao().fetch(url);
 				title = doc1.select("title").first().text().trim();
 				//发布时间
-				String ctStr =  CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年)\\d{2}(-|月)\\d{2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
+				String ctStr =  CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
 						 doc1.toString().replace("\n", "")
 							.replace("\r", "").replace("&nbsp;", " ")).trim();
 				Date pubdate = new Date();
