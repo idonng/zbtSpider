@@ -28,14 +28,20 @@ public class Test {
 	private static ResultTabSer resultTabService = (ResultTabSer) GetService
 			.getInstance().getService("resultTabService");
 	public static void main(String[] args) throws IOException {
-		String url="http://xue163.com/wendangku/z3s/f3dg/j47128583d0v/k49649b665852l.html";
-		
-		/*url = CommonUtils.getRegex("url=(.*?)&q", url);
+		/*String url="http://bbs1.people.com.cn/post/129/1/2/159564390.html";
+		 if(url.equals("")){
+			 System.out.println(1);
+		 }
+		url = CommonUtils.getRegex("url=(.*?)&q", url);
 			url = URLDecoder.decode(url, "utf-8");
-		System.out.println(url);*/
+		System.out.println(url);
 		Document doc = Jsoup.connect(url).get();
-		System.out.println(doc.toString());
-		test(url) ;
+ 		test(url) ;*/
+		int i=5;
+		i=(--i<0)?0:i;
+		System.out.println(i);
+		 
+		 
 	}
 	/*public static String getHost(String url){
         if(url==null||url.trim().equals("")){
@@ -44,7 +50,7 @@ public class Test {
         String host = "";
         //Pattern p =  Pattern.compile("(?<=//|)((\\w)+\\.)+\\w+");
        String	regex="((\\w)+)+\\.(com|cn|net|org|biz|edu|gov|mil|cc)(\\.(com|cn|net|org|biz|edu|gov|mil|cc)|)/";
-        host=new CommonUtils().getRegex(regex, url);
+        host=CommonUtils.getRegex(regex, url);
         return host;
     }*/
 	public static void test(String url){
@@ -55,44 +61,30 @@ public class Test {
 		Document doc1 = new YouDao().fetch(url);
 		  title = doc1.select("title").first().text().trim();
 		String ctStr = "";
-		String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
-		Pattern p1 = Pattern.compile(regex1);
-		List matches1 = null;
-		Matcher matcher1 = p1.matcher(doc1.toString().replaceAll("<!--[\\s\\S]*?-->", "").replace("\n", "")
-				.replace("\r", "").replace("&nbsp;", " "));
-		if (matcher1.find() && matcher1.groupCount() >= 1) {
-			matches1 = new ArrayList();
-			for (int k = 1; k <= matcher1.groupCount(); k++) {
-				String temp1 = matcher1.group(k);
-				matches1.add(temp1);
-			}
-		} else {
-			matches1 = Collections.EMPTY_LIST;
-		}
-		if (!matches1.isEmpty()) {
-			ctStr = (String) matches1.get(0); // 时间块
-		}
+		String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年|/)\\d{1,2}(-|月|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
+		ctStr = CommonUtils.getRegex(regex1,
+				Ctext.deleteLabel(doc1.toString())).trim();
+		 // 时间块
 System.out.println(ctStr);
 		Date pubdate = new Date();
 		// 转换各种格式的日期
-		pubdate = (new CommonUtils().matchDateString(ctStr) == null ? sinatime_now
-				: new CommonUtils().matchDateString(ctStr));
+		pubdate = ( CommonUtils.matchDateString(ctStr) == null ? sinatime_now
+				: CommonUtils.matchDateString(ctStr));
 		pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
 				: pubdate;
-		Ctext ctx = new Ctext();
-		content = ctx.deleteLabel(doc1.toString()).trim();
-		Map<Integer, String> map = ctx.splitBlock(content);
+		System.out.println(pubdate);
+		content = Ctext.deleteLabel(doc1.toString()).trim();
+		Map<Integer, String> map = Ctext.splitBlock(content);
 		// 数据库字段超长、后续可修改
-		if (ctx.judgeBlocks(map).length() > 9999) {
-			content = ctx.judgeBlocks(map).substring(0, 9999);
+		if (Ctext.judgeBlocks(map).length() > 9999) {
+			content = Ctext.judgeBlocks(map).substring(0, 9999);
 		} else {
-			content = ctx.judgeBlocks(map);
+			content = Ctext.judgeBlocks(map);
 		}
-		String regex2 = "来源:(.*?)<";
+		String regex2 = "楼主：<a href[^>]*?>(.*?)</a>";
 		Pattern p2 = Pattern.compile(regex2);
 		List matches2 = null;
-		Matcher matcher2 = p2.matcher(doc1.toString().replace("\n", "")
-				.replace("\r", "").replace("&nbsp;", " "));
+		Matcher matcher2 = p2.matcher(doc1.toString().trim());
 		if (matcher2.find() && matcher2.groupCount() >= 1) {
 			matches2 = new ArrayList();
 			for (int k = 1; k <= matcher2.groupCount(); k++) {
@@ -105,8 +97,8 @@ System.out.println(ctStr);
 		if (!matches2.isEmpty()) {
 			author = (String) matches2.get(0);
 		}
-		author = new CommonUtils().getRegex("来源:(.*?)<",
-				ctx.deleteLabel(doc1.toString())).trim();
+		author = CommonUtils.getRegex("来源:(.*?)<",
+				Ctext.deleteLabel(doc1.toString())).trim();
 		// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 		  author = (author.length() == 0 || author == null) ? "360"
 					: author;
@@ -120,10 +112,9 @@ System.out.println(ctStr);
 		} else if (url.contains("weibo")) {
 			type = 1;
 		}
-		resultTabService.insertRes(new CommonUtils().setMD5(url),
-				title, url, content, new CommonUtils().getHost(url), type, "",
+		resultTabService.insertRes(CommonUtils.setMD5(url),
+				title, url, content, CommonUtils.getHost(url), type, "",
 				Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
 				sinatime_now, author, sinatime_now);
-	
 	}
 }

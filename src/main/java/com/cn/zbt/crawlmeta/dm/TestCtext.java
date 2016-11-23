@@ -33,12 +33,12 @@ public class TestCtext {
    // private static int MIN_LENGTH = 9;  
       
     public static void main(String[] args) {  
-    	String url="http://weibo.cn/comment/AAKAU3MQC";
+    	String url="http://mp.weixin.qq.com/s?src=3&timestamp=1479885213&ver=1&signature=ScQJ-ZjBv9DcfZPwFcK7XRt1-Fb*qz*K*nR7K87vy3AFcNEFH6DAuU6vPf0MCHE-3Cj0ggrLSzjJEuA4iamdKMJVYgM8KUk9IiEFleT6mcH4JDI70aoTFYBXWNVfZMwSU4RJkjYc-9LKt4gUxAsNWeswm48hWoQO*oVB91OKnuM=&devicetype=Windows-QQBrowser&version=61030004&pass_ticket=qMx7ntinAtmqhVn+C23mCuwc9ZRyUp20kIusGgbFLi0=&uin=MTc1MDA1NjU1&ascene=1";
         String html;
 		try {
-			html = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36").get().toString();
+			html = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36").timeout(5000).get().toString();
 			 html = deleteLabel(html);
-			 String content=judgeBlocks(splitBlock(html,6),0.5f);
+			 String content=judgeBlocks(splitBlock(html,6),0.3f);
 			 System.out.println(content);
 		     System.out.println(CommonUtils.checkContent(content));  
 		} catch (IOException e) {
@@ -57,7 +57,7 @@ public class TestCtext {
         String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // 定义script的正则表达式    
         String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // 定义style的正则表达式    
         String regEx_html = "<[^>]+>"; // 定义HTML标签的正则表达式    
-        String regEx_href ="<a[^>]*?>[\\s\\S]*?<\\/a>";// 定义href标签的正则表达式    
+        String regEx_href ="<a\\s+[^>]*?>[\\s\\S]*?<\\/a>";// 定义href标签的正则表达式    
         String regEx_anno = "<!--[\\s\\S]*?-->"; //html注释  
         //String regEx_title = "<title[^>]*?>[\\s\\S]*?<\\/title>"; //定义title标签的正则表达式 
         //html = html.replaceAll(regEx_title, "");

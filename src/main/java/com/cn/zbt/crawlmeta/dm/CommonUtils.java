@@ -9,9 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import com.cn.zbt.crawlmeta.pojo.ResultTab;
-import com.cn.zbt.crawlmeta.service.KeywordTabSer;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
 
 /**
@@ -93,6 +91,29 @@ public class CommonUtils {
 
 		return result;
 	}
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public static String getRegexTime(String doc) {
+		String regex="((\\d{2}|((1|2)\\d{3}))(-|年|/)\\d{1,2}(-|月|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
+		String result = "";
+		Pattern p = Pattern.compile(regex);
+		List matches = null;
+		Matcher matcher = p.matcher(doc.replace("\n", "").replace("\r", "")
+				.replace("&nbsp;", " "));
+		if (matcher.find() && matcher.groupCount() >= 1) {
+			matches = new ArrayList();
+			for (int k = 1; k <= matcher.groupCount(); k++) {
+				String temp = matcher.group(k);
+				matches.add(temp);
+			}
+		} else {
+			matches = Collections.EMPTY_LIST;
+		}
+		if (!matches.isEmpty()) {
+			result = (String) matches.get(0);
+		}
+
+		return result;
+	}
 
 	public static String setMD5(String s) {
 		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -127,11 +148,25 @@ public class CommonUtils {
 	public static boolean checkUrlExist(String url) {
 		String urlmd5 =  CommonUtils.setMD5(url);
 		List<ResultTab> list = new ArrayList<ResultTab>();
-		list = resultTabService.findAllResult(urlmd5);
+		ResultTab rt=new ResultTab();
+		rt.setResultUrlmd5(urlmd5);
+		list = resultTabService.findAllResult(rt);
 		if (list.size() > 0) {
 			return true;
 		} else {
 			return false;
+		}
+	}
+	public static Long checkTitleExist(String title,String author) {
+		List<ResultTab> list = new ArrayList<ResultTab>();
+		ResultTab rt=new ResultTab();
+		rt.setResultTitle(title);
+		rt.setResultAuthor(author);
+		list = resultTabService.findAllResult(rt);
+		if (list.size() > 0) {
+			return list.get(0).getResultKy();
+		} else {
+			return  0L;
 		}
 	}
 	public static  String getHost(String url){
@@ -139,7 +174,7 @@ public class CommonUtils {
             return "other";
         }
         String host = "";
-        String	regex="((\\w)+)+\\.(com|cn|net|org|biz|edu|gov|mil|cc)(\\.(com|cn|net|org|biz|edu|gov|mil|cc)|)/";
+        String	regex="((\\w)+)+\\.(com|cn|net|org|biz|edu|gov|mil|cc|tv|me|tw|hk)(\\.(com|cn|net|org|biz|edu|gov|mil|cc|tv|me|tw|hk)|)/";
         host=CommonUtils.getRegex(regex, url);
         return host;
     }
@@ -173,12 +208,16 @@ public class CommonUtils {
 			System.out.println("处理后的时间为：" + cu.matchDateString(str));
 
 		}
-		String url="http://weibo.cn/comment/CezcY67Tq";
-		Boolean bl=CommonUtils.checkUrlExist(url);
+		
+		/*String url="http://game.sina.com.tw/weibo/user/ycwb2010/3952880035334294";
+		String bl=CommonUtils.getHost(url);
 		System.out.println(bl);*/
-		String url="步 共铸中国阿斯达大啊啊达大厦阿斯达";
-		Boolean bl=CommonUtils.checkContent(url);
-		System.out.println(bl);
+		String url="http://weibo.cn/comment/CezcY67Tq";
+		String title="CRO+CMO+CSO，数千亿市场将迎来爆发式增长";
+		String author="赛柏蓝";
+		if (CommonUtils.checkTitleExist(title, author)!=0) {
+			System.out.println(CommonUtils.checkTitleExist(title, author)); 
+		}
 		
 	}
 }

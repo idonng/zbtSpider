@@ -6,14 +6,9 @@ import java.net.URLDecoder;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -85,8 +80,8 @@ public class Crawl360 {
 					.connect(url)
 					.header("User-Agent",
 							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-			conn.data("q", q).data("fr", "tab_www")
-					.data("src", "srp_paging").data("pn", p).timeout(5000);
+			conn.data("q", q).data("fr", "tab_www").data("src", "srp_paging")
+					.data("pn", p).timeout(5000);
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url);
@@ -166,7 +161,6 @@ public class Crawl360 {
 		} while (reg.contains("下一页"));
 	}
 
-	@SuppressWarnings({ "static-access", "rawtypes", "unchecked" })
 	public void getData(Document doc, String keyword) {
 		Date sinatime_now = new Date();
 		Elements elements = doc.select("#m-result>li");
@@ -178,19 +172,20 @@ public class Crawl360 {
 				String url = "";
 				String author = "360";
 				url = elementsurl.attr("href");
-				if(url.contains("360webcache")){
+				if (url.contains("360webcache")) {
+					logger.info("包含360webcache，跳过URL：" + url);
 					continue;
 				}
 				url = CommonUtils.getRegex("url=(.*?)&q", url);
 				try {
 					url = URLDecoder.decode(url, "utf-8");
-					
+
 				} catch (UnsupportedEncodingException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				logger.info("正在处理：" + url);
-				
+
 				if (url.contains(".wml") || url.length() == 0) {
 					logger.info("跳过不处理wml：" + url);
 					continue;
@@ -202,66 +197,33 @@ public class Crawl360 {
 				try {
 					Document doc1 = new Crawl360().fetch(url);
 					title = doc1.select("title").first().text().trim();
-					String ctStr = "";
-					String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
-					Pattern p1 = Pattern.compile(regex1);
-					List matches1 = null;
-					Matcher matcher1 = p1.matcher(doc1.toString()
-							.replace("\n", "").replace("\r", "")
-							.replace("&nbsp;", " "));
-					if (matcher1.find() && matcher1.groupCount() >= 1) {
-						matches1 = new ArrayList();
-						for (int k = 1; k <= matcher1.groupCount(); k++) {
-							String temp1 = matcher1.group(k);
-							matches1.add(temp1);
-						}
-					} else {
-						matches1 = Collections.EMPTY_LIST;
-					}
-					if (!matches1.isEmpty()) {
-						ctStr = (String) matches1.get(0); // 时间块
-					}
-
+					String ctStr = CommonUtils.getRegexTime(
+							Ctext.deleteLabel(doc1.toString())).trim();
 					Date pubdate = new Date();
 					// 转换各种格式的日期
 					pubdate = (CommonUtils.matchDateString(ctStr) == null ? sinatime_now
 							: CommonUtils.matchDateString(ctStr));
 					pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
 							: pubdate;
-					Ctext ctx = new Ctext();
-					content = ctx.deleteLabel(doc1.toString()).trim();
-					Map<Integer, String> map = ctx.splitBlock(content);
+					content = Ctext.deleteLabel(doc1.toString()).trim();
+					Map<Integer, String> map = Ctext.splitBlock(content);
 					// 数据库字段超长、后续可修改
-					if (ctx.judgeBlocks(map).length() > 9999) {
-						content = ctx.judgeBlocks(map).substring(0, 9999);
+					if (Ctext.judgeBlocks(map).length() > 9999) {
+						content = Ctext.judgeBlocks(map).substring(0, 9999);
 					} else {
-						content = ctx.judgeBlocks(map);
+						content = Ctext.judgeBlocks(map);
 					}
-					content = (content == "") ? title : content;
+					content = (content.length()==0) ? title : content;
 					if (!CommonUtils.checkContent(content)
 							&& !CommonUtils.checkContent(title)) {
+						logger.info("不包含关键字，跳过URL：" + url);
 						continue;
 					}
 					String regex2 = "来源:(.*?)<";
-					Pattern p2 = Pattern.compile(regex2);
-					List matches2 = null;
-					Matcher matcher2 = p2.matcher(doc1.toString()
-							.replace("\n", "").replace("\r", "")
-							.replace("&nbsp;", " "));
-					if (matcher2.find() && matcher2.groupCount() >= 1) {
-						matches2 = new ArrayList();
-						for (int k = 1; k <= matcher2.groupCount(); k++) {
-							String temp2 = matcher2.group(k);
-							matches2.add(temp2);
-						}
-					} else {
-						matches2 = Collections.EMPTY_LIST;
-					}
-					if (!matches2.isEmpty()) {
-						author = (String) matches2.get(0);
-					}
-					author = CommonUtils.getRegex("来源:(.*?)<",
-							ctx.deleteLabel(doc1.toString())).trim();
+					author = CommonUtils.getRegex(regex2,
+							Ctext.deleteLabel(doc1.toString())).trim();
+					author = (author.length() == 0 || author == null) ? CommonUtils
+							.getHost(url) : author;
 					// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 
 					String zfs = "0";
@@ -292,7 +254,9 @@ public class Crawl360 {
 		for (final String keyword : keywords1) {
 			logger.info("----关键词:" + keyword + " 爬取开始----"
 					+ new Date(System.currentTimeMillis()));
-			getDoc(keyword.trim());
+			if (keyword != null && keyword.trim().length() != 0) {
+				getDoc(keyword.trim());
+			}
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));
 		}

@@ -20,9 +20,12 @@ import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
+
 public class HuaShang {
 	private static final Logger logger = Logger.getLogger(HuaShang.class);
-	 private static ResultTabSer resultTabService = (ResultTabSer) GetService		.getInstance().getService("resultTabService");
+	private static ResultTabSer resultTabService = (ResultTabSer) GetService
+			.getInstance().getService("resultTabService");
+
 	/**
 	 * 爬取华商网
 	 * 
@@ -30,19 +33,20 @@ public class HuaShang {
 	 * @return
 	 */
 	@SuppressWarnings("finally")
-	public Document fetch(String url,String q,String p) {
+	public Document fetch(String url, String q, String p) {
 		Document doc = null;
 		Connection conn = null;
-		String s ="10178614232472326433";
-		String entry="1";
-		String nsid="1";
+		String s = "10178614232472326433";
+		String entry = "1";
+		String nsid = "1";
 		try {
 			conn = Jsoup
 					.connect(url)
 					.header("User-Agent",
 							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36")
 					.timeout(5000);
-			conn.data("q", q).data("p", p).data("s", s).data("entry", entry).data("nsid", nsid);
+			conn.data("q", q).data("p", p).data("s", s).data("entry", entry)
+					.data("nsid", nsid);
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url);
@@ -52,6 +56,7 @@ public class HuaShang {
 			return doc;
 		}
 	}
+
 	/**
 	 * 爬取华商网
 	 * 
@@ -119,31 +124,31 @@ public class HuaShang {
 
 	public void getDoc(String keyword) {
 		int i = 0;
-		String reg="";
+		String reg = "";
 		do {
-			if(i<0){
+			if (i < 0) {
 				return;
 			}
 			String url = "http://so.hsw.cn/cse/search";
 			try {
-				Document doc=new HuaShang().fetch(url,keyword,i+++"");
-				//未搜索到结果
-				if(doc.toString().contains("建议您尝试变换检索词")){
+				Document doc = new HuaShang().fetch(url, keyword, i++ + "");
+				// 未搜索到结果
+				if (doc.toString().contains("建议您尝试变换检索词")) {
 					return;
 				}
-				reg=doc.getElementById("pageFooter").text();;
+				reg = doc.getElementById("pageFooter").text();
+				;
 				getData(doc, keyword);
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
 				i--;
-				logger.error("解析错误URL:" +url+"。异常详情："+ e);
+				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
 			System.gc();
 		} while (reg.contains("下一页"));
 	}
 
-	@SuppressWarnings({ "static-access"  })
 	public void getData(Document doc, String keyword) {
 		Date sinatime_now = new Date();
 		Elements elements = doc.select(".result").select(".f").select(".s0");
@@ -161,64 +166,69 @@ public class HuaShang {
 			try {
 				Document doc1 = new HuaShang().fetch(url);
 				title = doc1.select("title").first().text().trim();
-				//发布时间
-				String ctStr=CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
-						 doc1.toString().replace("\n", "")
-							.replace("\r", "").replace("&nbsp;", " ")).trim();
+				if (title.equals("华商网-陕西第一综合城市门户")) {
+					logger.info("已经处理，跳过URL：" + url);
+					continue;
+				}
+				// 发布时间
+				String ctStr = CommonUtils.getRegexTime( 
+						Ctext.deleteLabel(doc1.toString())).trim();
 				Date pubdate = new Date();
 				// 转换各种格式的日期
 				pubdate = (CommonUtils.matchDateString(ctStr) == null ? sinatime_now
 						: CommonUtils.matchDateString(ctStr));
-				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now : pubdate;
-				Ctext ctx = new Ctext();
-				content = ctx.deleteLabel(doc1.toString()).trim();
-				Map<Integer, String> map = ctx.splitBlock(content);
+				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
+						: pubdate;
+				content = Ctext.deleteLabel(doc1.toString()).trim();
+				Map<Integer, String> map = Ctext.splitBlock(content);
 				// 数据库字段超长、后续可修改
-				if (ctx.judgeBlocks(map).length() > 9999) {
-					content = ctx.judgeBlocks(map).substring(0, 9999);
+				if (Ctext.judgeBlocks(map).length() > 9999) {
+					content = Ctext.judgeBlocks(map).substring(0, 9999);
 				} else {
-					content = ctx.judgeBlocks(map);
+					content = Ctext.judgeBlocks(map);
 				}
-				content=(content=="")?title:content;
-				if(!CommonUtils.checkContent(content)&&!CommonUtils.checkContent(title)){
+				content = (content.length()==0) ? title : content;
+				if (!CommonUtils.checkContent(content)
+						&& !CommonUtils.checkContent(title)) {
 					continue;
 				}
-				 String author = CommonUtils.getRegex("来源:(.*?)<",
-						 doc1.toString().replace("\n", "")
-							.replace("\r", "").replace("&nbsp;", " ")).trim();
-				  author = (author.length() == 0 || author == null) ? "华商网"
-							: author;
+
+				String regex2 = "来源:(.*?)<";
+				String author = CommonUtils.getRegex(regex2,
+						Ctext.deleteLabel(doc1.toString())).trim();
+				author = (author.length() == 0 || author == null) ? CommonUtils
+						.getHost(url) : author;
 				// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 
 				String zfs = "0";
 				String pls = "0";
-				int  type=2;
-				if(url.contains("bbs")){
-					type=3;
+				int type = 2;
+				if (url.contains("bbs")) {
+					type = 3;
+				} else if (url.contains("blog")) {
+					type = 4;
+				} else if (url.contains("weibo")) {
+					type = 1;
 				}
-				else if(url.contains("blog")){
-					type=4;
-				}
-				else if(url.contains("weibo")){
-					type=1;
-				}
-				resultTabService.insertRes(CommonUtils.setMD5(url),
-						title, url, content, CommonUtils.getHost(url), type, keyword,
+				resultTabService.insertRes(CommonUtils.setMD5(url), title, url,
+						content, CommonUtils.getHost(url), type, keyword,
 						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
 						sinatime_now, author, sinatime_now);
-				logger.info("URL:" + url  + "提取完成。");
+				logger.info("URL:" + url + "提取完成。");
 			} catch (Exception e) {
-				logger.error("解析错误URL:" +url+"。异常详情："+ e);
+				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
 		}
 	}
 
 	public void runInter() {
-		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
-		for (final String keyword:keywords1){
+		HashSet<String> keywords1 = new ReadKeyword().getKeyword();
+		for (final String keyword : keywords1) {
 			logger.info("----关键词:" + keyword + " 爬取开始----"
 					+ new Date(System.currentTimeMillis()));
-			getDoc(keyword.trim());
+			if (keyword != null && keyword.trim().length() != 0) {
+				getDoc(keyword.trim());
+			}
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));
 		}

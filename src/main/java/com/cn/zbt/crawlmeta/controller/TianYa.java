@@ -101,7 +101,7 @@ public class TianYa {
 			reg = "";
 			String url = "http://search.tianya.cn/bbs";
 			i = i + 1;
-			if (i > 75||i<0) {
+			if (i > 75 || i < 0) {
 				logger.info("页数异常" + url);
 				return;
 			}
@@ -125,11 +125,9 @@ public class TianYa {
 
 	}
 
-	@SuppressWarnings({ "static-access" })
 	public void getData(Document doc, String keyword) {
 		Date sinatime_now = new Date();
 		Elements elements = doc.select(".searchListOne>ul>li");
-
 		for (int p = 0; p < elements.size() - 1; p++) {
 			Element element = elements.get(p).select("div>h3>a").first();
 			String title = "";
@@ -144,39 +142,35 @@ public class TianYa {
 			try {
 				Document doc1 = new TianYa().fetch(url);
 				title = doc1.select("title").first().text().trim();
-				String ctStr = CommonUtils
-						.getRegex(
-								"((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
-								doc1.toString().replace("\n", "")
-										.replace("\r", "")
-										.replace("&nbsp;", " ")).trim();
+				String ctStr = CommonUtils.getRegexTime( 
+						Ctext.deleteLabel(doc1.toString())).trim();
 				Date pubdate = new Date();
 				// 转换各种格式的日期
 				pubdate = (CommonUtils.matchDateString(ctStr) == null ? sinatime_now
 						: CommonUtils.matchDateString(ctStr));
 				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
 						: pubdate;
-				Ctext ctx = new Ctext();
-				content = ctx.deleteLabel(doc1.toString()).trim();
-				Map<Integer, String> map = ctx.splitBlock(content);
+				content = Ctext.deleteLabel(doc1.toString()).trim();
+				Map<Integer, String> map = Ctext.splitBlock(content);
 				// 数据库字段超长、后续可修改
-				if (ctx.judgeBlocks(map).length() > 9999) {
-					content = ctx.judgeBlocks(map).substring(0, 9999);
+				if (Ctext.judgeBlocks(map).length() > 9999) {
+					content = Ctext.judgeBlocks(map).substring(0, 9999);
 				} else {
-					content = ctx.judgeBlocks(map);
+					content = Ctext.judgeBlocks(map);
 				}
-				content=(content=="")?title:content;
-				if(!CommonUtils.checkContent(content)&&!CommonUtils.checkContent(title)){
+				content = (content.length()==0) ? title : content;
+				if (!CommonUtils.checkContent(content)
+						&& !CommonUtils.checkContent(title)) {
 					continue;
 				}
 				// 作者
-				String author = CommonUtils.getRegex("楼主：(.*?)时间",
-						ctx.deleteLabel(doc1.toString())).trim();
+				String author = CommonUtils.getRegex(
+						"楼主：<a href[^>]*?>(.*?)</a>", doc1.toString()).trim();
 				author = (author.length() == 0 || author == null) ? "天涯网"
 						: author;
 				// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 				String zfs = CommonUtils.getRegex("点击：(.*?)回复",
-						ctx.deleteLabel(doc1.toString())).trim();
+						Ctext.deleteLabel(doc1.toString())).trim();
 				zfs = (zfs.length() == 0 || zfs == null) ? "0" : zfs;
 
 				String pls = CommonUtils.getRegex(
@@ -207,7 +201,11 @@ public class TianYa {
 	public void runInter() {
 		HashSet<String> keywords1 = new ReadKeyword().getKeyword();
 		for (final String keyword : keywords1) {
-			getDoc(keyword.trim());
+			logger.info("----关键词:" + keyword + " 爬取开始----"
+					+ new Date(System.currentTimeMillis()));
+			if (keyword != null && keyword.trim().length() != 0) {
+				getDoc(keyword.trim());
+			}
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));
 		}

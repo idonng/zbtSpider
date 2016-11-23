@@ -1,6 +1,6 @@
 package com.cn.zbt.crawlmeta.controller;
- 
-import java.io.IOException; 
+
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,19 +16,21 @@ import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 import com.cn.zbt.crawlmeta.dm.SetProxy;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
+
 public class RenMin {
 	private static final Logger logger = Logger.getLogger(RenMin.class);
-	  private static ResultTabSer resultTabService = (ResultTabSer) GetService			.getInstance().getService("resultTabService");
+	private static ResultTabSer resultTabService = (ResultTabSer) GetService
+			.getInstance().getService("resultTabService");
+
 	/**
 	 * 爬取人民网
 	 * 
 	 * @param url
-	 * 	q :关键字
-	 *	p:页码
+	 *            q :关键字 p:页码
 	 * @return
 	 */
 	@SuppressWarnings("finally")
-	public Document fetch(String url,String q,String p) {
+	public Document fetch(String url, String q, String p) {
 		Document doc = null;
 		Connection conn = null;
 		try {
@@ -36,8 +38,8 @@ public class RenMin {
 					.connect(url)
 					.header("User-Agent",
 							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36");
-			conn.data("q", q).data("start", p+"0").data("ue", "utf8") 
-			.data("site","site:people.com.cn").timeout(5000);
+			conn.data("q", q).data("start", p + "0").data("ue", "utf8")
+					.data("site", "site:people.com.cn").timeout(5000);
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url);
@@ -47,6 +49,7 @@ public class RenMin {
 			return doc;
 		}
 	}
+
 	/**
 	 * 爬取人民网
 	 * 
@@ -95,27 +98,26 @@ public class RenMin {
 
 	public void getDoc(String keyword) {
 		int i = 0;
-		String reg="";
+		String reg = "";
 		do {
-			if(i<0){
+			if (i < 0) {
 				return;
 			}
 			String url = "http://www.youdao.com/search";
 			try {
-				Document doc=new RenMin().fetch(url,keyword,i+++"");
-				reg=doc.getElementsByClass("c-pages").text(); 
+				Document doc = new RenMin().fetch(url, keyword, i++ + "");
+				reg = doc.getElementsByClass("c-pages").text();
 				getData(doc, keyword);
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
 				i--;
-				logger.error("解析错误URL:" +url+"。异常详情："+ e);
+				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
 			System.gc();
 		} while (reg.contains("下一页"));
 	}
 
-	@SuppressWarnings({ "static-access" })
 	public void getData(Document doc, String keyword) {
 		Date sinatime_now = new Date();
 		Elements elements = doc.select("#results>li>div>div>h3");
@@ -130,73 +132,77 @@ public class RenMin {
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
 			}
-			if(url.contains(".wml")){
+			if (url.contains(".wml")) {
 				logger.info("跳过URL：" + url);
 				continue;
 			}
 			try {
 				Document doc1 = new RenMin().fetch(url);
 				title = doc1.select("title").first().text().trim();
-				 //发布时间
-				String ctStr =CommonUtils.getRegex("((\\d{2}|((1|2)\\d{3}))(-|年|\\.|/)\\d{1,2}(-|月|\\.|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))",
-						 doc1.toString().replace("\n", "")
-							.replace("\r", "").replace("&nbsp;", " ")).trim();
+				if(title.startsWith("24小时滚动新闻")){
+					logger.info("跳过URL：" + url);
+					continue;
+				}
+				// 发布时间
+				String ctStr = CommonUtils.getRegexTime( 
+						Ctext.deleteLabel(doc1.toString())).trim();
 				Date pubdate = new Date();
 				// 转换各种格式的日期
 				pubdate = (CommonUtils.matchDateString(ctStr) == null ? sinatime_now
 						: CommonUtils.matchDateString(ctStr));
-				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now : pubdate;
-				Ctext ctx = new Ctext();
-				content = ctx.deleteLabel(doc1.toString()).trim();
-				Map<Integer, String> map = ctx.splitBlock(content);
+				pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
+						: pubdate;
+				content = Ctext.deleteLabel(doc1.toString()).trim();
+				Map<Integer, String> map = Ctext.splitBlock(content);
 				// 数据库字段超长、后续可修改
-				if (ctx.judgeBlocks(map).length() > 9999) {
-					content = ctx.judgeBlocks(map).substring(0, 9999);
+				if (Ctext.judgeBlocks(map).length() > 9999) {
+					content = Ctext.judgeBlocks(map).substring(0, 9999);
 				} else {
-					content = ctx.judgeBlocks(map);
+					content = Ctext.judgeBlocks(map);
 				}
-				content=(content=="")?title:content;
-				if(!CommonUtils.checkContent(content)&&!CommonUtils.checkContent(title)){
+				content = (content.length()==0) ? title : content;
+				if (!CommonUtils.checkContent(content)
+						&& !CommonUtils.checkContent(title)) {
 					continue;
 				}
-				String author = CommonUtils.getRegex("来源：(.*?)</a>",
-						 doc1.toString().replace("\n", "")
-							.replace("\r", "").replace("&nbsp;", " ")).trim();
-				 author = CommonUtils.getRegex("([\u4e00-\u9fa5]*)",
-					 		author).trim();
-				  author = (author.length() == 0 || author == null) ? "人民网"
-							: author;
+				String regex2 = "来源：(.*?)</a>";
+				String author = CommonUtils.getRegex(regex2,
+						Ctext.deleteLabel(doc1.toString())).trim();
+				author = CommonUtils.getRegex("([\u4e00-\u9fa5]*)", author)
+						.trim();
+				author = (author.length() == 0 || author == null) ? "人民网"
+						: author;
 				// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 
 				String zfs = "0";
 				String pls = "0";
-				int  type=2;
-				if(url.contains("bbs")){
-					type=3;
+				int type = 2;
+				if (url.contains("bbs")) {
+					type = 3;
+				} else if (url.contains("blog")) {
+					type = 4;
+				} else if (url.contains("weibo")) {
+					type = 1;
 				}
-				else if(url.contains("blog")){
-					type=4;
-				}
-				else if(url.contains("weibo")){
-					type=1;
-				}
-				resultTabService.insertRes(CommonUtils.setMD5(url),
-						title, url, content, CommonUtils.getHost(url), type, keyword,
+				resultTabService.insertRes(CommonUtils.setMD5(url), title, url,
+						content, CommonUtils.getHost(url), type, keyword,
 						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
 						sinatime_now, author, sinatime_now);
-				logger.info("URL:" + url  + "提取完成。");
+				logger.info("URL:" + url + "提取完成。");
 			} catch (Exception e) {
-				logger.error("解析错误URL:" +url+"。异常详情："+ e);
+				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
 		}
 	}
 
 	public void runInter() {
-		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
-		for (final String keyword:keywords1){
+		HashSet<String> keywords1 = new ReadKeyword().getKeyword();
+		for (final String keyword : keywords1) {
 			logger.info("----关键词:" + keyword + " 爬取开始----"
 					+ new Date(System.currentTimeMillis()));
-			getDoc(keyword.trim());
+			if (keyword != null && keyword.trim().length() != 0) {
+				getDoc(keyword.trim());
+			}
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));
 		}
@@ -207,8 +213,9 @@ public class RenMin {
 
 		RenMin sw = new RenMin();
 		sw.runInter();
-		//Document doc=sw.fetch_old("http://money.163.com/14/0313/18/9N848J4600253B0H.html");
-		//System.out.println(doc.toString());
+		// Document
+		// doc=sw.fetch_old("http://money.163.com/14/0313/18/9N848J4600253B0H.html");
+		// System.out.println(doc.toString());
 		logger.info("----全部主页爬取结束----" + new Date(System.currentTimeMillis()));
 	}
 }

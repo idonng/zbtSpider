@@ -7,7 +7,7 @@ import com.cn.zbt.crawlmeta.pojo.ResultTab;
 
 public interface ResultTabSer {
 
-	public List<ResultTab> findAllResult(String resultUrlmd5);
+	public List<ResultTab> findAllResult(ResultTab rt);
 
 	public void insertResult(String resultUrlmd5, String resultTitle,
 			String resultUrl, String resultBody, String resultSource,
@@ -19,8 +19,21 @@ public interface ResultTabSer {
 			  String resultBody, int resultComments,
 			int resultForwarded, String keyword, String resultAuthor,
 			Date rcrawlDate );
+	
+	public void updateResultWx(Long resultKy ,String resultUrlmd5,  
+			 String resultUrl,Date rcrawlDate );
 
 	public void insertRes(String resultUrlmd5, String resultTitle,
+			String resultUrl, String resultBody, String resultSource,
+			int resultType, String keyword, int resultComments,
+			int resultForwarded, Date publishedDate, Date fcrawlDate,
+			String resultAuthor, Date rcrawlDate);
+	public void updateResult1(String resultUrlmd5, String resultTitle,
+			String resultUrl, String resultBody, String resultSource,
+			int resultType, String keyword, int resultComments,
+			int resultForwarded, Date publishedDate, Date fcrawlDate,
+			String resultAuthor, Date rcrawlDate);
+	public void insertRes1(String resultUrlmd5, String resultTitle,
 			String resultUrl, String resultBody, String resultSource,
 			int resultType, String keyword, int resultComments,
 			int resultForwarded, Date publishedDate, Date fcrawlDate,

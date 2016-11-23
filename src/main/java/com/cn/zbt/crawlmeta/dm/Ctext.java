@@ -26,7 +26,7 @@ public class Ctext {
     /**  
      * 判断为正文的文字骤变率  
      */  
-    private static float CHANGE_RATE = 0.5f;  
+    private static float CHANGE_RATE = 0.3f;  
     /**  
      * 每行最小长度  
      */  
@@ -57,7 +57,7 @@ public class Ctext {
         String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // 定义script的正则表达式    
         String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // 定义style的正则表达式    
         String regEx_html = "<[^>]+>"; // 定义HTML标签的正则表达式    
-        String regEx_href ="<a[^>]*?>[\\s\\S]*?<\\/a>";// 定义href标签的正则表达式    
+        String regEx_href ="<a\\s+[^>]*?>[\\s\\S]*?<\\/a>";// 定义href标签的正则表达式    
         String regEx_anno = "<!--[\\s\\S]*?-->"; //html注释  
         html = html.replaceAll(regEx_href, "");  
         html = html.replaceAll(regEx_script, "");  

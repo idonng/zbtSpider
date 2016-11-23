@@ -12,7 +12,6 @@ public class ReadKeyword {
 	public HashSet<String> getKeyword() {
 		HashSet<String> set = new HashSet<String>();
 		List<KeywordTab> kts = keywordTabService.findAllKeyword();
-		
 		for (KeywordTab kt : kts) {
 			set.add(kt.getKeyword_name());
 		}

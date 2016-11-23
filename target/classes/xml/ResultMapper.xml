@@ -37,7 +37,13 @@
 		resultMap="BaseResultMap">
 		select
 		 <include refid="Base_Column_List" /> 
-		from  [dbo].[TB_PUBLIC_OPINION_INFO]  where result_UrlMd5=#{resultUrlmd5,jdbcType=VARCHAR}
+		from  [dbo].[TB_PUBLIC_OPINION_INFO]   
+		<if test="resultUrlmd5 != null">
+			where	result_UrlMd5=#{resultUrlmd5,jdbcType=VARCHAR}
+		</if>
+		<if test="resultTitle != null">
+			where	result_Title=#{resultTitle,jdbcType=VARCHAR} and result_Author=#{resultAuthor,jdbcType=VARCHAR}
+		</if>
 	</select>
 	<insert id="insertResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
 		insert into
@@ -56,5 +62,21 @@
 		result_Title=#{resultTitle},result_Body=#{resultBody},result_Comments=#{resultComments},
 		result_Forwarded=#{resultForwarded},keyword=#{keyword},result_Author=#{resultAuthor},RCrawl_Date=#{rcrawlDate}
 		where result_UrlMd5= #{resultUrlmd5}
+	</update>
+	<update id="updateResultWx" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+		update
+		[dbo].[TB_PUBLIC_OPINION_INFO]  set
+		result_UrlMd5=#{resultUrlmd5},result_Url=#{resultUrl},RCrawl_Date=#{rcrawlDate} 
+		where result_Ky= #{resultKy}
+	</update>
+	<update id="updateResult1" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+	update
+	[dbo].[TB_PUBLIC_OPINION_INFO] set
+	result_Title=#{resultTitle},
+	result_Body=#{resultBody},
+	result_Source=#{resultSource}, result_Type=#{resultType},
+	Published_Date=#{publishedDate}, FCrawl_Date=#{fcrawlDate}, result_Author=#{resultAuthor},
+	RCrawl_Date=#{rcrawlDate},result_Comments=#{resultComments}
+	where result_UrlMd5= #{resultUrlmd5}
 	</update>
 </mapper>

@@ -10,5 +10,9 @@ public interface ResultTabDao {
 	    public void insertResult(ResultTab rt);
 	    
 	    public void updateResult(ResultTab rt);
+	    
+	    public void updateResultWx(ResultTab rt);
+	    
+	    public void updateResult1(ResultTab rt);
 
 }

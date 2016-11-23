@@ -184,6 +184,10 @@ public class SinaWeibo {
 					String id = element.attr("id").substring(2);
 					url = "http://weibo.cn/comment/" + id;
 					logger.info("正在处理：" + url);
+					if (CommonUtils.checkUrlExist(url)) {
+						logger.info("已经处理，跳过URL：" + url);
+						continue;
+					}
 					String ctStr = element.getElementsByClass("ct").get(0)
 							.text().replace("&nbsp;", " ");// 时间块
 					Date pubdate = new Date();
@@ -302,7 +306,12 @@ public class SinaWeibo {
 	public void runInter() {
 		HashSet<String> keywords1 = new ReadKeyword().getKeyword();
 		for (final String keyword : keywords1) {
-			getDoc(keyword);
+			logger.info("----关键词:" + keyword + " 爬取开始----"
+					+ new Date(System.currentTimeMillis()));
+			if(keyword!=null&&keyword.trim().length()!=0)
+			{
+				getDoc(keyword.trim());
+			}
 			logger.info("----关键词:" + keyword + " 爬取结束----"
 					+ new Date(System.currentTimeMillis()));
 		}
@@ -312,7 +321,6 @@ public class SinaWeibo {
 		logger.info("----爬取开始----" + new Date(System.currentTimeMillis()));
 		SinaWeibo sw = new SinaWeibo();
 		sw.runInter();
-
 		logger.info("----爬取结束----" + new Date(System.currentTimeMillis()));
 	}
 }

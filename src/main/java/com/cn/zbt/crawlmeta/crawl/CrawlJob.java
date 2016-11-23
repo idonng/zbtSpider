@@ -14,6 +14,7 @@ import com.cn.zbt.crawlmeta.controller.SinaWeibo;
 import com.cn.zbt.crawlmeta.controller.HuaShang;
 import com.cn.zbt.crawlmeta.controller.TianYa;
 import com.cn.zbt.crawlmeta.controller.WangYi;
+import com.cn.zbt.crawlmeta.controller.Weixin;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 public class CrawlJob implements ServletContextListener {
 	private static final Logger logger = Logger.getLogger(Crawl.class);
@@ -39,7 +40,7 @@ public class CrawlJob implements ServletContextListener {
 	}
 
 	/**
-	 * 1：新浪微博 2：华商网 3：天涯论坛 4：有道搜索（网易） 5：有道搜索（人民网）
+	 * 1：新浪微博 2：华商网 3：天涯论坛 4：有道搜索（网易） 5：有道搜索（人民网）6：360  7：微信
 	 */
 	public void runCrawl() {
 		 
@@ -77,7 +78,7 @@ public class CrawlJob implements ServletContextListener {
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-					for (int j = 6; j <= 6; j++) {
+					for (int j = 7; j <=7; j++) {
 						  crawlJob(keyword, j);
 						System.gc();
 					}
@@ -143,6 +144,13 @@ public class CrawlJob implements ServletContextListener {
 						+ new Date(System.currentTimeMillis()));
 				new Crawl360().getDoc(keyword);
 				logger.info("----爬取360关键词:" + keyword + " 爬取结束----"
+						+ new Date(System.currentTimeMillis()));
+				break;
+			case 7:
+				logger.info("----爬取微信关键词:" + keyword + " 爬取开始----"
+						+ new Date(System.currentTimeMillis()));
+				new Weixin().getDoc(keyword);
+				logger.info("----爬取微信关键词:" + keyword + " 爬取结束----"
 						+ new Date(System.currentTimeMillis()));
 				break;
 			default:
