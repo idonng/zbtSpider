@@ -13,7 +13,12 @@ public class GetService {
     }  
     return instance;  
     }  
-	
+    public static void clearInstance() {  
+        if (instance != null) {  
+            instance = null;  
+        }  
+        return ;  
+    }  
 	private static ApplicationContext ac = null;
 	public  Object getService(String serstr){
 		if(ac==null){

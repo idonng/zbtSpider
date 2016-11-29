@@ -159,7 +159,8 @@ public class HuaShang {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			if (CommonUtils.checkUrlExist(url)) {
+			Long cue=CommonUtils.checkUrlExist(url);
+			if (cue!=0) {
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
 			}

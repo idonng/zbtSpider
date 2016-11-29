@@ -21,15 +21,20 @@ public class ReadKeyword {
 		HashSet<String> set = new HashSet<String>();
 		List<KeywordTab> kts = keywordTabService.findAllKeyword();
 		for (KeywordTab kt : kts) {
-			String ss[]=kt.getKeyword_name().split("\\+");
-			for(String s :ss){
-				set.add(s);
+			if(kt.getKeyword_name().contains("+")){
+				String s=kt.getKeyword_name().replace("+", ".*");
+				set.add(".*"+s+".*");
+				String s1=kt.getKeyword_name().split("\\+")[1].trim()+".*"+kt.getKeyword_name().split("\\+")[0].trim() ;
+				set.add(".*"+s1+".*");
 			}
-		}
+			else{
+				set.add(".*"+kt.getKeyword_name()+".*");
+			}
+ 	}
 		return set;
 	}
 	public static void main(String[] args) {
-		HashSet<String> list = new ReadKeyword().getKeyword();
+		HashSet<String> list = new ReadKeyword().getKeyworda();
 		for (String li : list) {
 			System.out.println(li);
 		}

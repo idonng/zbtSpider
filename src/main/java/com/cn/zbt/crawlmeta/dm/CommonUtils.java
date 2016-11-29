@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.log4j.Logger;
 import com.cn.zbt.crawlmeta.pojo.ResultTab;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
 
@@ -18,7 +19,7 @@ import com.cn.zbt.crawlmeta.service.ResultTabSer;
  */
 public class CommonUtils {
  
-
+	private static final Logger logger = Logger.getLogger(CommonUtils.class);
 
 	public static Date matchDateString(String dateStr) {
 		try {
@@ -145,30 +146,19 @@ public class CommonUtils {
 	private static ResultTabSer resultTabService = (ResultTabSer) GetService
 			.getInstance().getService("resultTabService");
 
-	public static boolean checkUrlExist(String url) {
+	public static Long checkUrlExist(String url) {
 		String urlmd5 =  CommonUtils.setMD5(url);
 		List<ResultTab> list = new ArrayList<ResultTab>();
 		ResultTab rt=new ResultTab();
 		rt.setResultUrlmd5(urlmd5);
 		list = resultTabService.findAllResult(rt);
 		if (list.size() > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	public static Long checkTitleExist(String title,String author) {
-		List<ResultTab> list = new ArrayList<ResultTab>();
-		ResultTab rt=new ResultTab();
-		rt.setResultTitle(title);
-		rt.setResultAuthor(author);
-		list = resultTabService.findAllResult(rt);
-		if (list.size() > 0) {
 			return list.get(0).getResultKy();
 		} else {
-			return  0L;
+			return 0L;
 		}
 	}
+	 
 	public static  String getHost(String url){
         if(url==null||url.trim().equals("")){
             return "other";
@@ -181,8 +171,8 @@ public class CommonUtils {
 	public static  boolean checkContent(String content){ 
 		  HashSet<String>  keywords=  new ReadKeyword().getKeyworda();
 		for(String keyword:keywords){
-			if(content.contains(keyword)){
-				  System.out.println(keyword);
+			if(content.matches(keyword)){
+				logger.info("此网页所含关键字的正则： "+keyword);
 				return true;
 			}
 		}
@@ -212,12 +202,6 @@ public class CommonUtils {
 		/*String url="http://game.sina.com.tw/weibo/user/ycwb2010/3952880035334294";
 		String bl=CommonUtils.getHost(url);
 		System.out.println(bl);*/
-		String url="http://weibo.cn/comment/CezcY67Tq";
-		String title="CRO+CMO+CSO，数千亿市场将迎来爆发式增长";
-		String author="赛柏蓝";
-		if (CommonUtils.checkTitleExist(title, author)!=0) {
-			System.out.println(CommonUtils.checkTitleExist(title, author)); 
-		}
 		
 	}
 }

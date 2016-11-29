@@ -38,12 +38,7 @@
 		select
 		 <include refid="Base_Column_List" /> 
 		from  [dbo].[TB_PUBLIC_OPINION_INFO]   
-		<if test="resultUrlmd5 != null">
-			where	result_UrlMd5=#{resultUrlmd5,jdbcType=VARCHAR}
-		</if>
-		<if test="resultTitle != null">
-			where	result_Title=#{resultTitle,jdbcType=VARCHAR} and result_Author=#{resultAuthor,jdbcType=VARCHAR}
-		</if>
+		where	result_UrlMd5=#{resultUrlmd5,jdbcType=VARCHAR}
 	</select>
 	<insert id="insertResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
 		insert into

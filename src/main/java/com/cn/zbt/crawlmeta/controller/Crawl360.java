@@ -190,7 +190,8 @@ public class Crawl360 {
 					logger.info("跳过不处理wml：" + url);
 					continue;
 				}
-				if (CommonUtils.checkUrlExist(url)) {
+				Long cue=CommonUtils.checkUrlExist(url);
+				if (cue!=0) {
 					logger.info("已经处理，跳过URL：" + url);
 					continue;
 				}

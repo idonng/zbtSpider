@@ -20,9 +20,9 @@ public interface ResultTabSer {
 			int resultForwarded, String keyword, String resultAuthor,
 			Date rcrawlDate );
 	
-	public void updateResultWx(Long resultKy ,String resultUrlmd5,  
+	/*public void updateResultWx(Long resultKy ,String resultUrlmd5,  
 			 String resultUrl,Date rcrawlDate );
-
+*/
 	public void insertRes(String resultUrlmd5, String resultTitle,
 			String resultUrl, String resultBody, String resultSource,
 			int resultType, String keyword, int resultComments,

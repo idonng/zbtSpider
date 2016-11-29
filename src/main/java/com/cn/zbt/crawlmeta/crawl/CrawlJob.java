@@ -15,6 +15,7 @@ import com.cn.zbt.crawlmeta.controller.HuaShang;
 import com.cn.zbt.crawlmeta.controller.TianYa;
 import com.cn.zbt.crawlmeta.controller.WangYi;
 import com.cn.zbt.crawlmeta.controller.Weixin;
+import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 public class CrawlJob implements ServletContextListener {
 	private static final Logger logger = Logger.getLogger(Crawl.class);
@@ -27,6 +28,7 @@ public class CrawlJob implements ServletContextListener {
  
 		do {
 			runCrawl();
+			GetService.clearInstance();
 		} while (true);
 		 
 		 //  runCrawl();

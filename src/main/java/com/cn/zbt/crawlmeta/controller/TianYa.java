@@ -106,7 +106,7 @@ public class TianYa {
 				return;
 			}
 			try {
-				logger.error("开始解析关键字为:“" + keyword + "” 页数为：" + i);
+				logger.info("开始解析关键字为:“" + keyword + "” 页数为：" + i);
 				Document doc = new TianYa().fetch(url, keyword, i + "");
 				if (doc.toString().contains("没有找到含有")) {
 					logger.info("页数异常" + url);
@@ -135,7 +135,8 @@ public class TianYa {
 			String url = "";
 			url = element.attr("href");
 			logger.info("正在处理：" + url);
-			if (CommonUtils.checkUrlExist(url)) {
+			Long cue=CommonUtils.checkUrlExist(url);
+			if (cue!=0) {
 				logger.info("已经处理，跳过URL：" + url);
 				continue;
 			}

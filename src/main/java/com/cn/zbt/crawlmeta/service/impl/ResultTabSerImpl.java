@@ -25,7 +25,7 @@ public class ResultTabSerImpl implements ResultTabSer {
 	}
 
 	@Override
-	public void insertResult(String resultUrlmd5, String resultTitle,
+	public synchronized void insertResult(String resultUrlmd5, String resultTitle,
 			String resultUrl, String resultBody, String resultSource,
 			int resultType, String keyword, int resultComments,
 			int resultForwarded, Date publishedDate, Date fcrawlDate,
@@ -65,7 +65,7 @@ public class ResultTabSerImpl implements ResultTabSer {
 		rt.setRcrawlDate(rcrawlDate);
 		this.resultTabDao.updateResult(rt);
 	}
-	public void updateResultWx(Long resultKy ,String resultUrlmd5,  
+	/*public synchronized void updateResultWx(Long resultKy ,String resultUrlmd5,  
 			 String resultUrl,Date rcrawlDate ){
 		// TODO Auto-generated method stub
 		ResultTab rt = new ResultTab();
@@ -74,7 +74,7 @@ public class ResultTabSerImpl implements ResultTabSer {
 		rt.setResultUrl(resultUrl);
 		rt.setRcrawlDate(rcrawlDate);
 		this.resultTabDao.updateResultWx(rt);
-	}
+	}*/
 	@Override
 	public synchronized void insertRes(String resultUrlmd5, String resultTitle,
 			String resultUrl, String resultBody, String resultSource,
