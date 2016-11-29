@@ -1,0 +1,16 @@
+use master
+declare @ls_time varchar(100)
+declare @ls_dbname varchar(100)
+set @ls_time = convert(varchar, getdate(), 112) + '_' + replace(convert(varchar, getdate(), 108), ':', '')
+
+set @ls_dbname = 'E:\data\backup\' + @ls_time + '_crawldata.bak'
+BACKUP DATABASE crawldata TO disk = @ls_dbname
+
+
+
+use master
+RESTORE DATABASE crawldata
+FROM DISK = 'E:\data\backup\20160810_125035_crawldata.bak'   --bak文件路径
+with replace,
+MOVE 'crawldata' TO 'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\crawldata.mdf',   --mdf文件路径
+MOVE 'crawldata_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\crawldata_log.ldf'   --ldf文件路径
