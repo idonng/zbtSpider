@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.cn.zbt.crawlmeta.dao.IpTabDao">
+  
+     <select id="findValue" resultType="com.cn.zbt.crawlmeta.pojo.IpTab"  >
+     select top 1  * from [dbo].[TB_IP]  order by NewID()
+    </select>
+     <update id="updateIp" parameterType="com.cn.zbt.crawlmeta.pojo.IpTab" >
+			update  [dbo].[TB_IP]  set type=0 where id= #{id}
+	 </update>
+	 <insert id="insertIp" parameterType="com.cn.zbt.crawlmeta.pojo.IpTab" >
+			insert into   [dbo].[TB_IP]  (ip,port,type) values(#{ip},#{port},#{type})
+	 </insert>
+</mapper>

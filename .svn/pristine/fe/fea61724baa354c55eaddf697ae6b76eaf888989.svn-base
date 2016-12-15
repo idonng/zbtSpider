@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.zbt.crawlmeta.dao.ResultTabDao">
+  <resultMap id="BaseResultMap" type="com.cn.zbt.crawlmeta.pojo.ResultTab" >
+    <id column="result_Ky" property="resultKy" jdbcType="BIGINT" />
+    <result column="result_UrlMd5" property="resultUrlmd5" jdbcType="VARCHAR" />
+    <result column="result_Source" property="resultSource" jdbcType="VARCHAR" />
+    <result column="result_Type" property="resultType" jdbcType="INTEGER" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+    <result column="result_Title" property="resultTitle" jdbcType="VARCHAR" />
+    <result column="result_Author" property="resultAuthor" jdbcType="VARCHAR" />
+    <result column="result_Forwarded" property="resultForwarded" jdbcType="INTEGER" />
+    <result column="result_Comments" property="resultComments" jdbcType="INTEGER" />
+    <result column="Published_Date" property="publishedDate" jdbcType="TIMESTAMP" />
+    <result column="FCrawl_Date" property="fcrawlDate" jdbcType="TIMESTAMP" />
+    <result column="RCrawl_Date" property="rcrawlDate" jdbcType="TIMESTAMP" />
+    <result column="result_Emotion" property="resultEmotion" jdbcType="INTEGER" />
+    <result column="result_Effective" property="resultEffective" jdbcType="INTEGER" />
+    <result column="result_IsRead" property="resultIsread" jdbcType="INTEGER" />
+    <result column="result_IsFocus" property="resultIsfocus" jdbcType="INTEGER" />
+     <result column="result_Body" property="resultBody" jdbcType="CLOB" />
+    <result column="result_Url" property="resultUrl" jdbcType="CLOB" />
+    <result column="result_Remarks1" property="resultRemarks1" jdbcType="CLOB" />
+    <result column="result_Remarks2" property="resultRemarks2" jdbcType="CLOB" />
+    <result column="result_Remarks3" property="resultRemarks3" jdbcType="CLOB" />
+    <result column="result_Remarks4" property="resultRemarks4" jdbcType="CLOB" />
+    <result column="result_Remarks5" property="resultRemarks5" jdbcType="CLOB" />
+  </resultMap>
+   
+   <sql id="Base_Column_List" >
+    result_Ky, result_UrlMd5, result_Source, result_Type, keyword, result_Title, result_Author, 
+    result_Forwarded, result_Comments, Published_Date, FCrawl_Date, RCrawl_Date, result_Emotion, 
+    result_Effective, result_IsRead, result_IsFocus,result_Body, result_Url, result_Remarks1, result_Remarks2, result_Remarks3, result_Remarks4, 
+    result_Remarks5
+  </sql>
+	<select id="findAllResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab"
+		resultMap="BaseResultMap">
+		select
+		 <include refid="Base_Column_List" /> 
+		from  [dbo].[TB_PUBLIC_OPINION_INFO]   
+		where	result_UrlMd5=#{resultUrlmd5,jdbcType=VARCHAR}
+	</select>
+	<insert id="insertResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+		insert into
+		[dbo].[TB_PUBLIC_OPINION_INFO] 
+		(result_UrlMd5, result_Title, result_Url,
+		result_Body,
+		result_Source, result_Type, keyword, result_Comments,
+		result_Forwarded, Published_Date, FCrawl_Date, result_Author,
+		RCrawl_Date)
+		values
+		(#{resultUrlmd5},#{resultTitle},#{resultUrl},#{resultBody},#{resultSource},#{resultType},#{keyword},#{resultComments},#{resultForwarded},#{publishedDate},#{fcrawlDate},#{resultAuthor},#{rcrawlDate} )
+	</insert>
+	<update id="updateResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+		update
+		[dbo].[TB_PUBLIC_OPINION_INFO]  set
+		result_Title=#{resultTitle},result_Body=#{resultBody},result_Comments=#{resultComments},
+		result_Forwarded=#{resultForwarded},keyword=#{keyword},result_Author=#{resultAuthor},RCrawl_Date=#{rcrawlDate}
+		where result_UrlMd5= #{resultUrlmd5}
+	</update>
+	<update id="updateResultWx" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+		update
+		[dbo].[TB_PUBLIC_OPINION_INFO]  set
+		result_UrlMd5=#{resultUrlmd5},result_Url=#{resultUrl},RCrawl_Date=#{rcrawlDate} 
+		where result_Ky= #{resultKy}
+	</update>
+	<update id="updateResult1" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+	update
+	[dbo].[TB_PUBLIC_OPINION_INFO] set
+	result_Title=#{resultTitle},
+	result_Body=#{resultBody},
+	result_Source=#{resultSource}, result_Type=#{resultType},
+	Published_Date=#{publishedDate}, FCrawl_Date=#{fcrawlDate}, result_Author=#{resultAuthor},
+	RCrawl_Date=#{rcrawlDate},result_Comments=#{resultComments}
+	where result_UrlMd5= #{resultUrlmd5}
+	</update>
+</mapper>

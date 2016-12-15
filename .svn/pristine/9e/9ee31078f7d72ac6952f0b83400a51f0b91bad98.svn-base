@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.cn.zbt.crawlmeta.dao.LasttimeTabDao">
+  
+     <select id="findValue" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" resultType="String">
+     	select top 1  * from [dbo].[TB_LASTTIME]  order by NewID()
+    </select>
+    <insert id="insertLasttimeTab" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" >
+         insert into [dbo].[TB_LASTTIME] (key,value) values (#{key},#{value})
+    </insert>
+    <update id="updateLasttimeTab" parameterType="com.cn.zbt.crawlmeta.pojo.LasttimeTab" >
+		update [dbo].[TB_LASTTIME] set value=#{value} where key= #{key}
+	 </update>
+</mapper>
