@@ -1,4 +1,4 @@
-package com.cn.zbt.crawlmeta.crawl;
+/*package com.cn.zbt.crawlmeta.crawl;
 
 import com.cn.zbt.crawlmeta.dm.GetService;
 
@@ -12,4 +12,4 @@ public class Crawl {
 		} while (true);
  		
 	}
-}
+}*/

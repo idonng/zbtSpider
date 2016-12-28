@@ -36,7 +36,7 @@ public class SetProxy {
 	public static void main(String[] args) {
 		new SetProxy().setIp();
 	}
-	//调过https的认证
+	//跳过https的认证
 	public   void trustEveryone() {
 	try {
 		HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {

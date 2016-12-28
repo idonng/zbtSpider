@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.zbt.crawlmeta.dao.IWebConfDao" >
+  <resultMap id="BaseResultMap" type="com.cn.zbt.crawlmeta.pojo.WebConf" >
+    <id column="web_key" property="webKey" jdbcType="INTEGER" />
+    <result column="host_name" property="hostName" jdbcType="VARCHAR" />
+    <result column="chs_name" property="chsName" jdbcType="VARCHAR" />
+    <result column="web_level" property="webLevel" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="lastupdate_time" property="lastupdateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    web_key, host_name, chs_name, web_level, user_id, lastupdate_time
+  </sql>
+  <select id="selectByHostName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select TOP 1
+    <include refid="Base_Column_List" />
+    from TB_WEB_CONF
+    where host_name  =#{hostName} 
+    ORDER BY NewID() ; 
+  </select>
+  
+  <select id="selectByHostNameLike" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select TOP 1
+    <include refid="Base_Column_List" />
+    from TB_WEB_CONF
+    where host_name  like '%'+#{hostName}+'%'
+    ORDER BY NewID() ; 
+  </select>
+  
+</mapper>

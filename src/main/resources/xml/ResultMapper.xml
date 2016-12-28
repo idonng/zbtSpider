@@ -18,6 +18,7 @@
     <result column="result_Effective" property="resultEffective" jdbcType="INTEGER" />
     <result column="result_IsRead" property="resultIsread" jdbcType="INTEGER" />
     <result column="result_IsFocus" property="resultIsfocus" jdbcType="INTEGER" />
+     <result column="web_conf_key" property="webConfKey" jdbcType="BIGINT" />
      <result column="result_Body" property="resultBody" jdbcType="CLOB" />
     <result column="result_Url" property="resultUrl" jdbcType="CLOB" />
     <result column="result_Remarks1" property="resultRemarks1" jdbcType="CLOB" />
@@ -31,8 +32,15 @@
     result_Ky, result_UrlMd5, result_Source, result_Type, keyword, result_Title, result_Author, 
     result_Forwarded, result_Comments, Published_Date, FCrawl_Date, RCrawl_Date, result_Emotion, 
     result_Effective, result_IsRead, result_IsFocus,result_Body, result_Url, result_Remarks1, result_Remarks2, result_Remarks3, result_Remarks4, 
-    result_Remarks5
+    result_Remarks5,web_conf_key
   </sql>
+  <select id="findAll" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab"
+		resultMap="BaseResultMap">
+		select
+		 <include refid="Base_Column_List" /> 
+		from  [dbo].[TB_PUBLIC_OPINION_INFO]   
+		where	 web_conf_key is null
+	</select>
 	<select id="findAllResult" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab"
 		resultMap="BaseResultMap">
 		select
@@ -73,5 +81,13 @@
 	Published_Date=#{publishedDate}, FCrawl_Date=#{fcrawlDate}, result_Author=#{resultAuthor},
 	RCrawl_Date=#{rcrawlDate},result_Comments=#{resultComments}
 	where result_UrlMd5= #{resultUrlmd5}
+	</update>
+	
+	<update id="updateRefeshData" parameterType="com.cn.zbt.crawlmeta.pojo.ResultTab">
+	update
+	[dbo].[TB_PUBLIC_OPINION_INFO] set
+	result_Source=#{resultSource},
+	web_conf_key=#{webConfKey}
+	where result_Ky= #{resultKy}
 	</update>
 </mapper>

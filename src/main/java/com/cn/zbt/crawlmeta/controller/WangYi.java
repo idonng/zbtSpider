@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
+import com.cn.zbt.crawlmeta.dm.ConfWeb;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
@@ -97,6 +100,8 @@ public class WangYi {
 	}
 
 	public void getDoc(String keyword) {
+		logger.info("----爬取网易关键词:" + keyword + " 爬取开始----"
+				+ new Date(System.currentTimeMillis()));
 		int i = 0;
 		String reg = "";
 		do {
@@ -106,8 +111,13 @@ public class WangYi {
 			String url = "http://www.youdao.com/search";
 			try {
 				Document doc = new WangYi().fetch(url, keyword, i++ + "");
-				reg = doc.getElementsByClass("c-pages").text();
 				getData(doc, keyword);
+				if(doc.toString().contains("c-pages")){
+					reg = doc.getElementsByClass("c-pages").text();
+				}
+				else{
+					reg = "";
+				}
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -116,6 +126,8 @@ public class WangYi {
 			}
 			System.gc();
 		} while (reg.contains("下一页"));
+		logger.info("----爬取网易关键词:" + keyword + " 爬取结束----"
+				+ new Date(System.currentTimeMillis()));
 	}
 
 	public void getData(Document doc, String keyword) {
@@ -127,7 +139,7 @@ public class WangYi {
 			String content = "";
 			String url = "";
 			url = element.attr("href");
-			//logger.info("正在处理：" + url);
+			 logger.info("正在处理：" + url);
 			Long cue=CommonUtils.checkUrlExist(url);
 			if (cue!=0) {
 				//logger.info("已经处理，跳过URL：" + url);
@@ -173,6 +185,15 @@ public class WangYi {
 
 				String zfs = "0";
 				String pls = "0";
+				
+
+				//配置网站来源、等级
+				Map<String, String> webMap = ConfWeb.getWebConf(CommonUtils
+						.getHost(url));
+				String resultSource = webMap.get("chsName");
+				int webConfKey = Integer.valueOf(webMap.get("webConfKey"));
+				
+				
 				int type = 2;
 				if (url.contains("weibo")) {
 					type = 1;
@@ -182,9 +203,9 @@ public class WangYi {
 					type = 3;
 				}
 				resultTabService.insertRes(CommonUtils.setMD5(url), title, url,
-						content, CommonUtils.getHost(url), type, keyword,
+						content,resultSource, type, keyword,
 						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
-						sinatime_now, author, sinatime_now);
+						sinatime_now, author, sinatime_now,webConfKey);
 				logger.info("URL:" + url + "提取完成。");
 			} catch (Exception e) {
 				logger.error("解析错误URL:" + url + "。异常详情：" + e);

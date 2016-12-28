@@ -193,7 +193,7 @@ public class SinaWeibo {
 					String author = "";
 					String id = element.attr("id").substring(2);
 					url = "http://weibo.cn/comment/" + id;
-					//logger.info("正在处理：" + url);
+					 logger.info("正在处理：" + url);
 					Long cue=CommonUtils.checkUrlExist(url);
 					if (cue!=0) {
 						//logger.info("已经处理，跳过URL：" + url);
@@ -243,10 +243,10 @@ public class SinaWeibo {
 					}
 					resultTabService.insertRes(CommonUtils.setMD5(url),
 							title , url, content ,
-							CommonUtils.getHost(url), 1, keyword,
+							"新浪微博", 1, keyword,
 							Integer.valueOf(pls), Integer.valueOf(zfs),
 							pubdate, string2Date(sinatime_now), author,
-							string2Date(sinatime_now));
+							string2Date(sinatime_now),9);
 					logger.info("URL:" + url + " " + "提取完成。");
 				}
 			}

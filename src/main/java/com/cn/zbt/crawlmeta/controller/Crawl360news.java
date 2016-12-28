@@ -7,18 +7,22 @@ import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.X509TrustManager;
 import javax.net.ssl.SSLSession;
+
 import org.jsoup.Connection;
 import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
+import com.cn.zbt.crawlmeta.dm.ConfWeb;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
@@ -157,9 +161,6 @@ public class Crawl360news {
 		int i = 1;
 		String reg = "";
 		do {
-			if (i < 1) {
-				return;
-			}
 			String url = "http://news.so.com/ns";
 			try {
 				Document doc = new Crawl360news().fetch(url, keyword, i++ + "");
@@ -169,10 +170,8 @@ public class Crawl360news {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				i--;
 				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
-			System.gc();
 		} while (reg.contains("下一页"));
 	}
 
@@ -187,7 +186,7 @@ public class Crawl360news {
 				String url = "";
 				String author = "360";
 				url = elementsurl.attr("href");
-				//logger.info("正在处理：" + url);
+				logger.info("正在处理：" + url);
 				if (url.contains("360webcache")) {
 					logger.info("跳过不处理360webcache：" + url);
 					continue;
@@ -234,6 +233,14 @@ public class Crawl360news {
 					// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
 					String zfs = "0";
 					String pls = "0";
+					
+
+					//配置网站来源、等级
+					Map<String, String> webMap = ConfWeb.getWebConf(CommonUtils
+							.getHost(url));
+					String resultSource = webMap.get("chsName");
+					int webConfKey = Integer.valueOf(webMap.get("webConfKey"));
+					
 					int type = 2;
 					if (url.contains("bbs")) {
 						type = 3;
@@ -243,10 +250,10 @@ public class Crawl360news {
 						type = 1;
 					}
 					resultTabService.insertRes(CommonUtils.setMD5(url), title,
-							url, content, CommonUtils.getHost(url), type,
+							url, content,resultSource, type,
 							keyword, Integer.valueOf(pls),
 							Integer.valueOf(zfs), pubdate, sinatime_now,
-							author, sinatime_now);
+							author, sinatime_now,webConfKey);
 					logger.info("URL:" + url + " 提取完成。");
 				} catch (Exception e) {
 					logger.error("解析错误URL:" + url + "。异常详情：" + e);

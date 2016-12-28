@@ -19,8 +19,6 @@ import com.cn.zbt.crawlmeta.service.ResultTabSer;
  */
 public class CommonUtils {
  
-	private static final Logger logger = Logger.getLogger(CommonUtils.class);
-
 	public static Date matchDateString(String dateStr) {
 		try {
 			List<String> matches = new ArrayList<String>();
@@ -161,7 +159,7 @@ public class CommonUtils {
 	 
 	public static  String getHost(String url){
         if(url==null||url.trim().equals("")){
-            return "other";
+            return "default";
         }
         String host = "";
         String	regex="((\\w)+)+\\.(com|cn|net|org|biz|edu|gov|mil|cc|tv|me|tw|hk)(\\.(com|cn|net|org|biz|edu|gov|mil|cc|tv|me|tw|hk)|)/";

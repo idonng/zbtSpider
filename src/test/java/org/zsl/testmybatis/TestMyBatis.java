@@ -20,7 +20,12 @@ import com.cn.zbt.crawlmeta.controller.YouDao;
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.pojo.AccountTab;
+import com.cn.zbt.crawlmeta.pojo.KeywordTab;
+import com.cn.zbt.crawlmeta.pojo.WebConf;
+import com.cn.zbt.crawlmeta.service.IWebConfService;
+import com.cn.zbt.crawlmeta.service.KeywordTabSer;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
+import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
 
 @RunWith(SpringJUnit4ClassRunner.class)		//表示继承了SpringJUnit4ClassRunner类
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
@@ -29,7 +34,8 @@ public class TestMyBatis {
 	//private static Logger logger = Logger.getLogger(TestMyBatis.class);
 //	private ApplicationContext ac = null;
 	@Resource  
-	  private   ResultTabSer resultTabService;
+	  private   IWebConfService  webConfService;
+	 
 //	@Before
 //	public void before() {
 //		ac = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -37,56 +43,9 @@ public class TestMyBatis {
 //	}
 
 	@Test
-	public void test1() {
-		String url="http://mp.weixin.qq.com/s?src=3&timestamp=1481072244&ver=1&signature=wgWivHRVVu4CF9bubIodXnvedNqOfK197hmQgLWfGknUf2QlBN1KTf-gHaK9FethnElGr2VHAjdJXdHOl2LIl2p8iAX6D7joXXjeP3K2Wf9HpJuaLHwb9**kNHn3Tdn8QYTLxKFktK7BjUNjoaxjyn8z1lcj0x9cQ0WfAxgPk6s=&devicetype=Windows-QQBrowser&version=61030004&pass_ticket=qMx7ntinAtmqhVn+C23mCuwc9ZRyUp20kIusGgbFLi0=&uin=MTc1MDA1NjU1&ascene=1";
-		Date sinatime_now = new Date();
-		String title = "";
-		String content = "";
-		String author = "";
-		Document doc1 = new YouDao().fetch(url);
-		  title = doc1.select("title").first().text().trim();
-		String ctStr = "";
-		String regex1 = "((\\d{2}|((1|2)\\d{3}))(-|年|/)\\d{1,2}(-|月|/)\\d{1,2}(日|)(( |)\\d{1,2}:\\d{1,2}(:\\d{1,2}|)|))";
-		ctStr = CommonUtils.getRegex(regex1,
-				Ctext.deleteLabel(doc1.toString())).trim();
-		System.out.println(ctStr);
-		 // 时间块
-		Date pubdate = new Date();
-		// 转换各种格式的日期
-		pubdate = ( CommonUtils.matchDateString(ctStr) == null ? sinatime_now
-				: CommonUtils.matchDateString(ctStr));
-		pubdate = pubdate.compareTo(sinatime_now) > 0 ? sinatime_now
-				: pubdate;
-		content = Ctext.deleteLabel(doc1.toString()).trim();
-		Map<Integer, String> map = Ctext.splitBlock(content);
-		// 数据库字段超长、后续可修改
-		if (Ctext.judgeBlocks(map).length() > 9999) {
-			content = Ctext.judgeBlocks(map).substring(0, 9999);
-		} else {
-			content = Ctext.judgeBlocks(map);
-		}
-		String regex2 = "作者：(.*?)<";
-		author = CommonUtils.getRegex(regex2,
-				 doc1.toString().replace("\n", "").replace("\r", "")
-				.replace("&nbsp;", " ")).trim();
-		System.out.println(author);
-		// 转发量，评论量。新闻稿有的不存在，需要后续处理，进行热度排序推送
-		  author = (author.length() == 0 || author == null) ? "东方财富网"
-					: author;
-		String zfs = "0";
-		String pls = "0";
-		int type = 2; //news
-		if (url.contains("bbs")) {
-			type = 3;
-		} else if (url.contains("blog")) {
-			type = 4;
-		} else if (url.contains("weibo")) {
-			type = 1;
-		}
-		resultTabService.insertRes1(CommonUtils.setMD5(url),
-				title, url, content, CommonUtils.getHost(url), type, "",
-				Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
-				sinatime_now, author, sinatime_now);
-		 
+	public void test1() { 
+		String hostName="huanqiu";
+		WebConf wc=webConfService.selectByHostNameLike(hostName);
+		System.out.println(wc.getChsName());
 	}
 }

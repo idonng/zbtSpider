@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
+import com.cn.zbt.crawlmeta.dm.ConfWeb;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
@@ -94,6 +97,8 @@ public class TianYa {
 	}
 
 	public void getDoc(String keyword) {
+		logger.info("----爬取天涯论坛关键词:" + keyword + " 爬取开始----"
+				+ new Date(System.currentTimeMillis()));
 		int i = 0;
 		String reg = "";
 		do {
@@ -111,7 +116,12 @@ public class TianYa {
 					logger.info("页数异常" + url);
 					return;
 				}
-				reg = doc.getElementsByClass("long-pages").last().toString();
+				if(doc.toString().contains("long-pages")){
+					reg = doc.getElementsByClass("long-pages").last().toString();
+				}
+				else{
+					reg = "";
+				}
 				getData(doc, keyword);
 				Thread.sleep(2000);
 			} catch (Exception e) {
@@ -121,7 +131,8 @@ public class TianYa {
 			}
 			System.gc();
 		} while (!reg.contains("<span>下一页</span>"));
-
+		logger.info("----爬取天涯论坛关键词:" + keyword + " 爬取结束----"
+				+ new Date(System.currentTimeMillis()));
 	}
 
 	public void getData(Document doc, String keyword) {
@@ -133,7 +144,7 @@ public class TianYa {
 			String content = "";
 			String url = "";
 			url = element.attr("href");
-			//logger.info("正在处理：" + url);
+			 logger.info("正在处理：" + url);
 			Long cue=CommonUtils.checkUrlExist(url);
 			if (cue!=0) {
 				//logger.info("已经处理，跳过URL：" + url);
@@ -178,6 +189,15 @@ public class TianYa {
 						doc1.toString().replace("\n", "").replace("\r", "")
 								.replace("&nbsp;", " ")).trim();
 				pls = (pls.length() == 0 || pls == null) ? "0" : pls;
+				
+
+				//配置网站来源、等级
+				Map<String, String> webMap = ConfWeb.getWebConf(CommonUtils
+						.getHost(url));
+				String resultSource = webMap.get("chsName");
+				int webConfKey = Integer.valueOf(webMap.get("webConfKey"));
+				
+				
 				int type = 3;
 				if (url.contains("weibo")) {
 					type = 1;
@@ -187,9 +207,9 @@ public class TianYa {
 					type = 2;
 				}
 				resultTabService.insertRes(CommonUtils.setMD5(url), title, url,
-						content, CommonUtils.getHost(url), type, keyword,
+						content, resultSource, type, keyword,
 						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
-						sinatime_now, author, sinatime_now);
+						sinatime_now, author, sinatime_now,webConfKey);
 				logger.info("URL:" + url + "     " + "提取完成。");
 			} catch (Exception e) {
 				logger.error("解析错误:" + url + "错误详情： " + e);

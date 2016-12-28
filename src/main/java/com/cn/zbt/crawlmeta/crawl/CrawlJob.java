@@ -1,4 +1,4 @@
-package com.cn.zbt.crawlmeta.crawl;
+ package com.cn.zbt.crawlmeta.crawl;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -21,7 +21,7 @@ import com.cn.zbt.crawlmeta.controller.Weixin;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
 public class CrawlJob implements ServletContextListener {
-	private static final Logger logger = Logger.getLogger(Crawl.class);
+	private static final Logger logger = Logger.getLogger(CrawlJob.class);
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		// do all the tasks that you need to perform just after the server
@@ -32,9 +32,9 @@ public class CrawlJob implements ServletContextListener {
 		do {
 			runCrawl();
 			try {
-				logger.info("停止等待1分钟");
-				Thread.sleep(60000);
-				logger.info("结束等待1分钟");
+				logger.info("停止等待2分钟");
+				Thread.sleep(120000);
+				logger.info("结束等待2分钟");
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -52,13 +52,13 @@ public class CrawlJob implements ServletContextListener {
 		logger.info("----爬取任务被强制结束----" + new Date(System.currentTimeMillis()));
 	}
 
-	/**
+	 /* 
 	 * 1：360  2：华商网 3：天涯论坛 4：有道搜索（网易） 5：有道搜索（人民网）6：新浪微博  7：微信
-	 */
+	 */ 
 	public void runCrawl() {
 		 
 		logger.info("----爬取任务全部开始----" + new Date(System.currentTimeMillis()));
-		ExecutorService fixedThreadPool1 = Executors.newFixedThreadPool(5);
+		ExecutorService fixedThreadPool1 = Executors.newFixedThreadPool(10);
 		HashSet<String>  keywords1=new ReadKeyword().getKeyword();
 		for (final String keyword:keywords1){
 			fixedThreadPool1.submit(new Runnable() {
@@ -66,7 +66,7 @@ public class CrawlJob implements ServletContextListener {
 				public void run() {
 					// TODO Auto-generated method stub
 					crawlJob(keyword, 1);
-					
+					//System.out.println(keyword);
 					System.gc();
 				}
 			});
@@ -80,34 +80,36 @@ public class CrawlJob implements ServletContextListener {
 					// TODO Auto-generated method stub
 					for (int j = 2; j <= 5; j++) {
 						  crawlJob(keyword, j);
+						//System.out.println(keyword);
 						System.gc();
 					}
 				}
 			});
 		}
-		ExecutorService fixedThreadPool3 = Executors.newFixedThreadPool(5);
+		ExecutorService fixedThreadPool3 = Executors.newFixedThreadPool(1);
 		HashSet<String>  keywords3=new ReadKeyword().getKeyword();
 		for (final String keyword:keywords3){
 			fixedThreadPool3.submit(new Runnable() {
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
-					for (int j = 6; j <=7; j++) {
+					for (int j = 6; j <=6; j++) {
 						crawlJob(keyword, j);
-						
+						//System.out.println(keyword);
 						System.gc();
 					}
 				}
 			});
 		}
-		fixedThreadPool1.shutdown();
-		fixedThreadPool2.shutdown();
-		fixedThreadPool3.shutdown();
+		if(!fixedThreadPool1.isShutdown()){
+			fixedThreadPool1.shutdown();}
+		if(!fixedThreadPool2.isShutdown()){
+			fixedThreadPool2.shutdown();}
+		if(!fixedThreadPool3.isShutdown()){
+			fixedThreadPool3.shutdown();}
 		while (!fixedThreadPool1.isTerminated()
 				|| !fixedThreadPool2.isTerminated()||!fixedThreadPool3.isTerminated()) {
 		}  
-		/*while (  !fixedThreadPool2.isTerminated()) {
-		}*/
 		logger.info("----爬取任务全部结束----" + new Date(System.currentTimeMillis()));
 		
 	 }
@@ -115,32 +117,24 @@ public class CrawlJob implements ServletContextListener {
 		try {
 			switch (m) {
 			case 1:
-				logger.info("----爬取360关键词:" + keyword + " 爬取开始----"
-						+ new Date(System.currentTimeMillis()));
+				
 				new Crawl360().getDoc(keyword);
-				logger.info("----爬取360关键词:" + keyword + " 爬取结束----"
-						+ new Date(System.currentTimeMillis()));
+				
 				break;
 			case 2:
-				logger.info("----爬取华商网关键词:" + keyword + " 爬取开始----"
-						+ new Date(System.currentTimeMillis()));
+				
 				new HuaShang().getDoc(keyword);
-				logger.info("----爬取华商网关键词:" + keyword + " 爬取结束----"
-						+ new Date(System.currentTimeMillis()));
+				
 				break;
 			case 3:
-				logger.info("----爬取天涯论坛关键词:" + keyword + " 爬取开始----"
-						+ new Date(System.currentTimeMillis()));
+				
 				new TianYa().getDoc(keyword);
-				logger.info("----爬取天涯论坛关键词:" + keyword + " 爬取结束----"
-						+ new Date(System.currentTimeMillis()));
+				
 				break;
 			case 4:
-				logger.info("----爬取网易关键词:" + keyword + " 爬取开始----"
-						+ new Date(System.currentTimeMillis()));
+				
 				new WangYi().getDoc(keyword);
-				logger.info("----爬取网易关键词:" + keyword + " 爬取结束----"
-						+ new Date(System.currentTimeMillis()));
+				
 				break;
 			case 5:
 				logger.info("----爬取人民网关键词:" + keyword + " 爬取开始----"
@@ -167,10 +161,10 @@ public class CrawlJob implements ServletContextListener {
 			default:
 				break;
 			}
-			System.gc();
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 }
+ 

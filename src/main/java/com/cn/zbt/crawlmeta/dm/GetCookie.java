@@ -92,7 +92,7 @@ public class GetCookie {
 			//return cookies.equals("")?null:cookies.substring(cookies.indexOf("SUB"), cookies.length());
 			return cookie;
 	        }catch (Exception e) {
-	        	Thread.sleep(10000);
+	        	Thread.sleep(1000);
 	        	//new SetProxy().setIp();
 	        	cookie=getMCookies_b(username, password);
 	        	logger.error("获取新浪微博cookie异常！",e);
@@ -144,6 +144,7 @@ public class GetCookie {
 	 * @return cookie
 	 */
 public  Map<String, String> getCookieWx() {
+	new SetProxy().setIp();
 	Random rd =new Random();
     JBrowserDriver driver = new JBrowserDriver(Settings.builder().
       timezone(Timezone.ASIA_SHANGHAI).build());
@@ -172,6 +173,7 @@ public  Map<String, String> getCookieWx() {
 }
 
 public  Map<String, String> getCookieWx_b() {
+	new SetProxy().setIp();
 	Random rd =new Random();
     JBrowserDriver driver = new JBrowserDriver(Settings.builder().
       timezone(Timezone.ASIA_SHANGHAI).build());

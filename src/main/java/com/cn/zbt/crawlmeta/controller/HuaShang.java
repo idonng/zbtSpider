@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Map;
+
 import org.apache.log4j.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
+import com.cn.zbt.crawlmeta.dm.ConfWeb;
 import com.cn.zbt.crawlmeta.dm.Ctext;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
@@ -45,8 +48,6 @@ public class HuaShang {
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url,q,p);
-			logger.error("访问华商网异常==========>", e);
-			logger.error("华商网异常URL为：" + url);
 		} finally {
 			return doc;
 		}
@@ -94,8 +95,6 @@ public class HuaShang {
 			doc = conn.get();
 		} catch (IOException e) {
 			doc = fetch_old(url);
-			logger.error("访问华商网异常==========>", e);
-			logger.error("华商网异常URL为：" + url);
 		} finally {
 			return doc;
 		}
@@ -121,12 +120,11 @@ public class HuaShang {
 	}
 
 	public void getDoc(String keyword) {
+		logger.info("----爬取华商网关键词:" + keyword + " 爬取开始----"
+				+ new Date(System.currentTimeMillis()));
 		int i = 0;
 		String reg = "";
 		do {
-			if (i < 0) {
-				return;
-			}
 			String url = "http://so.hsw.cn/cse/search";
 			try {
 				Document doc = new HuaShang().fetch(url, keyword, i++ + "");
@@ -134,17 +132,21 @@ public class HuaShang {
 				if (doc.toString().contains("建议您尝试变换检索词")) {
 					return;
 				}
-				reg = doc.getElementById("pageFooter").text();
-				;
 				getData(doc, keyword);
+				if(doc.toString().contains("pageFooter")){
+					reg = doc.getElementById("pageFooter").text();
+				}
+				else{
+					reg = "";
+				}
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
-				i--;
 				logger.error("解析错误URL:" + url + "。异常详情：" + e);
 			}
-			System.gc();
 		} while (reg.contains("下一页"));
+		logger.info("----爬取华商网关键词:" + keyword + " 爬取结束----"
+				+ new Date(System.currentTimeMillis()));
 	}
 
 	public void getData(Document doc, String keyword) {
@@ -156,7 +158,7 @@ public class HuaShang {
 			String content = "";
 			String url = "";
 			url = element.attr("href");
-			//logger.info("正在处理：" + url);
+			logger.info("正在处理：" + url);
 			Long cue=CommonUtils.checkUrlExist(url);
 			if (cue!=0) {
 				//logger.info("已经处理，跳过URL：" + url);
@@ -201,6 +203,13 @@ public class HuaShang {
 
 				String zfs = "0";
 				String pls = "0";
+				
+				//配置网站来源、等级
+				Map<String, String> webMap = ConfWeb.getWebConf(CommonUtils
+						.getHost(url));
+				String resultSource = webMap.get("chsName");
+				int webConfKey = Integer.valueOf(webMap.get("webConfKey"));
+				
 				int type = 2;
 				if (url.contains("bbs")) {
 					type = 3;
@@ -210,9 +219,9 @@ public class HuaShang {
 					type = 1;
 				}
 				resultTabService.insertRes(CommonUtils.setMD5(url), title, url,
-						content, CommonUtils.getHost(url), type, keyword,
+						content, resultSource, type, keyword,
 						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
-						sinatime_now, author, sinatime_now);
+						sinatime_now, author, sinatime_now,webConfKey);
 				logger.info("URL:" + url + "提取完成。");
 			} catch (Exception e) {
 				logger.error("解析错误URL:" + url + "。异常详情：" + e);

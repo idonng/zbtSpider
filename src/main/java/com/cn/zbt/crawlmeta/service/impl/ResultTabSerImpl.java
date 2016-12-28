@@ -3,9 +3,12 @@ package com.cn.zbt.crawlmeta.service.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import com.cn.zbt.crawlmeta.dao.ResultTabDao;
 import com.cn.zbt.crawlmeta.pojo.ResultTab;
 import com.cn.zbt.crawlmeta.service.ResultTabSer;
@@ -29,7 +32,7 @@ public class ResultTabSerImpl implements ResultTabSer {
 			String resultUrl, String resultBody, String resultSource,
 			int resultType, String keyword, int resultComments,
 			int resultForwarded, Date publishedDate, Date fcrawlDate,
-			String resultAuthor, Date rcrawlDate) {
+			String resultAuthor, Date rcrawlDate,int webConfKey) {
 		// TODO Auto-generated method stub
 		ResultTab rt = new ResultTab();
 		rt.setResultUrlmd5(resultUrlmd5);
@@ -45,6 +48,7 @@ public class ResultTabSerImpl implements ResultTabSer {
 		rt.setPublishedDate(publishedDate);
 		rt.setFcrawlDate(fcrawlDate);
 		rt.setRcrawlDate(rcrawlDate);
+		rt.setWebConfKey(webConfKey);
 		this.resultTabDao.insertResult(rt);
 	}
 
@@ -65,22 +69,13 @@ public class ResultTabSerImpl implements ResultTabSer {
 		rt.setRcrawlDate(rcrawlDate);
 		this.resultTabDao.updateResult(rt);
 	}
-	/*public synchronized void updateResultWx(Long resultKy ,String resultUrlmd5,  
-			 String resultUrl,Date rcrawlDate ){
-		// TODO Auto-generated method stub
-		ResultTab rt = new ResultTab();
-		rt.setResultKy(resultKy);
-		rt.setResultUrlmd5(resultUrlmd5);
-		rt.setResultUrl(resultUrl);
-		rt.setRcrawlDate(rcrawlDate);
-		this.resultTabDao.updateResultWx(rt);
-	}*/
+ 
 	@Override
 	public synchronized void insertRes(String resultUrlmd5, String resultTitle,
 			String resultUrl, String resultBody, String resultSource,
 			int resultType, String keyword, int resultComments,
 			int resultForwarded, Date publishedDate, Date fcrawlDate,
-			String resultAuthor, Date rcrawlDate) {
+			String resultAuthor, Date rcrawlDate,int webConfKey) {
 
 		List<ResultTab> list = new ArrayList<ResultTab>();
 		int n = 0;
@@ -96,7 +91,7 @@ public class ResultTabSerImpl implements ResultTabSer {
 			insertResult(resultUrlmd5, resultTitle, resultUrl, resultBody,
 					resultSource, resultType, keyword, resultComments,
 					resultForwarded, publishedDate, fcrawlDate, resultAuthor,
-					rcrawlDate);
+					rcrawlDate,  webConfKey);
 		} else {
 			updateResult(resultUrlmd5, resultTitle,  resultBody,
 					resultComments, resultForwarded, keyword, resultAuthor,
@@ -131,7 +126,7 @@ public class ResultTabSerImpl implements ResultTabSer {
 			String resultUrl, String resultBody, String resultSource,
 			int resultType, String keyword, int resultComments,
 			int resultForwarded, Date publishedDate, Date fcrawlDate,
-			String resultAuthor, Date rcrawlDate) {
+			String resultAuthor, Date rcrawlDate,int webConfKey) {
 
 		List<ResultTab> list = new ArrayList<ResultTab>();
 		int n = 0;
@@ -147,12 +142,27 @@ public class ResultTabSerImpl implements ResultTabSer {
 			insertResult(resultUrlmd5, resultTitle, resultUrl, resultBody,
 					resultSource, resultType, keyword, resultComments,
 					resultForwarded, publishedDate, fcrawlDate, resultAuthor,
-					rcrawlDate);
+					rcrawlDate,  webConfKey);
 		} else {
 			updateResult1(resultUrlmd5, resultTitle, resultUrl, resultBody,
 					resultSource, resultType, keyword, resultComments,
 					resultForwarded, publishedDate, fcrawlDate, resultAuthor,
 					rcrawlDate);
 		}
+	}
+
+	@Override
+	public void updateRefeshData(Long resultKy, String resultSource,
+			int webConfKey) {
+		// TODO Auto-generated method stub
+		ResultTab rt = new ResultTab();
+		rt.setResultKy(resultKy);
+		rt.setResultSource(resultSource);
+		rt.setWebConfKey(webConfKey);
+		this.resultTabDao.updateRefeshData(rt);
+	}
+	@Override
+	 public List<ResultTab> findAll(){
+		return this.resultTabDao.findAll();
 	}
 }

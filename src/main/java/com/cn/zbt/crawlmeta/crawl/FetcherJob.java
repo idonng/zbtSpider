@@ -1,4 +1,4 @@
-package com.cn.zbt.crawlmeta.crawl;
+/*package com.cn.zbt.crawlmeta.crawl;
 
 import java.io.IOException; 
 
@@ -8,3 +8,4 @@ public class FetcherJob {
 		cj.runCrawl(); 
 	}
 }
+*/

@@ -5,13 +5,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+
 import org.jsoup.Connection;
 import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import com.cn.zbt.crawlmeta.dm.CommonUtils;
+import com.cn.zbt.crawlmeta.dm.ConfWeb;
 import com.cn.zbt.crawlmeta.dm.GetCookie;
 import com.cn.zbt.crawlmeta.dm.GetService;
 import com.cn.zbt.crawlmeta.dm.ReadKeyword;
@@ -62,15 +65,15 @@ public class Weixin {
 		Map<String, String> map = new HashMap<String, String>();
 		Date date=new Date();
 		map=GetCookie.getInstanceWx().getCookieWx();
-		if(!map.containsKey("SNUID")||!map.containsKey("SUID")){
+		/*if(!map.containsKey("SNUID")||!map.containsKey("SUID")){
 			logger.info("获取搜狗微信cookie异常");
 			GetCookie.clearInstanceWx();
 			return null;
-		}
-		map.put("SNUID",map.get("SNUID"));
-		map.put("SUID", map.get("SUID"));
+		}*/
+		//map.put("SNUID",map.get("SNUID"));
+	 	map.put("SUID", map.get("SUID"));
 		map.put("SUV", date.getTime()+"");
-		//System.out.println(map.toString());
+		System.out.println(map.toString());
 		Document doc = null;
 		try {
 			Connection	conn = Jsoup
@@ -81,7 +84,7 @@ public class Weixin {
 					.data("page", p).cookies(map)
 					.timeout(5000);
 			doc = conn.get();
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (IOException e) {
 			doc = fetch_old(url,q,p);
 		} finally {
@@ -101,7 +104,7 @@ public class Weixin {
 		map.put("SNUID",map.get("SNUID"));
 		map.put("SUID", map.get("SUID"));
 		map.put("SUV", date.getTime()+"");
-		//System.out.println(map.toString());
+		System.out.println(map.toString());
 		Document doc = null;
 		try {
 			Connection	conn = Jsoup
@@ -135,7 +138,7 @@ public class Weixin {
 							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36")
 					.timeout(5000);
 			doc = conn.get();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (IOException e) {
 			doc = fetch_old(url);
 		} finally {
@@ -155,8 +158,9 @@ public class Weixin {
 							"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36")
 					.timeout(5000);
 			doc = conn.get();
-			Thread.sleep(1000);
+			
 		} catch (IOException e) {
+			Thread.sleep(1000);
 			logger.error("jsoup访问搜狗网微信异常==========>", e);
 			logger.error("URL为：" + url);
 		} finally {
@@ -168,14 +172,13 @@ public class Weixin {
 		int i = 0;
 		String reg = "";
 		do {
-			if (i < 0||i>10) {
+			if(i>10){
 				return;
 			}
 			String url = "http://weixin.sogou.com/weixin";
 			try {
 				Document doc = new Weixin().fetch(url, keyword, i++ + "");
-				if(doc==null){
-					i=(--i<0)?0:i;
+				if(doc==null||doc.toString().contains("<title>搜狗搜索</title>")){
 					logger.error("搜索关键词错误URL:" + url +" 关键字："+keyword +" 页数：" +i++ );
 					continue;
 				}
@@ -185,13 +188,18 @@ public class Weixin {
 					continue;
 				}
 				//System.out.println(doc.toString());
-				reg = doc.getElementById("pagebar_container").text();
 				getData(doc, keyword);
-				Thread.sleep(5000);
+				if(doc.toString().contains("pagebar_container")){
+					reg = doc.getElementById("pagebar_container").text();
+				}
+				else{
+					reg = "";
+				}
+				
+				Thread.sleep(10000);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				i--;
 				logger.error("解析错误URL:" + url +" 关键字："+keyword +" 页数：" +i++ + "。\n异常详情：" + e);
 			}
 			System.gc();
@@ -210,7 +218,7 @@ public class Weixin {
 			//防止链接失效
 			url = element.attr("href") +"&devicetype=Windows-QQBrowser&version=61030004&pass_ticket=qMx7ntinAtmqhVn+C23mCuwc9ZRyUp20kIusGgbFLi0=&uin=MTc1MDA1NjU1&ascene=1";
 			;
-			//logger.info("正在处理：" + url);
+			 logger.info("正在处理：" + url);
 			 try {
 				Document doc1 = new Weixin().fetch(url);
 				title = doc1.select("#activity-name").html().replaceAll("&nbsp;", " ").trim();
@@ -245,15 +253,15 @@ public class Weixin {
 			
 				String zfs = "0";
 				String pls = "0";
+
+			 
+				
 				int type = 5;
-				
-				
-				 
 				resultTabService.insertRes(CommonUtils.setMD5(title+author),
-						title, url, content, "weixin", type, keyword,
+						title, url, content, "微信公众平台", type, keyword,
 						Integer.valueOf(pls), Integer.valueOf(zfs), pubdate,
-						sinatime_now, author, sinatime_now);
-				
+						sinatime_now, author, sinatime_now,7);
+
 				logger.info("URL:" + url + " 提取完成。");
 			} catch (Exception e) {
 				logger.error("解析错误URL:" + url + "。异常详情：" + e);
@@ -278,9 +286,20 @@ public class Weixin {
 	
 		Weixin sw = new Weixin();
 		logger.info("----全部主页爬取开始----" + new Date(System.currentTimeMillis()));
-		//sw.runInter();
+		 sw.runInter();
+		/* sw.getDoc("丹红注射液");
+			sw.getDoc("头痛宁胶囊");
+			sw.getDoc("冠心舒通胶囊");
+			sw.getDoc("稳心颗粒");
+			sw.getDoc("脑心通胶囊");
+			sw.getDoc("脑心同治");
+			sw.getDoc("脑心同治走基层");
+			sw.getDoc("电商+步长");
+			sw.getDoc("涛医宝");
+			sw.getDoc("涛大夫");*/
 		 logger.info("----全部主页爬取结束----" + new Date(System.currentTimeMillis()));
 		
+		 /*
 		sw.getDoc("步长+回扣");
 		sw.getDoc("共铸中国心");
 		sw.getDoc("赵骅+步长");
@@ -294,7 +313,17 @@ public class Weixin {
 		sw.getDoc("步长公司");
 		sw.getDoc("头痛宁胶囊");
 		sw.getDoc("陕西步长");
-		/*
+		 
+
+
+
+
+
+
+
+
+
+
 		sw.getDoc("头痛宁胶囊");
 		sw.getDoc("头痛宁胶囊");
 		sw.getDoc("头痛宁胶囊");
